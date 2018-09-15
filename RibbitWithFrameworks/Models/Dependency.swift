@@ -26,7 +26,10 @@ public final class Dependency {
     public var functionCallExpression: FunctionCallExpression?
     public var protocolVariable: ProtocolDeclaration.Member?
 
+    // Name of the protocol for this dependency (as opposed to the concrete name)
+    // Eg BookingsServicing, as opposed to BookingsService
     public var builtProtocol: Type?
+    public var builtName: String?
 
     private static let levelLimit = 10
 

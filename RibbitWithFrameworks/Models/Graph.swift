@@ -11,17 +11,30 @@ import AST
 public final class GraphAnalysisResult {
     public var usedIn: [Builder]?
     public var builtIn: Builder?
+    public var builtName: String?
 
-    init(usedIn: [Builder]?, builtIn: Builder?) {
+    init(usedIn: [Builder]?, builtIn: Builder?, builtName: String?) {
         self.usedIn = usedIn
         self.builtIn = builtIn
+        self.builtName = builtName
     }
 }
 
 public final class Graph {
 
     public let builders: [[Builder]]
+    public var filterDependency: Dependency?
+
     private var flatBuilders: [Builder]
+
+    var displayName: String {
+
+        let name = flatBuilders.first?.name ?? "Graph"
+        if let filter = filterDependency {
+            return "Filtered graph of \(name)"
+        }
+        return name
+    }
 
     init(builders: [[Builder]]) {
         self.builders = builders
@@ -38,6 +51,7 @@ public final class Graph {
 
         var usedIn = [Builder]()
         var builtIn: Builder?
+        var builtName: String?
 
         for builder in flatBuilders {
 
@@ -63,11 +77,12 @@ public final class Graph {
                     case let AST.ProtocolDeclaration.Member.property(requiredProtocolProperty) = requiredProtocol,
                     builtProtocol.textDescription == requiredProtocolProperty.typeAnnotation.type.textDescription {
 
+                    builtName = builtDep.functionCallExpression?.postfixExpression.textDescription
                     builtIn = builder
                 }
             }
         }
 
-        return GraphAnalysisResult(usedIn: usedIn, builtIn: builtIn)
+        return GraphAnalysisResult(usedIn: usedIn, builtIn: builtIn, builtName: builtName)
     }
 }

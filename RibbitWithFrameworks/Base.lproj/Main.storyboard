@@ -684,7 +684,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="RootWindowController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Ribbit" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Ribbit" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -747,6 +747,7 @@
                     </window>
                     <connections>
                         <outlet property="modeSelector" destination="DOb-Ta-rZI" id="kmk-tX-gKo"/>
+                        <outlet property="searchField" destination="oxJ-x0-BPW" id="g4X-jM-h95"/>
                         <segue destination="cHw-NF-05p" kind="relationship" relationship="window.shadowedContentViewController" id="4xn-yM-QH6"/>
                     </connections>
                 </windowController>
@@ -757,7 +758,7 @@
         <!--Graph View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="GraphViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController identifier="GraphViewController" storyboardIdentifier="GraphViewController" id="XfG-lQ-9wD" customClass="GraphViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -784,9 +785,9 @@
                             </scrollView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="985-6X-LVk" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="CcD-40-bNf"/>
                             <constraint firstItem="985-6X-LVk" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Rw0-je-jEa"/>
                             <constraint firstAttribute="bottom" secondItem="985-6X-LVk" secondAttribute="bottom" id="XMF-PR-e3R"/>
-                            <constraint firstItem="985-6X-LVk" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ct1-JD-JNo"/>
                             <constraint firstAttribute="trailing" secondItem="985-6X-LVk" secondAttribute="trailing" id="kbb-Bt-EZl"/>
                         </constraints>
                     </view>
@@ -796,15 +797,15 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324" y="602"/>
+            <point key="canvasLocation" x="1858" y="582"/>
         </scene>
         <!--Root Split View Controller-->
         <scene sceneID="r3y-dS-njo">
             <objects>
                 <splitViewController id="cHw-NF-05p" customClass="RootSplitViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
-                        <splitViewItem id="OtP-LM-SLf"/>
-                        <splitViewItem id="X4d-14-Ysh"/>
+                        <splitViewItem id="Ayx-y4-80z"/>
+                        <splitViewItem id="9RF-vg-1nl"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="siJ-GE-sej">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -814,16 +815,53 @@
                         </connections>
                     </splitView>
                     <connections>
-                        <outlet property="detailItem" destination="X4d-14-Ysh" id="Fo2-7x-fzd"/>
-                        <outlet property="graphItem" destination="OtP-LM-SLf" id="h4A-D0-l48"/>
+                        <outlet property="detailItem" destination="9RF-vg-1nl" id="cGz-nd-09S"/>
+                        <outlet property="graphItem" destination="Ayx-y4-80z" id="dBg-4P-n3M"/>
                         <outlet property="splitView" destination="siJ-GE-sej" id="7lR-BI-LeW"/>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="splitItems" id="ofY-6p-hap"/>
-                        <segue destination="fcV-ZW-iW8" kind="relationship" relationship="splitItems" id="lzm-cS-7XS"/>
+                        <segue destination="3Hl-1Q-Qya" kind="relationship" relationship="splitItems" id="yn9-MY-ff6"/>
+                        <segue destination="fcV-ZW-iW8" kind="relationship" relationship="splitItems" id="yGl-VG-4WY"/>
                     </connections>
                 </splitViewController>
                 <customObject id="uy3-PZ-XkQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="639" y="820"/>
+        </scene>
+        <!--Graph Container View Controller-->
+        <scene sceneID="rIw-m3-sK7">
+            <objects>
+                <viewController id="3Hl-1Q-Qya" customClass="GraphContainerViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="aW0-Ss-Yg0">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="m0y-UR-4RG" customClass="TabsControl" customModule="KPCTabsControl">
+                                <rect key="frame" x="0.0" y="270" width="450" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Kkx-3p-g7Q"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="j4h-kC-k5Z">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="m0y-UR-4RG" firstAttribute="top" secondItem="aW0-Ss-Yg0" secondAttribute="top" id="NRS-Jj-4Uz"/>
+                            <constraint firstAttribute="bottom" secondItem="j4h-kC-k5Z" secondAttribute="bottom" id="YhP-0h-Lkt"/>
+                            <constraint firstItem="m0y-UR-4RG" firstAttribute="leading" secondItem="aW0-Ss-Yg0" secondAttribute="leading" id="cic-qU-5Ur"/>
+                            <constraint firstItem="j4h-kC-k5Z" firstAttribute="leading" secondItem="m0y-UR-4RG" secondAttribute="leading" id="fE1-4L-ofp"/>
+                            <constraint firstItem="j4h-kC-k5Z" firstAttribute="top" secondItem="m0y-UR-4RG" secondAttribute="bottom" id="i96-9h-Q3U"/>
+                            <constraint firstAttribute="trailing" secondItem="m0y-UR-4RG" secondAttribute="trailing" id="rLy-OM-8lz"/>
+                            <constraint firstItem="j4h-kC-k5Z" firstAttribute="trailing" secondItem="m0y-UR-4RG" secondAttribute="trailing" id="uhJ-2q-RpG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="j4h-kC-k5Z" id="k5M-ZD-Ua4"/>
+                        <outlet property="tabsControl" destination="m0y-UR-4RG" id="VFe-Iq-ZyU"/>
+                    </connections>
+                </viewController>
+                <customObject id="SE4-yv-QJp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309" y="597"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="bbJ-JW-J29">
@@ -858,6 +896,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="didSelectDepButton:" target="fcV-ZW-iW8" id="32I-iY-ROo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

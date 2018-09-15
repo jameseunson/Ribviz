@@ -1,2 +1,3 @@
+github "ReactiveX/RxSwift" "4.2.0"
 github "SnapKit/SnapKit" "4.0.0"
 github "onekiloparsec/KPCTabsControl" "4.0.0"

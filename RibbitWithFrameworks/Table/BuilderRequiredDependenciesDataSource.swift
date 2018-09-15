@@ -11,16 +11,35 @@ import Cocoa
 
 class BuilderRequiredDependenciesDataSource: NSObject, NSTableViewDataSource {
     private let builder: Builder
+    public var filteredDependency: Dependency?
 
     init(builder: Builder) {
         self.builder = builder
     }
 
     public func numberOfRows(in tableView: NSTableView) -> Int {
-        return builder.dependency.count
+        if let filteredDependency = filteredDependency {
+            return dependenciesFilteredBy(filteredDependency).count
+        } else {
+            return builder.dependency.count
+        }
     }
 
     public func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return builder.dependency[row]
+        if let filteredDependency = filteredDependency {
+            return dependenciesFilteredBy(filteredDependency)[row]
+        } else {
+            return builder.dependency[row]
+        }
+    }
+
+    func dependenciesFilteredBy(_ dependency: Dependency) -> [Dependency] {
+        return builder.dependency.filter { (dep) -> Bool in
+            if dependency.displayText == dep.displayText {
+                print("test")
+            }
+
+            return dependency.displayText == dep.displayText
+        }
     }
 }

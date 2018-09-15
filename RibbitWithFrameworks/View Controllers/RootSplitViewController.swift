@@ -17,7 +17,7 @@ class RootSplitViewController: NSSplitViewController, GraphViewControllerListene
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let viewController = graphItem.viewController as? GraphViewController {
+        if let viewController = graphItem.viewController as? GraphContainerViewController {
             viewController.listener = self
         }
     }
@@ -25,10 +25,19 @@ class RootSplitViewController: NSSplitViewController, GraphViewControllerListene
     func didSelectItem(dep: Dependency) {
         if let viewController = detailItem.viewController as? DetailViewController {
             viewController.detailItem = dep
+            viewController.listener = self
         }
     }
 
     func didUpdateSelection(selection: Any) {
         
+    }
+}
+
+extension RootSplitViewController: DetailViewControllerListener {
+    func didSelectDependencyGraphButton(dep: Dependency) {
+        if let viewController = graphItem.viewController as? GraphContainerViewController {
+            viewController.showFilteredGraph(dep: dep)
+        }
     }
 }

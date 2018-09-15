@@ -16,6 +16,24 @@ protocol BuilderViewListener: class {
 class BuilderView : NSView, BuilderTableViewDelegateListener {
 
     public let builder: Builder
+    public var filteredDependency: Dependency? {
+        didSet {
+            componentDataSource.filteredDependency = filteredDependency
+            dependencyDataSource.filteredDependency = filteredDependency
+
+            componentTableView.reloadData()
+            dependencyTableView.reloadData()
+
+            let componentMissing = componentDataSource.numberOfRows(in: componentTableView) == 0
+            componentTableView.isHidden = componentMissing
+            builtLabel.isHidden = componentMissing
+
+            let dependencyMissing = dependencyDataSource.numberOfRows(in: dependencyTableView) == 0
+            dependencyTableView.isHidden = dependencyMissing
+            requiredLabel.isHidden = dependencyMissing
+        }
+    }
+
     private let label: ConstraintBasedTextView
 
     private let requiredLabel: ConstraintBasedTextView

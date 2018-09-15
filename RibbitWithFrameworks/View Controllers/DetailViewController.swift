@@ -10,6 +10,10 @@ import Foundation
 import Cocoa
 import AST
 
+protocol DetailViewControllerListener: class {
+    func didSelectDependencyGraphButton(dep: Dependency)
+}
+
 class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
 
     @IBOutlet weak var titleLabel: NSTextField!
@@ -17,6 +21,8 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
     @IBOutlet weak var depButton: NSButton!
 
     private let tableView: ConstraintBasedTableView
+
+    weak var listener: DetailViewControllerListener?
 
     required init?(coder: NSCoder) {
         tableView = ConstraintBasedTableView()
@@ -50,6 +56,11 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
             maker.left.right.equalToSuperview().offset(10)
             maker.top.equalTo(depButton.snp.bottom).offset(20)
             maker.height.greaterThanOrEqualTo(500)
+        }
+    }
+    @IBAction func didSelectDepButton(_ sender: Any) {
+        if let detailItem = detailItem {
+            listener?.didSelectDependencyGraphButton(dep: detailItem)
         }
     }
 

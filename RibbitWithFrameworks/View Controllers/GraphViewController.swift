@@ -9,6 +9,7 @@
 import Cocoa
 import SnapKit
 import AST
+import KPCTabsControl
 
 protocol GraphViewControllerListener: class {
     func didSelectItem(dep: Dependency)
@@ -17,23 +18,17 @@ protocol GraphViewControllerListener: class {
 class GraphViewController: NSViewController, GraphViewListener {
 
     @IBOutlet weak var scrollView: NSScrollView!
+    @IBOutlet weak var tabsControl: TabsControl!
 
     private var documentView: NSView!
-    private var builders: [[Builder]]!
-    
-    private var graphView: GraphView!
-    private var filteredGraphView: GraphView!
+    public var builders: [[Builder]]!
 
-    private let parser: RibbitParser
+    public var graph: Graph!
+    public var filterDependency: Dependency?
+
+    private var graphView: GraphView!
 
     weak var listener: GraphViewControllerListener?
-
-    required init?(coder: NSCoder) {
-        parser = RibbitParser()
-        super.init(coder: coder)
-
-        builders = parser.retrieveBuilders()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +38,14 @@ class GraphViewController: NSViewController, GraphViewListener {
 
         scrollView.documentView = documentView
 
-        graphView = GraphView(graph: Graph(builders: builders))
+        graph = Graph(builders: builders)
+        graph.filterDependency = filterDependency
+
+        graphView = GraphView(graph: graph)
         graphView.listener = self
         documentView.addSubview(graphView)
 
-        filteredGraphView = GraphView(graph: Graph(builders: [[Builder]]()))
-        filteredGraphView.listener = self
-        documentView.addSubview(filteredGraphView)
-
         graphView.snp.makeConstraints { (maker) in
-            maker.edges.equalToSuperview()
-        }
-        filteredGraphView.snp.makeConstraints { (maker) in
             maker.edges.equalToSuperview()
         }
     }
@@ -72,7 +63,5 @@ class GraphViewController: NSViewController, GraphViewListener {
         listener?.didSelectItem(dep: dep)
     }
 }
-
-
 
 

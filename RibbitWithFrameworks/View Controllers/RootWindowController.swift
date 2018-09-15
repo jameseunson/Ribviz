@@ -11,6 +11,7 @@ import Cocoa
 
 class RootWindowController: NSWindowController {
     @IBOutlet weak var modeSelector: NSPopUpButton!
+    @IBOutlet weak var searchField: NSSearchField!
 
     var splitViewController: RootSplitViewController?
 

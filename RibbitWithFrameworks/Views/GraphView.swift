@@ -16,10 +16,12 @@ protocol GraphViewListener: class {
 
 class GraphView: NSView, BuilderViewListener {
 
-    private let graph: Graph
+    public let graph: Graph
 
     private var levelStackViews: [NSStackView]!
     private var builderViewLookup: [String: BuilderView]
+
+    public var filteredDependency: Dependency?
 
     weak var listener: GraphViewListener?
 
@@ -30,6 +32,7 @@ class GraphView: NSView, BuilderViewListener {
     init(graph: Graph) {
         levelStackViews = [NSStackView]()
         self.graph = graph
+        self.filteredDependency = graph.filterDependency
         self.builderViewLookup = [String: BuilderView]()
         super.init(frame: .zero)
 
@@ -49,9 +52,10 @@ class GraphView: NSView, BuilderViewListener {
             addSubview(stackView)
 
             for builder in builderLevel {
-
+                
                 let builderView = BuilderView(builder: builder)
                 builderView.listener = self
+                builderView.filteredDependency = filteredDependency
                 builderViewLookup[builder.name] = builderView
 
                 stackView.addArrangedSubview(builderView)
@@ -150,6 +154,7 @@ class GraphView: NSView, BuilderViewListener {
         let result = graph.analyze(dep: dep)
         dep.usedIn = result.usedIn
         dep.builtIn = result.builtIn
+        dep.builtName = result.builtName
 
         if let usedIn = result.usedIn {
             for usedBuilder in usedIn {
