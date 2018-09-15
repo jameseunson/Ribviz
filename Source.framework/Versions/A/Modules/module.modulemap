@@ -1,0 +1,4 @@
+framework module Source {
+    header "Source-Swift.h"
+    requires objc
+}

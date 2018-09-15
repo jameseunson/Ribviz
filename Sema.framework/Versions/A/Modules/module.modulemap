@@ -1,0 +1,4 @@
+framework module Sema {
+    header "Sema-Swift.h"
+    requires objc
+}

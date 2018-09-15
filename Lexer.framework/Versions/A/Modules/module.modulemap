@@ -1,0 +1,4 @@
+framework module Lexer {
+    header "Lexer-Swift.h"
+    requires objc
+}

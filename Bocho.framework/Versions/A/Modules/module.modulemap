@@ -1,0 +1,4 @@
+framework module Bocho {
+    header "Bocho-Swift.h"
+    requires objc
+}
