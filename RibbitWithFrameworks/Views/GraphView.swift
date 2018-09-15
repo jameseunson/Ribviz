@@ -16,11 +16,10 @@ protocol GraphViewListener: class {
 
 class GraphView: NSView, BuilderViewListener {
 
+    private let graph: Graph
+
     private let builders: [[Builder]]
-    private var flatBuilders: [Builder]
-
     private var levelStackViews: [NSStackView]!
-
     private var builderViewLookup: [String: BuilderView]
 
     weak var listener: GraphViewListener?
@@ -31,8 +30,8 @@ class GraphView: NSView, BuilderViewListener {
 
     init(builders: [[Builder]]) {
         levelStackViews = [NSStackView]()
+        self.graph = Graph(builders: builders)
         self.builders = builders
-        self.flatBuilders = [Builder]()
         self.builderViewLookup = [String: BuilderView]()
         super.init(frame: .zero)
 
@@ -69,7 +68,6 @@ class GraphView: NSView, BuilderViewListener {
                         maker.top.equalTo(lastStackView.snp.bottom).offset(40)
                     }
                 }
-                flatBuilders.append(builder)
             }
 
             i = i + 1
@@ -148,51 +146,33 @@ class GraphView: NSView, BuilderViewListener {
     // MARK: - BuilderViewListener
     func didSelectItem(dep: Dependency) {
 
-        var usedIn = [Builder]()
-        for builder in flatBuilders {
+        let result = graph.analyze(dep: dep)
+        dep.usedIn = result.usedIn
+        dep.builtIn = result.builtIn
 
-            if builder.name == "RentalBikeBuilder" {
-                print("RentalBikeBuilder")
+        if let usedIn = result.usedIn {
+            for usedBuilder in usedIn {
+                if let builderView = builderViewLookup[usedBuilder.name] {
+                    builderView.layer?.backgroundColor = NSColor.red.cgColor
 
-                builder.builtDependencies.forEach { (expr) in
-                    print(expr.textDescription)
-                    if expr.textDescription.contains("Booking") {
-                        print("BookingServicing")
-                        print(expr.argumentClause)
-                        print(expr.postfixExpression)
-                        print(expr.trailingClosure)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        builderView.layer?.backgroundColor = NSColor.clear.cgColor
                     }
                 }
             }
-
-            // Find builders that need this dep
-            for reqDep in builder.dependency {
-                if case let AST.ProtocolDeclaration.Member.property(protocolDep) = dep.dependency,
-                    case let AST.ProtocolDeclaration.Member.property(protocolReqDep) = reqDep,
-                    protocolDep.textDescription == protocolReqDep.textDescription {
-
-
-                    print(protocolDep.textDescription)
-                    print(protocolReqDep.textDescription)
-
-                    usedIn.append(builder)
-
-                    if let builderView = builderViewLookup[builder.name] {
-                        builderView.layer?.backgroundColor = NSColor.red.cgColor
-
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            builderView.layer?.backgroundColor = NSColor.clear.cgColor
-                        }
-                    }
-                }
-            }
-
-            // Find builders that build this dep
-            print("findBuilders")
         }
 
-        let dependency = Dependency(builder: dep.builder, dependency: dep.dependency, usedIn: usedIn)
-        listener?.didSelectItem(dep: dependency)
+        if let builtIn = result.builtIn {
+            if let builderView = builderViewLookup[builtIn.name] {
+                builderView.layer?.backgroundColor = NSColor.blue.cgColor
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    builderView.layer?.backgroundColor = NSColor.clear.cgColor
+                }
+            }
+        }
+
+        listener?.didSelectItem(dep: dep)
     }
 }
 

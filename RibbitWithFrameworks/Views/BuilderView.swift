@@ -159,8 +159,7 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
     }
 
     // MARK: - BuilderTableRowViewListener
-    func didSelectItem(dep: Any) {
-        let dependency = Dependency(builder: builder, dependency: dep)
-        listener?.didSelectItem(dep: dependency)
+    func didSelectItem(dep: Dependency) {
+        listener?.didSelectItem(dep: dep)
     }
 }

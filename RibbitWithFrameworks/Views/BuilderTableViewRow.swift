@@ -11,7 +11,7 @@ import Cocoa
 import AST
 
 protocol BuilderTableRowViewListener: class {
-    func didSelectItem(dep: Any)
+    func didSelectItem(dep: Dependency)
 }
 
 class BuilderTableRowView: NSTableRowView, InteractiveConstraintBasedTextViewListener {
@@ -19,12 +19,12 @@ class BuilderTableRowView: NSTableRowView, InteractiveConstraintBasedTextViewLis
         fatalError("Not implemented")
     }
 
-    private let dep: Any
+    private let dep: Dependency
     private let label: InteractiveConstraintBasedTextView
 
     weak var listener: BuilderTableRowViewListener?
 
-    init(dep: Any) {
+    init(dep: Dependency) {
         label = InteractiveConstraintBasedTextView()
         self.dep = dep
         super.init(frame: .zero)
@@ -35,15 +35,7 @@ class BuilderTableRowView: NSTableRowView, InteractiveConstraintBasedTextViewLis
 
         addSubview(label)
 
-        if let funcDep = dep as? AST.FunctionCallExpression {
-            label.string = funcDep.postfixExpression.textDescription
-
-        } else if case let AST.ProtocolDeclaration.Member.property(member) = dep {
-            label.string = member.typeAnnotation.type.textDescription
-
-        } else {
-            assertionFailure("Unsupported type: \(type(of: dep))")
-        }
+        label.string = dep.displayText
 
         label.snp.makeConstraints { (maker) in
             maker.edges.equalToSuperview()

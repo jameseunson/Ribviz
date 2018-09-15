@@ -14,8 +14,6 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
 
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var subtitleLabel: NSTextField!
-
-    @IBOutlet weak var tableSubtitleLabel: NSTextField!
     @IBOutlet weak var depButton: NSButton!
 
     private let tableView: ConstraintBasedTableView
@@ -50,18 +48,46 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
 
         tableView.snp.makeConstraints { (maker) in
             maker.left.right.equalToSuperview().offset(10)
-            maker.top.equalTo(tableSubtitleLabel.snp.bottom).offset(20)
+            maker.top.equalTo(depButton.snp.bottom).offset(20)
             maker.height.greaterThanOrEqualTo(500)
         }
     }
 
     // MARK: - NSTableViewDataSource
     public func numberOfRows(in tableView: NSTableView) -> Int {
-        return detailItem?.usedIn?.count ?? 0
+
+        var count = 0
+        if detailItem?.builtIn != nil {
+            count += 2 // 1 for actual row, 1 for header
+        }
+
+        let usedIn = detailItem?.usedIn?.count ?? 0
+        if usedIn > 0 {
+            count += usedIn + 1 // 1 for actual row, 1 for header
+        }
+
+        return count
     }
 
     public func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return detailItem?.usedIn?[row]
+        if detailItem?.builtIn != nil {
+            if row == 0 {
+                return DetailHeaderSentinel(title: "Dependency built in")
+            } else if row == 1 {
+                return detailItem?.builtIn
+            } else if row == 2 {
+                return DetailHeaderSentinel(title: "Dependency used in")
+            } else {
+                return detailItem?.usedIn?[row-3]
+            }
+
+        } else {
+            if row == 0 {
+                return DetailHeaderSentinel(title: "Dependency used in")
+            } else {
+                return detailItem?.usedIn?[row-1]
+            }
+        }
     }
 
     // MARK: - NSTableViewDelegate
@@ -74,11 +100,18 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        guard let dep = tableView.dataSource?.tableView?(tableView, objectValueFor: nil, row: row) as? Builder else {
+        guard let dep = tableView.dataSource?.tableView?(tableView, objectValueFor: nil, row: row) else {
             return nil
         }
-        let row = DetailTableViewRow(dep: dep)
-        return row
+
+        if let builder = dep as? Builder {
+            return DetailTableViewRow(dep: builder)
+
+        } else if let sentinel = dep as? DetailHeaderSentinel {
+            return DetailTableHeaderViewRow(title: sentinel.title)
+        }
+
+        return nil
     }
 }
 
@@ -101,6 +134,42 @@ class DetailTableViewRow: NSTableRowView {
         addSubview(label)
 
         label.string = dep.name
+
+        label.snp.makeConstraints { (maker) in
+            maker.edges.equalToSuperview()
+        }
+    }
+
+    override var intrinsicContentSize: NSSize {
+        return NSSize(width: label.intrinsicContentSize.width, height: -1)
+    }
+}
+
+final class DetailHeaderSentinel {
+    let title: String
+
+    init(title: String) {
+        self.title = title
+    }
+}
+
+class DetailTableHeaderViewRow: NSTableRowView {
+    required init?(coder decoder: NSCoder) {
+        fatalError("Not implemented")
+    }
+
+    private let label: ConstraintBasedTextView
+
+    init(title: String) {
+        label = ConstraintBasedTextView()
+        super.init(frame: .zero)
+
+        label.applyDefault()
+        label.font = NSFont.systemFont(ofSize: 14, weight: .bold)
+
+        addSubview(label)
+
+        label.string = title
 
         label.snp.makeConstraints { (maker) in
             maker.edges.equalToSuperview()

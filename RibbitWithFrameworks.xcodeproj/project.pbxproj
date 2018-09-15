@@ -11,6 +11,7 @@
 		9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */; };
 		9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C12144A9B400F7C737 /* RootWindowController.swift */; };
 		9805D9C52144AB1700F7C737 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C42144AB1700F7C737 /* Dependency.swift */; };
+		986FA377214DAA8F00E7554A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FA376214DAA8F00E7554A /* Graph.swift */; };
 		98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F221443F9C00597F9C /* AppDelegate.swift */; };
 		98E4E1F521443F9C00597F9C /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F421443F9C00597F9C /* GraphViewController.swift */; };
 		98E4E1F721443F9D00597F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E4E1F621443F9D00597F9C /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
 		9805D9C12144A9B400F7C737 /* RootWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowController.swift; sourceTree = "<group>"; };
 		9805D9C42144AB1700F7C737 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		986FA376214DAA8F00E7554A /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		98E4E1EF21443F9C00597F9C /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E4E1F221443F9C00597F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E4E1F421443F9C00597F9C /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				9805D9C42144AB1700F7C737 /* Dependency.swift */,
+				986FA376214DAA8F00E7554A /* Graph.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				98E4E2752144412100597F9C /* RibbitParser.swift in Sources */,
 				98E4E2822144807200597F9C /* BuilderBuiltDependenciesDataSource.swift in Sources */,
 				98E4E2842144808F00597F9C /* ConstraintBasedTableView.swift in Sources */,
+				986FA377214DAA8F00E7554A /* Graph.swift in Sources */,
 				98E4E27C2144803800597F9C /* ConstraintBasedTextView.swift in Sources */,
 				98E4E286214480A800597F9C /* BuilderView.swift in Sources */,
 				98E4E2702144412100597F9C /* BuilderParser.swift in Sources */,

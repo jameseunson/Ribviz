@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 protocol BuilderTableViewDelegateListener: class {
-    func didSelectItem(dep: Any)
+    func didSelectItem(dep: Dependency)
 }
 
 class BuilderTableViewDelegate: NSObject, NSTableViewDelegate, BuilderTableRowViewListener {
@@ -32,7 +32,7 @@ class BuilderTableViewDelegate: NSObject, NSTableViewDelegate, BuilderTableRowVi
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        guard let dep = tableView.dataSource?.tableView?(tableView, objectValueFor: nil, row: row) else {
+        guard let dep = tableView.dataSource?.tableView?(tableView, objectValueFor: nil, row: row) as? Dependency else {
             return nil
         }
         let row = BuilderTableRowView(dep: dep)
@@ -42,7 +42,7 @@ class BuilderTableViewDelegate: NSObject, NSTableViewDelegate, BuilderTableRowVi
     }
 
     // MARK: - BuilderTableRowViewListener
-    func didSelectItem(dep: Any) {
+    func didSelectItem(dep: Dependency) {
         listener?.didSelectItem(dep: dep)
     }
 }
