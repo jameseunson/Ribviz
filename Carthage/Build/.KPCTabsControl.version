@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+    {
+      "name" : "KPCTabsControl",
+      "hash" : "ff17d3a53c7869729f3c90ee186fbd65b9677c554eba5adf56ec39ffbd641316"
+    }
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "4.0.0",
+  "iOS" : [
+
+  ]
+}

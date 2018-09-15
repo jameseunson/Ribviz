@@ -18,7 +18,6 @@ class GraphView: NSView, BuilderViewListener {
 
     private let graph: Graph
 
-    private let builders: [[Builder]]
     private var levelStackViews: [NSStackView]!
     private var builderViewLookup: [String: BuilderView]
 
@@ -28,15 +27,17 @@ class GraphView: NSView, BuilderViewListener {
         fatalError("Not implemented")
     }
 
-    init(builders: [[Builder]]) {
+    init(graph: Graph) {
         levelStackViews = [NSStackView]()
-        self.graph = Graph(builders: builders)
-        self.builders = builders
+        self.graph = graph
         self.builderViewLookup = [String: BuilderView]()
         super.init(frame: .zero)
 
+        wantsLayer = true
+        layer?.backgroundColor = NSColor.white.cgColor
+
         var i = 0
-        for builderLevel in builders {
+        for builderLevel in graph.builders {
 
             let stackView = NSStackView()
             stackView.distribution = .equalCentering

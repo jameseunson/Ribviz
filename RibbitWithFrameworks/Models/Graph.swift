@@ -20,7 +20,7 @@ public final class GraphAnalysisResult {
 
 public final class Graph {
 
-    private let builders: [[Builder]]
+    public let builders: [[Builder]]
     private var flatBuilders: [Builder]
 
     init(builders: [[Builder]]) {

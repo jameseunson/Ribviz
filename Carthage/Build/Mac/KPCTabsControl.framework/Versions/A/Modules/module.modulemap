@@ -1,0 +1,4 @@
+framework module KPCTabsControl {
+    header "KPCTabsControl-Swift.h"
+    requires objc
+}

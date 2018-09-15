@@ -20,7 +20,9 @@ class GraphViewController: NSViewController, GraphViewListener {
 
     private var documentView: NSView!
     private var builders: [[Builder]]!
+    
     private var graphView: GraphView!
+    private var filteredGraphView: GraphView!
 
     private let parser: RibbitParser
 
@@ -41,11 +43,18 @@ class GraphViewController: NSViewController, GraphViewListener {
 
         scrollView.documentView = documentView
 
-        graphView = GraphView(builders: builders)
+        graphView = GraphView(graph: Graph(builders: builders))
         graphView.listener = self
         documentView.addSubview(graphView)
 
+        filteredGraphView = GraphView(graph: Graph(builders: [[Builder]]()))
+        filteredGraphView.listener = self
+        documentView.addSubview(filteredGraphView)
+
         graphView.snp.makeConstraints { (maker) in
+            maker.edges.equalToSuperview()
+        }
+        filteredGraphView.snp.makeConstraints { (maker) in
             maker.edges.equalToSuperview()
         }
     }
