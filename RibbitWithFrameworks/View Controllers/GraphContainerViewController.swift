@@ -26,6 +26,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
     private var graphs = [ Graph ]()
     private var graphControllers = [ GraphViewController ]()
+    @IBOutlet weak var loadingView: NSProgressIndicator!
 
     private var visibleGraphViewController: GraphViewController!
 
@@ -34,8 +35,6 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
     required init?(coder: NSCoder) {
         parser = RibbitParser()
         super.init(coder: coder)
-
-        builders = parser.retrieveBuilders()
     }
 
     override func viewDidLoad() {
@@ -43,7 +42,15 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         tabsControl.delegate = self
         tabsControl.style = SafariStyle()
 
-        addGraph()
+        self.loadingView.startAnimation(self)
+
+        DispatchQueue.main.async {
+
+            self.builders = self.parser.retrieveBuilders()
+            self.addGraph()
+
+            self.loadingView.stopAnimation(self)
+        }
     }
 
     private func addGraph(dep: Dependency? = nil) {
@@ -66,6 +73,12 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
             tabsControl.reloadTabs()
             tabsControl.selectItemAtIndex(graphs.count - 1)
+
+            // This ensures the intrinsicContentSize of GraphView is available
+            // prior to setting the NSScrollView document size.
+            // Probably a better way of doing this.
+            controller.graphView.layoutSubtreeIfNeeded()
+            controller.view.layoutSubtreeIfNeeded()
         }
     }
 
@@ -76,6 +89,23 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
     func showFilteredGraph(dep: Dependency) {
         addGraph(dep: dep)
+    }
+
+    @objc func closeTab(sender: NSMenuItem) {
+        print("closeTab")
+
+        let controller = graphControllers[sender.tag]
+
+        controller.removeFromParentViewController()
+        controller.view.removeFromSuperview()
+
+        if let index = graphControllers.index(of: controller) {
+            graphControllers.remove(at: index)
+        }
+
+        // TODO: Remove graph
+        tabsControl.reloadTabs()
+        tabsControl.selectItemAtIndex(graphControllers.count-1)
     }
 }
 
@@ -124,7 +154,28 @@ extension GraphContainerViewController: TabsControlDataSource {
     }
 
     func tabsControl(_ control: TabsControl, menuForItem item: AnyObject) -> NSMenu? {
-        return nil
+        guard let graph = item as? Graph else {
+            return nil
+        }
+        let index = graphs.index { (g: Graph) -> Bool in
+            return g === graph
+        }
+        guard let idx = index else {
+            return nil
+        }
+
+        if idx == 0 {
+            return nil
+        }
+
+        let menu = NSMenu.init()
+        let menuItem = NSMenuItem.init(title: "Close Tab", action: #selector(closeTab(sender:)), keyEquivalent: "C")
+        menuItem.target = self
+        menuItem.isEnabled = true
+        menuItem.tag = idx
+        menu.addItem(menuItem)
+
+        return menu
     }
 
     func tabsControl(_ control: TabsControl, iconForItem item: AnyObject) -> NSImage? {

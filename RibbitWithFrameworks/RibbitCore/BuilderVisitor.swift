@@ -15,33 +15,49 @@ class BuilderVisitor : ASTVisitor {
     var targetExpressionLookup = [ String: [ Any ] ]()
 
     var dependencyNames = [ String ]()
-    var builderNames = [ String ]()
-    var componentNames = [ String ]()
+    var builderNames = [ String: String ]()
+    var componentNames = [ String: String ]()
 
     static let levelLimit = 10
 
     @discardableResult
     func visit(_ fce: FunctionCallExpression) throws -> Bool {
+
+        // Skip 'shared' function call expresions and only extract their contents
+        // eg. shared { Something() }, only get Something(), not shared { Something() }
         if fce.postfixExpression.description.contains("shared") {
             return true
         }
 
         targetExpressions.append(fce)
         if let parentClass = traverseToEnclosingClass(expr: fce),
-            let parentClassTypeName = parentClass.typeInheritanceClause?.primaryInheritanceClassName() {
+            let parentClassTypeName = parentClass.typeInheritanceClause?.primaryInheritanceClassName(),
+            let parentClassGenericType = parentClass.typeInheritanceClause?.primaryGenericType() {
             let name = parentClass.name.textDescription
 
             if !targetExpressionLookup.keys.contains(name) {
                 targetExpressionLookup[name] = [ FunctionCallExpression ]()
 
                 if parentClassTypeName == "Component" {
-                    componentNames.append(name)
+                    componentNames[parentClassGenericType.textDescription] = name
 
                 } else if parentClassTypeName == "Builder" {
-                    builderNames.append(name)
+                    builderNames[parentClassGenericType.textDescription] = name
                 }
             }
-            targetExpressionLookup[name]?.append(fce)
+
+            // Some pretty hacky filtering to get rid of non-class instantiations
+            // This is because InitializerExpression doesn't seem to work in AST
+            // so we have to try and guess which FunctionCallExpressions are actually initializers
+
+            // Incidentally, good lord substrings in Swift 4 are complicated
+            let firstCharString = String(fce.textDescription[fce.textDescription.startIndex])
+            if firstCharString.uppercased() != firstCharString || !firstCharString.isAlphanumeric {
+                // Ignore
+
+            } else {
+                targetExpressionLookup[name]?.append(fce)
+            }
         }
         return true
     }
@@ -80,5 +96,11 @@ class BuilderVisitor : ASTVisitor {
         } else {
             return traverseToEnclosingClass(expr: parent, level: level + 1)
         }
+    }
+}
+
+extension String {
+    var isAlphanumeric: Bool {
+        return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
     }
 }

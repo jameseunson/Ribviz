@@ -35,11 +35,11 @@ class BuilderBuiltDependenciesDataSource: NSObject, NSTableViewDataSource {
 
     func dependenciesFilteredBy(_ dependency: Dependency) -> [Dependency] {
         return builder.builtDependencies.filter { (builtDep) -> Bool in
-            if dependency.displayText == builtDep.displayText {
-                print("test")
+            if let builtName = dependency.builtName {
+                return builtName == builtDep.displayText
+            } else {
+                return dependency.displayText == builtDep.displayText
             }
-
-            return dependency.builtName == builtDep.displayText
         }
     }
 }

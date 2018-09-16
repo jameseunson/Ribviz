@@ -60,6 +60,9 @@ class RootWindowController: NSWindowController, NSSearchFieldDelegate {
         guard let field = obj.object as? NSSearchField else {
             return
         }
-        splitViewController?.filterVisibleGraphBy(field.stringValue)
+
+        DispatchQueue.main.async {
+            self.splitViewController?.filterVisibleGraphBy(field.stringValue)
+        }
     }
 }

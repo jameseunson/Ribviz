@@ -58,7 +58,19 @@ public final class Graph {
             // Find builders that need this dep
             for reqDep in builder.dependency {
 
-                if let reqDepProtocol = reqDep.protocolVariable,
+                // If dependency is built, find the protocol name and compare with the
+                // required protocol name
+                if let built = dep.builtProtocol?.textDescription,
+                    let reqDepProtocol = reqDep.protocolVariable,
+                    case let AST.ProtocolDeclaration.Member.property(protocolReqDep) = reqDepProtocol {
+
+                    if protocolReqDep.typeAnnotation.type.textDescription == built  {
+                        usedIn.append(builder)
+                    }
+
+
+                // Otherwise, if the protocol is only required, compare the protocol names directly
+                } else if let reqDepProtocol = reqDep.protocolVariable,
                     let depProtocol = dep.protocolVariable,
                     case let AST.ProtocolDeclaration.Member.property(protocolDep) = depProtocol ,
                     case let AST.ProtocolDeclaration.Member.property(protocolReqDep) = reqDepProtocol,

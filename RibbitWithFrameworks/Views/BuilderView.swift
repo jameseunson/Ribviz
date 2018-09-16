@@ -61,6 +61,9 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
     private let dependencyDelegate: BuilderTableViewDelegate
     private let dependencyDataSource: BuilderRequiredDependenciesDataSource
 
+    private let tableViewStackView: NSStackView
+    private let labelStackView: NSStackView
+
     private let titleHorizontalRuleView: NSView
     private let subtitleHorizontalRuleView: NSView
 
@@ -88,6 +91,12 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
         titleHorizontalRuleView = NSView()
         subtitleHorizontalRuleView = NSView()
 
+        tableViewStackView = NSStackView()
+        labelStackView = NSStackView()
+
+        tableViewStackView.distribution = .fillEqually
+        labelStackView.distribution = .fillEqually
+
         super.init(frame: .zero)
 
         wantsLayer = true
@@ -107,6 +116,9 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
         subtitleHorizontalRuleView.layer?.backgroundColor = NSColor(white: 0, alpha: 0.15).cgColor
         addSubview(subtitleHorizontalRuleView)
 
+        addSubview(tableViewStackView)
+        addSubview(labelStackView)
+
         componentDelegate.listener = self
         dependencyDelegate.listener = self
 
@@ -120,17 +132,18 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
         label.applyDefault()
         label.font = NSFont.systemFont(ofSize: 14, weight: .bold)
         label.string = builder.name
+        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         addSubview(label)
 
         requiredLabel.applyDefault()
         requiredLabel.font = NSFont.systemFont(ofSize: 12, weight: .bold)
         requiredLabel.string = "Required"
-        addSubview(requiredLabel)
+        labelStackView.addArrangedSubview(requiredLabel)
 
         builtLabel.applyDefault()
         builtLabel.font = NSFont.systemFont(ofSize: 12, weight: .bold)
         builtLabel.string = "Built"
-        addSubview(builtLabel)
+        labelStackView.addArrangedSubview(builtLabel)
     }
 
     func setupTableViews() {
@@ -139,13 +152,13 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
         componentTableView.dataSource = componentDataSource
         componentTableView.backgroundColor = NSColor.clear
         componentTableView.usesAutomaticRowHeights = true
-        addSubview(componentTableView)
+        tableViewStackView.addArrangedSubview(componentTableView)
 
         dependencyTableView.delegate = dependencyDelegate
         dependencyTableView.dataSource = dependencyDataSource
         dependencyTableView.backgroundColor = NSColor.clear
         dependencyTableView.usesAutomaticRowHeights = true
-        addSubview(dependencyTableView)
+        tableViewStackView.addArrangedSubview(dependencyTableView)
     }
 
     func setupConstraints() {
@@ -154,27 +167,14 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
             maker.left.right.equalToSuperview().inset(10)
         }
 
-        builtLabel.snp.makeConstraints { (maker) in
+        labelStackView.snp.makeConstraints { (maker) in
             maker.top.equalTo(label.snp.bottom).offset(10)
-            maker.left.equalTo(componentTableView.snp.left)
-            maker.right.equalTo(componentTableView.snp.right)
+            maker.right.left.equalToSuperview().inset(10)
         }
 
-        requiredLabel.snp.makeConstraints { (maker) in
-            maker.top.equalTo(label.snp.bottom).offset(10)
-            maker.right.equalToSuperview()
-            maker.left.equalTo(dependencyTableView.snp.left)
-        }
-
-        componentTableView.snp.makeConstraints { (maker) in
-            maker.top.equalTo(builtLabel.snp.bottom).offset(10)
-            maker.bottom.left.equalToSuperview().inset(10)
-        }
-
-        dependencyTableView.snp.makeConstraints { (maker) in
-            maker.top.equalTo(requiredLabel.snp.bottom).offset(10)
-            maker.bottom.right.equalToSuperview().inset(10)
-            maker.left.equalTo(componentTableView.snp.right).inset(10)
+        tableViewStackView.snp.makeConstraints { (maker) in
+            maker.top.equalTo(labelStackView.snp.bottom).offset(10)
+            maker.bottom.right.left.equalToSuperview().inset(10)
         }
 
         titleHorizontalRuleView.snp.makeConstraints { (maker) in

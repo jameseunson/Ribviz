@@ -11,36 +11,50 @@ import Parser
 import Source
 import Sema
 
+enum BuilderParserError: Error {
+    case parserError(String)
+}
+
 class BuilderParser {
 
-    func parse(fileURL: URL) throws -> Builder {
+    func parse(fileURL: URL) throws -> [Builder] {
         let sourceFile = try SourceReader.read(at: fileURL.path.absolutePath)
         let parser = Parser(source: sourceFile)
 
+        guard let name = fileURL.lastPathComponent.components(separatedBy: ".").first else {
+            throw BuilderParserError.parserError("Name doesn't follow expected format")
+        }
+
         let topLevelDecl = try parser.parse()
 
+        // Establish parent/child hierarchy
         let lexicalParentAssignment = LexicalParentAssignment()
         lexicalParentAssignment.assign([topLevelDecl])
 
         let initializerVisitor = BuilderVisitor()
         try initializerVisitor.traverse(topLevelDecl)
 
-        let names = BuilderParsedNames(builderNames: initializerVisitor.builderNames,
-                                       componentNames: initializerVisitor.componentNames,
-                                       dependencyNames: initializerVisitor.dependencyNames)
+        var builders = [Builder]()
+        for (dep, builder) in initializerVisitor.builderNames {
 
-        return Builder(dict: initializerVisitor.targetExpressionLookup, names: names)
+            let names = BuilderParsedNames(builderName: builder,
+                                           componentName: initializerVisitor.componentNames[dep],
+                                           dependencyName: dep)
+
+            builders.append(Builder(dict: initializerVisitor.targetExpressionLookup, names: names))
+        }
+        return builders
     }
 }
 
 final class BuilderParsedNames {
-    let builderNames: [ String ]
-    let componentNames: [ String ]
-    let dependencyNames: [ String ]
+    var builderName: String?
+    var componentName: String?
+    var dependencyName: String?
 
-    init(builderNames: [ String ], componentNames: [ String ], dependencyNames: [ String ]) {
-        self.builderNames = builderNames
-        self.componentNames = componentNames
-        self.dependencyNames = dependencyNames
+    init(builderName: String?, componentName: String?, dependencyName: String?) {
+        self.builderName = builderName
+        self.componentName = componentName
+        self.dependencyName = dependencyName
     }
 }

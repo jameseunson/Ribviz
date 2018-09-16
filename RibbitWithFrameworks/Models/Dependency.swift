@@ -13,7 +13,7 @@ public enum DependencyType {
     case requiredDependency
 }
 
-public final class Dependency {
+public final class Dependency: CustomDebugStringConvertible {
 
     public let builder: Builder
     public let dependency: Any // TODO: possibly removable
@@ -84,10 +84,6 @@ public final class Dependency {
             return
         }
 
-        if self.functionCallExpression?.textDescription.contains("Booking") ?? false {
-            print("Booking")
-        }
-
         if let variableContainer = traverseToEnclosingVariable(expr: functionCallExpression, level: 0) {
             if case let VariableDeclaration.Body.codeBlock(_, typeAnnotation, _) = variableContainer.body {
 
@@ -109,5 +105,10 @@ public final class Dependency {
         } else {
             return traverseToEnclosingVariable(expr: parent, level: level + 1)
         }
+    }
+
+    // MARK: - CustomDebugStringConvertible
+    public var debugDescription: String {
+        return "Dependency: \(displayText)"
     }
 }

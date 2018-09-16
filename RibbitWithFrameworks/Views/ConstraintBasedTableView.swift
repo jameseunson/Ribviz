@@ -11,7 +11,13 @@ import Cocoa
 
 class ConstraintBasedTableView: NSTableView {
 
+    var cachedSize: NSSize?
+
     override var intrinsicContentSize: NSSize {
+
+        if let size = cachedSize {
+            return size
+        }
 
         guard let dataSource = dataSource,
             let numberOfRows = dataSource.numberOfRows,
@@ -29,6 +35,7 @@ class ConstraintBasedTableView: NSTableView {
         }
 
         let size = NSSize(width: delegate.maxWidth.rounded(.up), height: rowTotalHeight)
+        cachedSize = size
         return size
     }
 }

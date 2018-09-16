@@ -30,7 +30,9 @@ class GraphViewController: NSViewController, GraphViewListener, GraphViewControl
     public var graph: Graph!
     public var filterDependency: Dependency?
 
-    private var graphView: GraphView!
+    @IBOutlet weak var loadingView: NSProgressIndicator!
+
+    public var graphView: GraphView!
 
     weak var listener: GraphViewControllerListener?
 

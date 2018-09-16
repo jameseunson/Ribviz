@@ -10,58 +10,104 @@ import AST
 import Parser
 import Source
 
-class Builder {
+public class Builder: CustomDebugStringConvertible {
 
     // Input
-    private var dependency: [ ProtocolDeclaration.Member ]
-    private var component: [ FunctionCallExpression ]
-    private var builder: [ FunctionCallExpression ]
+    public var dependency: [ Dependency ]
+    private var component: [ Dependency ]
+    private var builder: [ Dependency ]
 
     // Output
+    public var name: String
+    public var childBuilders: [ Builder ]
     public var childRIBs: [ FunctionCallExpression ]
-    public var builtDependencies: [ FunctionCallExpression ]
+    public var parentRIB: Builder?
+
+    public var builtDependencies: [ Dependency ]
 
     init(dict: [ String: [ Any ] ], names: BuilderParsedNames) {
         self.childRIBs = [ FunctionCallExpression ]()
-        self.builtDependencies = [ FunctionCallExpression ]()
+        self.childBuilders = [ Builder ]()
+        self.builtDependencies = [ Dependency ]()
 
-        self.dependency = [ ProtocolDeclaration.Member ]()
-        self.component = [ FunctionCallExpression ]()
-        self.builder = [ FunctionCallExpression ]()
+        self.dependency = [ Dependency ]()
+        self.component = [ Dependency ]()
+        self.builder = [ Dependency ]()
+        self.name = "" // TODO: FIX
 
-        // TODO: Will eventually support multiple dependencies, builders
-        // and components, for now just take first
-        if let builderName = names.builderNames.first,
+        if let builderName = names.builderName,
             let parsedBuilder = dict[builderName] as? [ FunctionCallExpression ] {
-            self.builder.append(contentsOf: parsedBuilder)
+            self.name = builderName
+
+            parsedBuilder.map { (expr) -> Dependency in
+                return Dependency(builder: self, functionCall: expr)
+            }.forEach { (dep) in
+                builder.append(dep)
+            }
         }
-        if let componentName = names.componentNames.first,
+
+        if let componentName = names.componentName,
             let parsedComponent = dict[componentName] as? [ FunctionCallExpression ] {
-            self.component.append(contentsOf: parsedComponent)
+            parsedComponent.map { (expr) -> Dependency in
+                return Dependency(builder: self, functionCall: expr)
+            }.forEach { (dep) in
+                component.append(dep)
+            }
         }
-        if let dependencyName = names.dependencyNames.first,
+        if let dependencyName = names.dependencyName,
             let parsedDependency = dict[dependencyName] as? [ ProtocolDeclaration.Member ] {
-            self.dependency.append(contentsOf: parsedDependency)
+            parsedDependency.map { (expr) -> Dependency in
+                return Dependency.init(builder: self, protocolVariable: expr)
+            }.forEach { (dep) in
+                dependency.append(dep)
+            }
         }
 
         extractSubRibs()
     }
 
-    func extractSubRibs() {
-        print("extractSubRibs")
+    public func contains(_ filteredDependency: Dependency) -> Bool {
 
-        var builtItems = [ FunctionCallExpression ]()
+        if filteredDependency.functionCallExpression != nil {
+            let foundBuiltDependency = builtDependencies.contains { (bd: Dependency) -> Bool in
+                return bd.displayText == filteredDependency.displayText
+            }
+            let foundDependency = dependency.contains { (dep: Dependency) -> Bool in
+                return dep.displayText == filteredDependency.builtProtocol?.textDescription ?? ""
+            }
+            return foundBuiltDependency || foundDependency
+
+        } else {
+            let foundBuiltDependency = builtDependencies.contains { (bd: Dependency) -> Bool in
+                return bd.displayText == filteredDependency.displayText
+            }
+            let foundDependency = dependency.contains { (dep: Dependency) -> Bool in
+                return dep.displayText == filteredDependency.displayText
+            }
+            return foundBuiltDependency || foundDependency
+        }
+    }
+
+    private func extractSubRibs() {
+
+        var builtItems = [ Dependency ]()
         builtItems.append(contentsOf: component)
         builtItems.append(contentsOf: builder)
 
         for item in builtItems {
-            if item.postfixExpression.description.contains("Builder") {
-                childRIBs.append(item)
-                print("child rib: \(item.postfixExpression)")
-
-            } else {
-                builtDependencies.append(item)
+            if let function = item.functionCallExpression {
+                if function.postfixExpression.description.contains("Builder"),
+                    !item.displayText.contains(name) {
+                    childRIBs.append(function)
+                } else {
+                    builtDependencies.append(item)
+                }
             }
         }
+    }
+
+    // MARK: - CustomDebugStringConvertible
+    public var debugDescription: String {
+        return name
     }
 }

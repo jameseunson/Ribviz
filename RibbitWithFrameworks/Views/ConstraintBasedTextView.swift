@@ -11,14 +11,26 @@ import Cocoa
 
 class ConstraintBasedTextView: NSTextView {
 
+    var cachedContentSize: NSSize?
+
     override var intrinsicContentSize: NSSize {
+        if let cached = cachedContentSize {
+            return cached
+        }
+
         guard let textContainer = textContainer,
             let manager = textContainer.layoutManager else {
                 return .zero
         }
 
         manager.ensureLayout(for: textContainer)
-        return manager.usedRect(for: textContainer).size
+
+        let rect = manager.usedRect(for: textContainer)
+        if !rect.equalTo(CGRect.zero) {
+            cachedContentSize = rect.size
+        }
+
+        return rect.size
     }
 
     override func didChangeText() {

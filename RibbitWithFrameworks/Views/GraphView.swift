@@ -42,6 +42,8 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
         self.builderViews = [BuilderView]()
         super.init(frame: .zero)
 
+        canDrawConcurrently = true
+
         wantsLayer = true
         layer?.backgroundColor = NSColor.white.cgColor
 
@@ -58,6 +60,11 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
             addSubview(stackView)
 
             for builder in builderLevel {
+
+                if let filteredDep = filteredDependency,
+                    !builder.contains(filteredDep) {
+                    continue
+                }
 
                 let builderView = BuilderView(builder: builder)
                 builderView.listener = self
@@ -87,6 +94,10 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
         }
     }
 
+    override func layout() {
+        super.layout()
+    }
+
     override var intrinsicContentSize: NSSize {
 
         return levelStackViews.map { (stackView: NSStackView) -> CGRect in
@@ -102,7 +113,6 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
-        // TODO: Cleanup
         // Draw lines between each level
         var i = 0
         for stackView in levelStackViews {

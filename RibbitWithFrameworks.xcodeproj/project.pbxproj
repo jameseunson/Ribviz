@@ -14,6 +14,12 @@
 		986FA377214DAA8F00E7554A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FA376214DAA8F00E7554A /* Graph.swift */; };
 		986FA37E214DB69300E7554A /* KPCTabsControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986FA37D214DB69300E7554A /* KPCTabsControl.framework */; };
 		986FA37F214DB69300E7554A /* KPCTabsControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 986FA37D214DB69300E7554A /* KPCTabsControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9889E80D214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */; };
+		9889E80E214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E80C214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift */; };
+		9889E81B214DFE5C009B5E34 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E817214DFE5B009B5E34 /* Builder.swift */; };
+		9889E81C214DFE5C009B5E34 /* BuilderVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */; };
+		9889E81D214DFE5C009B5E34 /* BuilderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E819214DFE5B009B5E34 /* BuilderParser.swift */; };
+		9889E81E214DFE5C009B5E34 /* RibbitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E81A214DFE5C009B5E34 /* RibbitParser.swift */; };
 		98A177A8214DBAB5006521F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A177A7214DBAB5006521F0 /* RxSwift.framework */; };
 		98A177A9214DBAB5006521F0 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98A177A7214DBAB5006521F0 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98A177AB214DBAE5006521F0 /* GraphContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A177AA214DBAE5006521F0 /* GraphContainerViewController.swift */; };
@@ -37,12 +43,6 @@
 		98E4E25A2144407D00597F9C /* Diagnostic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98E4E24E2144407D00597F9C /* Diagnostic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98E4E25C2144407D00597F9C /* Lexer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98E4E24F2144407D00597F9C /* Lexer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98E4E25E2144407D00597F9C /* Parser.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98E4E2502144407D00597F9C /* Parser.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		98E4E2702144412100597F9C /* BuilderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E26A2144412100597F9C /* BuilderParser.swift */; };
-		98E4E2712144412100597F9C /* Builder+LevelOrderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E26B2144412100597F9C /* Builder+LevelOrderTraversal.swift */; };
-		98E4E2722144412100597F9C /* TypeInheritanceClause+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E26C2144412100597F9C /* TypeInheritanceClause+Extensions.swift */; };
-		98E4E2732144412100597F9C /* BuilderVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E26D2144412100597F9C /* BuilderVisitor.swift */; };
-		98E4E2742144412100597F9C /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E26E2144412100597F9C /* Builder.swift */; };
-		98E4E2752144412100597F9C /* RibbitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E26F2144412100597F9C /* RibbitParser.swift */; };
 		98E4E277214445DC00597F9C /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E4E276214445DC00597F9C /* SnapKit.framework */; };
 		98E4E278214445DC00597F9C /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98E4E276214445DC00597F9C /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98E4E27C2144803800597F9C /* ConstraintBasedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E27B2144803800597F9C /* ConstraintBasedTextView.swift */; };
@@ -103,6 +103,12 @@
 		9805D9C42144AB1700F7C737 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		986FA376214DAA8F00E7554A /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		986FA37D214DB69300E7554A /* KPCTabsControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KPCTabsControl.framework; path = Carthage/Build/Mac/KPCTabsControl.framework; sourceTree = "<group>"; };
+		9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TypeInheritanceClause+Extensions.swift"; sourceTree = "<group>"; };
+		9889E80C214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Builder+LevelOrderTraversal.swift"; sourceTree = "<group>"; };
+		9889E817214DFE5B009B5E34 /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Builder.swift; path = RibbitWithFrameworks/RibbitCore/Builder.swift; sourceTree = SOURCE_ROOT; };
+		9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderVisitor.swift; path = RibbitWithFrameworks/RibbitCore/BuilderVisitor.swift; sourceTree = SOURCE_ROOT; };
+		9889E819214DFE5B009B5E34 /* BuilderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderParser.swift; path = RibbitWithFrameworks/RibbitCore/BuilderParser.swift; sourceTree = SOURCE_ROOT; };
+		9889E81A214DFE5C009B5E34 /* RibbitParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RibbitParser.swift; path = RibbitWithFrameworks/RibbitCore/RibbitParser.swift; sourceTree = SOURCE_ROOT; };
 		98A177A7214DBAB5006521F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		98A177AA214DBAE5006521F0 /* GraphContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphContainerViewController.swift; sourceTree = "<group>"; };
 		98E4E1EF21443F9C00597F9C /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,12 +145,6 @@
 		98E4E24E2144407D00597F9C /* Diagnostic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Diagnostic.framework; sourceTree = "<group>"; };
 		98E4E24F2144407D00597F9C /* Lexer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Lexer.framework; sourceTree = "<group>"; };
 		98E4E2502144407D00597F9C /* Parser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parser.framework; sourceTree = "<group>"; };
-		98E4E26A2144412100597F9C /* BuilderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderParser.swift; sourceTree = "<group>"; };
-		98E4E26B2144412100597F9C /* Builder+LevelOrderTraversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Builder+LevelOrderTraversal.swift"; sourceTree = "<group>"; };
-		98E4E26C2144412100597F9C /* TypeInheritanceClause+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TypeInheritanceClause+Extensions.swift"; sourceTree = "<group>"; };
-		98E4E26D2144412100597F9C /* BuilderVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuilderVisitor.swift; sourceTree = "<group>"; };
-		98E4E26E2144412100597F9C /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
-		98E4E26F2144412100597F9C /* RibbitParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RibbitParser.swift; sourceTree = "<group>"; };
 		98E4E276214445DC00597F9C /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/Mac/SnapKit.framework; sourceTree = "<group>"; };
 		98E4E27B2144803800597F9C /* ConstraintBasedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintBasedTextView.swift; sourceTree = "<group>"; };
 		98E4E27D2144805200597F9C /* BuilderTableViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderTableViewRow.swift; sourceTree = "<group>"; };
@@ -304,12 +304,10 @@
 		98E4E2692144412100597F9C /* RibbitCore */ = {
 			isa = PBXGroup;
 			children = (
-				98E4E26A2144412100597F9C /* BuilderParser.swift */,
-				98E4E26B2144412100597F9C /* Builder+LevelOrderTraversal.swift */,
-				98E4E26C2144412100597F9C /* TypeInheritanceClause+Extensions.swift */,
-				98E4E26D2144412100597F9C /* BuilderVisitor.swift */,
-				98E4E26E2144412100597F9C /* Builder.swift */,
-				98E4E26F2144412100597F9C /* RibbitParser.swift */,
+				9889E817214DFE5B009B5E34 /* Builder.swift */,
+				9889E819214DFE5B009B5E34 /* BuilderParser.swift */,
+				9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */,
+				9889E81A214DFE5C009B5E34 /* RibbitParser.swift */,
 			);
 			name = RibbitCore;
 			path = ../../RibbitFrameworks/RibbitCore;
@@ -341,6 +339,8 @@
 		98E4E28C214487AD00597F9C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9889E80C214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift */,
+				9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -481,29 +481,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9889E81D214DFE5C009B5E34 /* BuilderParser.swift in Sources */,
 				98E4E28B214485CA00597F9C /* BuilderRequiredDependenciesDataSource.swift in Sources */,
+				9889E80D214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift in Sources */,
 				98E4E1F521443F9C00597F9C /* GraphViewController.swift in Sources */,
 				98E4E2802144806300597F9C /* BuilderTableViewDelegate.swift in Sources */,
 				98A177AB214DBAE5006521F0 /* GraphContainerViewController.swift in Sources */,
 				98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */,
-				98E4E2742144412100597F9C /* Builder.swift in Sources */,
-				98E4E2712144412100597F9C /* Builder+LevelOrderTraversal.swift in Sources */,
 				98E4E288214480BF00597F9C /* GraphView.swift in Sources */,
-				98E4E2722144412100597F9C /* TypeInheritanceClause+Extensions.swift in Sources */,
-				98E4E2732144412100597F9C /* BuilderVisitor.swift in Sources */,
 				9805D9BE2144A6DB00F7C737 /* DetailViewController.swift in Sources */,
 				9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */,
 				98E4E28E21449A2A00597F9C /* InteractiveConstraintBasedTextView.swift in Sources */,
 				9805D9C52144AB1700F7C737 /* Dependency.swift in Sources */,
 				9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */,
+				9889E80E214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift in Sources */,
 				98E4E27E2144805200597F9C /* BuilderTableViewRow.swift in Sources */,
-				98E4E2752144412100597F9C /* RibbitParser.swift in Sources */,
+				9889E81E214DFE5C009B5E34 /* RibbitParser.swift in Sources */,
 				98E4E2822144807200597F9C /* BuilderBuiltDependenciesDataSource.swift in Sources */,
 				98E4E2842144808F00597F9C /* ConstraintBasedTableView.swift in Sources */,
+				9889E81C214DFE5C009B5E34 /* BuilderVisitor.swift in Sources */,
 				986FA377214DAA8F00E7554A /* Graph.swift in Sources */,
 				98E4E27C2144803800597F9C /* ConstraintBasedTextView.swift in Sources */,
 				98E4E286214480A800597F9C /* BuilderView.swift in Sources */,
-				98E4E2702144412100597F9C /* BuilderParser.swift in Sources */,
+				9889E81B214DFE5C009B5E34 /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
