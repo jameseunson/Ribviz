@@ -39,6 +39,10 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
             }
             subtitleLabel.stringValue = detailItem.builder.name
             tableView.reloadData()
+
+            titleLabel.isHidden = false
+            subtitleLabel.isHidden = false
+            depButton.isHidden = false
         }
     }
 
@@ -57,6 +61,10 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
             maker.top.equalTo(depButton.snp.bottom).offset(20)
             maker.height.greaterThanOrEqualTo(500)
         }
+
+        titleLabel.isHidden = true
+        subtitleLabel.isHidden = true
+        depButton.isHidden = true
     }
     @IBAction func didSelectDepButton(_ sender: Any) {
         if let detailItem = detailItem {

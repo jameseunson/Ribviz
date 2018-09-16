@@ -13,6 +13,10 @@ protocol BuilderViewListener: class {
     func didSelectItem(dep: Dependency)
 }
 
+protocol BuilderViewable: class {
+    func filterBy(query: String)
+}
+
 class BuilderView : NSView, BuilderTableViewDelegateListener {
 
     public let builder: Builder
@@ -31,6 +35,16 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
             let dependencyMissing = dependencyDataSource.numberOfRows(in: dependencyTableView) == 0
             dependencyTableView.isHidden = dependencyMissing
             requiredLabel.isHidden = dependencyMissing
+        }
+    }
+
+    var highlightQuery: String? {
+        didSet {
+            componentDelegate.highlightQuery = highlightQuery
+            dependencyDelegate.highlightQuery = highlightQuery
+
+            componentTableView.reloadData()
+            dependencyTableView.reloadData()
         }
     }
 
@@ -179,5 +193,10 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
     // MARK: - BuilderTableRowViewListener
     func didSelectItem(dep: Dependency) {
         listener?.didSelectItem(dep: dep)
+    }
+
+    // MARK: - BuilderViewable
+    func filterBy(query: String) {
+        highlightQuery = query
     }
 }

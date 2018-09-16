@@ -12,6 +12,7 @@ import AST
 import KPCTabsControl
 
 protocol GraphContainerViewControllable: class {
+    func filterVisibleGraphBy(query: String)
     func showFilteredGraph(dep: Dependency)
 }
 
@@ -25,6 +26,8 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
     private var graphs = [ Graph ]()
     private var graphControllers = [ GraphViewController ]()
+
+    private var visibleGraphViewController: GraphViewController!
 
     weak var listener: GraphViewControllerListener?
 
@@ -58,7 +61,6 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
             controller.listener = self
 
-
             graphControllers.append(controller)
             graphs.append(controller.graph)
 
@@ -68,6 +70,10 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
     }
 
     // MARK: - GraphContainerViewControllable
+    func filterVisibleGraphBy(query: String) {
+        visibleGraphViewController.filterVisibleGraphBy(query: query)
+    }
+
     func showFilteredGraph(dep: Dependency) {
         addGraph(dep: dep)
     }
@@ -90,6 +96,8 @@ extension GraphContainerViewController: TabsControlDelegate {
         for controller in graphControllers {
             if i == idx {
                 controller.view.isHidden = false
+                visibleGraphViewController = controller
+
             } else {
                 controller.view.isHidden = true
             }

@@ -15,7 +15,11 @@ protocol GraphViewControllerListener: class {
     func didSelectItem(dep: Dependency)
 }
 
-class GraphViewController: NSViewController, GraphViewListener {
+protocol GraphViewControllable: class {
+    func filterVisibleGraphBy(query: String)
+}
+
+class GraphViewController: NSViewController, GraphViewListener, GraphViewControllable {
 
     @IBOutlet weak var scrollView: NSScrollView!
     @IBOutlet weak var tabsControl: TabsControl!
@@ -56,6 +60,11 @@ class GraphViewController: NSViewController, GraphViewListener {
         documentView.frame = CGRect(origin: .zero, size: CGSize(
             width: CGFloat.maximum(graphView.intrinsicContentSize.width, view.frame.size.width),
             height: CGFloat.maximum(graphView.intrinsicContentSize.height, view.frame.size.height)))
+    }
+
+    // MARK: - GraphViewControllable
+    func filterVisibleGraphBy(query: String) {
+        graphView.filterBy(query: query)
     }
 
     // MARK: - GraphViewListener

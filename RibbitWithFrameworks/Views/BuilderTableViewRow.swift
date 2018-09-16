@@ -22,6 +22,31 @@ class BuilderTableRowView: NSTableRowView, InteractiveConstraintBasedTextViewLis
     private let dep: Dependency
     private let label: InteractiveConstraintBasedTextView
 
+    var highlightQuery: String? {
+        didSet {
+            guard let highlightQuery = highlightQuery else {
+                label.string = dep.displayText
+                return
+            }
+
+            if dep.displayText.contains(highlightQuery) {
+                let attributedString = NSMutableAttributedString(string: dep.displayText)
+                let range = (dep.displayText as NSString).range(of: highlightQuery)
+                attributedString.addAttribute(.backgroundColor, value: NSColor.yellow, range: range)
+
+                let stringRange = NSRange(location: 0, length: (label.string as NSString).length)
+
+                label.textStorage?.beginEditing()
+                label.textStorage?.deleteCharacters(in: stringRange)
+                label.textStorage?.append(attributedString)
+                label.textStorage?.endEditing()
+
+            } else {
+                label.string = dep.displayText
+            }
+        }
+    }
+
     weak var listener: BuilderTableRowViewListener?
 
     init(dep: Dependency) {

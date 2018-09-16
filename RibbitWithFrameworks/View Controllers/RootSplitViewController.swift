@@ -9,7 +9,11 @@
 import Foundation
 import Cocoa
 
-class RootSplitViewController: NSSplitViewController, GraphViewControllerListener {
+protocol RootSplitViewControllable: class {
+    func filterVisibleGraphBy(_ query: String)
+}
+
+class RootSplitViewController: NSSplitViewController, GraphViewControllerListener, RootSplitViewControllable {
 
     @IBOutlet weak var graphItem: NSSplitViewItem!
     @IBOutlet weak var detailItem: NSSplitViewItem!
@@ -31,6 +35,13 @@ class RootSplitViewController: NSSplitViewController, GraphViewControllerListene
 
     func didUpdateSelection(selection: Any) {
         
+    }
+
+    // RootSplitViewControllable
+    func filterVisibleGraphBy(_ query: String) {
+        if let viewController = graphItem.viewController as? GraphContainerViewController {
+            viewController.filterVisibleGraphBy(query: query)
+        }
     }
 }
 

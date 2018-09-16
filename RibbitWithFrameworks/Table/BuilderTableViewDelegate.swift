@@ -19,6 +19,8 @@ class BuilderTableViewDelegate: NSObject, NSTableViewDelegate, BuilderTableRowVi
 
     weak var listener: BuilderTableViewDelegateListener?
 
+    var highlightQuery: String?
+
     init(builder: Builder) {
         self.builder = builder
     }
@@ -37,6 +39,7 @@ class BuilderTableViewDelegate: NSObject, NSTableViewDelegate, BuilderTableRowVi
         }
         let row = BuilderTableRowView(dep: dep)
         row.listener = self
+        row.highlightQuery = highlightQuery
         maxWidth = CGFloat.maximum(maxWidth, row.intrinsicContentSize.width)
         return row
     }

@@ -14,12 +14,17 @@ protocol GraphViewListener: class {
     func didSelectItem(dep: Dependency)
 }
 
-class GraphView: NSView, BuilderViewListener {
+protocol GraphViewable: class {
+    func filterBy(query: String)
+}
+
+class GraphView: NSView, BuilderViewListener, GraphViewable {
 
     public let graph: Graph
 
     private var levelStackViews: [NSStackView]!
     private var builderViewLookup: [String: BuilderView]
+    private var builderViews: [BuilderView]
 
     public var filteredDependency: Dependency?
 
@@ -34,6 +39,7 @@ class GraphView: NSView, BuilderViewListener {
         self.graph = graph
         self.filteredDependency = graph.filterDependency
         self.builderViewLookup = [String: BuilderView]()
+        self.builderViews = [BuilderView]()
         super.init(frame: .zero)
 
         wantsLayer = true
@@ -52,11 +58,13 @@ class GraphView: NSView, BuilderViewListener {
             addSubview(stackView)
 
             for builder in builderLevel {
-                
+
                 let builderView = BuilderView(builder: builder)
                 builderView.listener = self
                 builderView.filteredDependency = filteredDependency
+
                 builderViewLookup[builder.name] = builderView
+                builderViews.append(builderView)
 
                 stackView.addArrangedSubview(builderView)
 
@@ -145,6 +153,13 @@ class GraphView: NSView, BuilderViewListener {
             }
 
             i = i + 1
+        }
+    }
+
+    // MARK: - GraphViewable
+    func filterBy(query: String) {
+        for builderView in builderViews {
+            builderView.filterBy(query: query)
         }
     }
 
