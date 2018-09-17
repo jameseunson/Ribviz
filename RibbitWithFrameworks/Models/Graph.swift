@@ -31,7 +31,7 @@ public final class Graph {
 
         let name = flatBuilders.first?.name ?? "Graph"
         if let filter = filterDependency {
-            return "Filtered graph of \(name)"
+            return "\(name) (\(filter.displayText))"
         }
         return name
     }

@@ -25,6 +25,10 @@ public class Builder: CustomDebugStringConvertible {
 
     public var builtDependencies: [ Dependency ]
 
+    var displayName: String {
+        return name.replacingOccurrences(of: "Builder", with: "")
+    }
+
     init(dict: [ String: [ Any ] ], names: BuilderParsedNames) {
         self.childRIBs = [ FunctionCallExpression ]()
         self.childBuilders = [ Builder ]()

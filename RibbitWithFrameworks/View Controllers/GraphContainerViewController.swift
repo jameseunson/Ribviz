@@ -42,14 +42,18 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         tabsControl.delegate = self
         tabsControl.style = SafariStyle()
 
-        self.loadingView.startAnimation(self)
-
         DispatchQueue.main.async {
+            self.loadingView.startAnimation(self)
 
-            self.builders = self.parser.retrieveBuilders()
-            self.addGraph()
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.builders = self.parser.retrieveBuilders()
 
-            self.loadingView.stopAnimation(self)
+                DispatchQueue.main.async {
+
+                    self.addGraph()
+                    self.loadingView.stopAnimation(self)
+                }
+            }
         }
     }
 

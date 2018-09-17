@@ -9,6 +9,13 @@
 import Foundation
 import Cocoa
 
+public enum BuilderDisplayMode: String {
+    case all = "Show all"
+    case required = "Required dependencies only"
+    case built = "Built dependencies only"
+    case none = "Show none"
+}
+
 protocol BuilderViewListener: class {
     func didSelectItem(dep: Dependency)
 }
@@ -131,7 +138,7 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
 
         label.applyDefault()
         label.font = NSFont.systemFont(ofSize: 14, weight: .bold)
-        label.string = builder.name
+        label.string = builder.displayName
         label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         addSubview(label)
 
@@ -148,17 +155,17 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
 
     func setupTableViews() {
 
-        componentTableView.delegate = componentDelegate
-        componentTableView.dataSource = componentDataSource
-        componentTableView.backgroundColor = NSColor.clear
-        componentTableView.usesAutomaticRowHeights = true
-        tableViewStackView.addArrangedSubview(componentTableView)
-
         dependencyTableView.delegate = dependencyDelegate
         dependencyTableView.dataSource = dependencyDataSource
         dependencyTableView.backgroundColor = NSColor.clear
         dependencyTableView.usesAutomaticRowHeights = true
         tableViewStackView.addArrangedSubview(dependencyTableView)
+
+        componentTableView.delegate = componentDelegate
+        componentTableView.dataSource = componentDataSource
+        componentTableView.backgroundColor = NSColor.clear
+        componentTableView.usesAutomaticRowHeights = true
+        tableViewStackView.addArrangedSubview(componentTableView)
     }
 
     func setupConstraints() {

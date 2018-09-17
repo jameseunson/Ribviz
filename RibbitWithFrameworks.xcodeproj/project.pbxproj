@@ -109,6 +109,7 @@
 		9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderVisitor.swift; path = RibbitWithFrameworks/RibbitCore/BuilderVisitor.swift; sourceTree = SOURCE_ROOT; };
 		9889E819214DFE5B009B5E34 /* BuilderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderParser.swift; path = RibbitWithFrameworks/RibbitCore/BuilderParser.swift; sourceTree = SOURCE_ROOT; };
 		9889E81A214DFE5C009B5E34 /* RibbitParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RibbitParser.swift; path = RibbitWithFrameworks/RibbitCore/RibbitParser.swift; sourceTree = SOURCE_ROOT; };
+		9889E81F214EF33F009B5E34 /* Ribbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ribbit.entitlements; sourceTree = "<group>"; };
 		98A177A7214DBAB5006521F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		98A177AA214DBAE5006521F0 /* GraphContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphContainerViewController.swift; sourceTree = "<group>"; };
 		98E4E1EF21443F9C00597F9C /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +248,7 @@
 		98E4E1F121443F9C00597F9C /* RibbitWithFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9889E81F214EF33F009B5E34 /* Ribbit.entitlements */,
 				9805D9C32144AAFA00F7C737 /* Models */,
 				9805D9BC2144A6B800F7C737 /* View Controllers */,
 				98E4E28C214487AD00597F9C /* Extensions */,
@@ -416,7 +418,7 @@
 						CreatedOnToolsVersion = 9.4.1;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -667,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RibbitWithFrameworks/Ribbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P68VLQ6LPN;
@@ -690,6 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RibbitWithFrameworks/Ribbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P68VLQ6LPN;
