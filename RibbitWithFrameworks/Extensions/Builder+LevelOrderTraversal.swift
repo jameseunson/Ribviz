@@ -8,6 +8,21 @@
 import Foundation
 
 extension Builder {
+    func totalNodesBeneath() -> Int {
+        return totalNodesBeneath(node: self, depth: 0).count
+    }
+
+    private func totalNodesBeneath(node: Builder, depth: Int) -> [Builder] {
+        var nodes = [Builder]()
+
+        for node in node.childBuilders {
+            nodes.append(node)
+            nodes.append(contentsOf: totalNodesBeneath(node: node, depth: depth + 1))
+        }
+
+        return nodes
+    }
+
     func nodesAtEachDepth() -> [[Builder]] {
         return nodesAtDepth(node: self, depth: 0, nodes: [[Builder]]())
     }

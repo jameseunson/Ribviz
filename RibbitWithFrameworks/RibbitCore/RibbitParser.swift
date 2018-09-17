@@ -15,16 +15,14 @@ public class RibbitParser {
 
     let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
 
-    let rentalPath = URL(fileURLWithPath: "/Users/jameseunson/Documents/ios-2018/ios/apps/iphone-helix/src/Uber/Modules/Optional/Rental/Rental").standardizedFileURL.resolvingSymlinksInPath()
-
     let parser = BuilderParser()
 
     public init() {}
 
-    public func retrieveBuilders() -> [[Builder]]? {
+    public func retrieveBuilders(url: URL) -> [[Builder]]? {
         var builders = [Builder]()
 
-        builders.append(contentsOf: extractBuilders(from: rentalPath))
+        builders.append(contentsOf: extractBuilders(from: url.standardizedFileURL.resolvingSymlinksInPath()))
         let hierarchicalBuilders = createHierarchy(from: builders)
 
         let levelOrderBuilders = createLevelOrderBuilders(from: hierarchicalBuilders)
@@ -37,12 +35,10 @@ public class RibbitParser {
         do {
             if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
                 print("directoryEnumerator error ast \(url): ", error)
+
                 return true
             }) {
                 for case let fileURL as URL in enumerator {
-
-                    let resourceValues = try fileURL.resourceValues(forKeys: Set(resourceKeys))
-
                     if fileURL.path.contains("Builder.swift") {
                         let parsedBuilders = try parser.parse(fileURL: fileURL)
                         builders.append(contentsOf: parsedBuilders)
@@ -58,15 +54,21 @@ public class RibbitParser {
 
     private func createLevelOrderBuilders(from builders: [Builder]) -> [[Builder]]? {
 
-//        guard let builder = builders.first else {
-//            return nil
-//        }
+        var nodeCountLookup = [ String: Int ]()
+        var nodeLookup = [ String: Builder ]()
 
-        let builder = builders.filter { (builder: Builder) -> Bool in
-            return builder.name == "RentalOverlayBuilder"
-        }.first
+        for node in builders {
+            nodeCountLookup[node.name] = node.totalNodesBeneath()
+            nodeLookup[node.name] = node
+        }
 
-        return builder?.nodesAtEachDepth()
+        let sorted = nodeCountLookup.sorted { $0.value > $1.value }
+        if let rootName = sorted.first?.key,
+           let builder = nodeLookup[rootName] {
+            return builder.nodesAtEachDepth()
+        }
+
+        return nil
     }
 
     private func createHierarchy(from builders: [Builder]) -> [Builder] {

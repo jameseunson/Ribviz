@@ -20,6 +20,9 @@
 		9889E81C214DFE5C009B5E34 /* BuilderVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */; };
 		9889E81D214DFE5C009B5E34 /* BuilderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E819214DFE5B009B5E34 /* BuilderParser.swift */; };
 		9889E81E214DFE5C009B5E34 /* RibbitParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E81A214DFE5C009B5E34 /* RibbitParser.swift */; };
+		9889E821214FFCC0009B5E34 /* SelectRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E820214FFCC0009B5E34 /* SelectRepoViewController.swift */; };
+		9889E82321500C73009B5E34 /* NSAlert+Compact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E82221500C73009B5E34 /* NSAlert+Compact.swift */; };
+		9889E82621501C47009B5E34 /* RepoFileSystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E82521501C47009B5E34 /* RepoFileSystemHelper.swift */; };
 		98A177A8214DBAB5006521F0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98A177A7214DBAB5006521F0 /* RxSwift.framework */; };
 		98A177A9214DBAB5006521F0 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 98A177A7214DBAB5006521F0 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		98A177AB214DBAE5006521F0 /* GraphContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A177AA214DBAE5006521F0 /* GraphContainerViewController.swift */; };
@@ -110,6 +113,9 @@
 		9889E819214DFE5B009B5E34 /* BuilderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderParser.swift; path = RibbitWithFrameworks/RibbitCore/BuilderParser.swift; sourceTree = SOURCE_ROOT; };
 		9889E81A214DFE5C009B5E34 /* RibbitParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RibbitParser.swift; path = RibbitWithFrameworks/RibbitCore/RibbitParser.swift; sourceTree = SOURCE_ROOT; };
 		9889E81F214EF33F009B5E34 /* Ribbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ribbit.entitlements; sourceTree = "<group>"; };
+		9889E820214FFCC0009B5E34 /* SelectRepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRepoViewController.swift; sourceTree = "<group>"; };
+		9889E82221500C73009B5E34 /* NSAlert+Compact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+Compact.swift"; sourceTree = "<group>"; };
+		9889E82521501C47009B5E34 /* RepoFileSystemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoFileSystemHelper.swift; sourceTree = "<group>"; };
 		98A177A7214DBAB5006521F0 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		98A177AA214DBAE5006521F0 /* GraphContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphContainerViewController.swift; sourceTree = "<group>"; };
 		98E4E1EF21443F9C00597F9C /* Ribbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +207,7 @@
 				9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */,
 				9805D9C12144A9B400F7C737 /* RootWindowController.swift */,
 				98A177AA214DBAE5006521F0 /* GraphContainerViewController.swift */,
+				9889E820214FFCC0009B5E34 /* SelectRepoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -212,6 +219,14 @@
 				986FA376214DAA8F00E7554A /* Graph.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9889E82421501C33009B5E34 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9889E82521501C47009B5E34 /* RepoFileSystemHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		98E4E1E621443F9C00597F9C = {
@@ -248,6 +263,7 @@
 		98E4E1F121443F9C00597F9C /* RibbitWithFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9889E82421501C33009B5E34 /* Helpers */,
 				9889E81F214EF33F009B5E34 /* Ribbit.entitlements */,
 				9805D9C32144AAFA00F7C737 /* Models */,
 				9805D9BC2144A6B800F7C737 /* View Controllers */,
@@ -343,6 +359,7 @@
 			children = (
 				9889E80C214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift */,
 				9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */,
+				9889E82221500C73009B5E34 /* NSAlert+Compact.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -486,10 +503,12 @@
 				9889E81D214DFE5C009B5E34 /* BuilderParser.swift in Sources */,
 				98E4E28B214485CA00597F9C /* BuilderRequiredDependenciesDataSource.swift in Sources */,
 				9889E80D214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift in Sources */,
+				9889E82321500C73009B5E34 /* NSAlert+Compact.swift in Sources */,
 				98E4E1F521443F9C00597F9C /* GraphViewController.swift in Sources */,
 				98E4E2802144806300597F9C /* BuilderTableViewDelegate.swift in Sources */,
 				98A177AB214DBAE5006521F0 /* GraphContainerViewController.swift in Sources */,
 				98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */,
+				9889E82621501C47009B5E34 /* RepoFileSystemHelper.swift in Sources */,
 				98E4E288214480BF00597F9C /* GraphView.swift in Sources */,
 				9805D9BE2144A6DB00F7C737 /* DetailViewController.swift in Sources */,
 				9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */,
@@ -505,6 +524,7 @@
 				986FA377214DAA8F00E7554A /* Graph.swift in Sources */,
 				98E4E27C2144803800597F9C /* ConstraintBasedTextView.swift in Sources */,
 				98E4E286214480A800597F9C /* BuilderView.swift in Sources */,
+				9889E821214FFCC0009B5E34 /* SelectRepoViewController.swift in Sources */,
 				9889E81B214DFE5C009B5E34 /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

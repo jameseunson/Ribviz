@@ -16,6 +16,7 @@ class BuilderVisitor : ASTVisitor {
 
     var dependencyNames = [ String ]()
     var builderNames = [ String: String ]()
+    var pluginizedBuilderNames = [ String: String ]()
     var componentNames = [ String: String ]()
 
     static let levelLimit = 10
@@ -30,19 +31,43 @@ class BuilderVisitor : ASTVisitor {
         }
 
         targetExpressions.append(fce)
+
         if let parentClass = traverseToEnclosingClass(expr: fce),
-            let parentClassTypeName = parentClass.typeInheritanceClause?.primaryInheritanceClassName(),
-            let parentClassGenericType = parentClass.typeInheritanceClause?.primaryGenericType() {
+            let parentClassTypeName = parentClass.typeInheritanceClause?.primaryInheritanceClassName() {
+            
             let name = parentClass.name.textDescription
+            let parentClassGenericType = parentClass.typeInheritanceClause?.primaryGenericType()
 
             if !targetExpressionLookup.keys.contains(name) {
                 targetExpressionLookup[name] = [ FunctionCallExpression ]()
 
-                if parentClassTypeName == "Component" {
-                    componentNames[parentClassGenericType.textDescription] = name
+                if let genericType = parentClassGenericType {
+                    if parentClassTypeName == "Component" {
+                        componentNames[genericType.textDescription] = name
 
-                } else if parentClassTypeName == "Builder" {
-                    builderNames[parentClassGenericType.textDescription] = name
+                    } else if parentClassTypeName.contains("Builder") { // Includes PluginizedBuilder
+
+                        if parentClassTypeName == "Builder" {
+                            builderNames[genericType.textDescription] = name
+
+                        } else if parentClassTypeName == "PluginizedBuilder" {
+                            pluginizedBuilderNames[genericType.textDescription] = name
+
+                        } else {
+                            print("BuilderVisitor: Unknown type: \(parentClassTypeName)")
+                        }
+                    }
+
+                } else if parentClassTypeName.contains("NeedleFoundation") { // It's a PluginizableComponent, see comment below
+
+                    // AST doesn't like this syntax: NeedleFoundation.PluginizableComponent, so instead we use a regex
+                    // TODO: Would be good to get SwiftAST fixed for this case
+                    if let depRange = parentClass.textDescription.range(of: "<[a-zA-Z]+Dependency,", options: .regularExpression) {
+                        let depName = parentClass.textDescription[depRange].components(separatedBy: CharacterSet.alphanumerics.inverted).joined(separator: "")
+                        componentNames[depName] = name
+                    }
+                } else {
+                    print("BuilderVisitor: Unhandled type: \(parentClassTypeName)")
                 }
             }
 

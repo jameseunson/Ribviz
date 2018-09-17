@@ -10,18 +10,20 @@ import Cocoa
 import SnapKit
 import AST
 import KPCTabsControl
+import RxSwift
 
 protocol GraphContainerViewControllable: class {
     func filterVisibleGraphBy(query: String)
     func showFilteredGraph(dep: Dependency)
 }
 
-class GraphContainerViewController: NSViewController, GraphContainerViewControllable {
+class GraphContainerViewController: NSViewController, GraphContainerViewControllable, SelectRepoViewControllerListener {
     
     @IBOutlet weak var tabsControl: TabsControl!
     @IBOutlet weak var contentView: NSView!
 
     private let parser: RibbitParser
+    private let fileSystemHelper: RepoFileSystemHelper
     private var builders: [[Builder]]!
 
     private var graphs = [ Graph ]()
@@ -29,11 +31,17 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
     @IBOutlet weak var loadingView: NSProgressIndicator!
 
     private var visibleGraphViewController: GraphViewController!
+    private var selectRepoViewController: SelectRepoViewController?
+
+    private let disposeBag = DisposeBag()
 
     weak var listener: GraphViewControllerListener?
 
+    @IBOutlet weak var tabsControlHeight: NSLayoutConstraint!
+
     required init?(coder: NSCoder) {
         parser = RibbitParser()
+        fileSystemHelper = RepoFileSystemHelper()
         super.init(coder: coder)
     }
 
@@ -41,18 +49,23 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         tabsControl.dataSource = self
         tabsControl.delegate = self
         tabsControl.style = SafariStyle()
+        didUpdateTabs()
 
-        DispatchQueue.main.async {
-            self.loadingView.startAnimation(self)
+        if let url = fileSystemHelper.loadURLBookmark() {
+            loadGraph(url: url)
 
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.builders = self.parser.retrieveBuilders()
+        } else {
+            if let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SelectRepoViewController")) as? SelectRepoViewController {
 
-                DispatchQueue.main.async {
+                controller.listener = self
 
-                    self.addGraph()
-                    self.loadingView.stopAnimation(self)
+                addChildViewController(controller)
+                contentView.addSubview(controller.view)
+                controller.view.snp.makeConstraints { (maker) in
+                    maker.edges.equalToSuperview()
                 }
+
+                selectRepoViewController = controller
             }
         }
     }
@@ -77,6 +90,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
             tabsControl.reloadTabs()
             tabsControl.selectItemAtIndex(graphs.count - 1)
+            didUpdateTabs()
 
             // This ensures the intrinsicContentSize of GraphView is available
             // prior to setting the NSScrollView document size.
@@ -84,6 +98,51 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
             controller.graphView.layoutSubtreeIfNeeded()
             controller.view.layoutSubtreeIfNeeded()
         }
+    }
+
+    private func loadGraph(url: URL?) {
+        guard let url = url else {
+            self.displayGenericError()
+            return
+        }
+
+        DispatchQueue.main.async {
+            self.loadingView.startAnimation(self)
+
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.builders = self.parser.retrieveBuilders(url: url)
+
+                DispatchQueue.main.async {
+
+                    self.addGraph()
+                    self.loadingView.stopAnimation(self)
+                }
+            }
+        }
+    }
+
+    // MARK: - SelectRepoViewControllerListener
+    func didTapSelectDirectory() {
+
+        fileSystemHelper
+            .selectRepoDirectory()
+            .subscribe(onNext: { (url: URL?) in
+
+                if let url = url {
+                    self.loadGraph(url: url)
+                }
+
+                self.selectRepoViewController?.removeFromParentViewController()
+                self.selectRepoViewController?.view.removeFromSuperview()
+
+            }, onError: { (error: Error) in
+                self.displayGenericError()
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func displayGenericError() {
+        NSAlert.displayError(messageText: "Error selecting directory", informativeText: "Specified directory could not be opened. Please check your permissions and try again.")
     }
 
     // MARK: - GraphContainerViewControllable
@@ -95,6 +154,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         addGraph(dep: dep)
     }
 
+    // MARK: - Target Action
     @objc func closeTab(sender: NSMenuItem) {
         print("closeTab")
 
@@ -110,6 +170,15 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         // TODO: Remove graph
         tabsControl.reloadTabs()
         tabsControl.selectItemAtIndex(graphControllers.count-1)
+        didUpdateTabs()
+    }
+
+    // MARK: - Private
+    func didUpdateTabs() {
+        let hideTabs = graphControllers.count <= 1
+
+        tabsControl.isHidden = hideTabs
+        tabsControlHeight.constant = hideTabs ? 0 : 30
     }
 }
 

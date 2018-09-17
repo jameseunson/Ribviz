@@ -35,13 +35,26 @@ class BuilderParser {
         try initializerVisitor.traverse(topLevelDecl)
 
         var builders = [Builder]()
-        for (dep, builder) in initializerVisitor.builderNames {
 
-            let names = BuilderParsedNames(builderName: builder,
-                                           componentName: initializerVisitor.componentNames[dep],
-                                           dependencyName: dep)
+        if initializerVisitor.pluginizedBuilderNames.count > 0 {
+            for (component, builder) in initializerVisitor.pluginizedBuilderNames {
 
-            builders.append(Builder(dict: initializerVisitor.targetExpressionLookup, names: names))
+                let names = BuilderParsedNames(builderName: builder,
+                                               componentName: component,
+                                               dependencyName: initializerVisitor.dependencyNames.first)
+
+                builders.append(Builder(dict: initializerVisitor.targetExpressionLookup, names: names))
+            }
+
+        } else {
+            for (dep, builder) in initializerVisitor.builderNames {
+
+                let names = BuilderParsedNames(builderName: builder,
+                                               componentName: initializerVisitor.componentNames[dep],
+                                               dependencyName: dep)
+
+                builders.append(Builder(dict: initializerVisitor.targetExpressionLookup, names: names))
+            }
         }
         return builders
     }

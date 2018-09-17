@@ -100,6 +100,11 @@ public class Builder: CustomDebugStringConvertible {
 
         for item in builtItems {
             if let function = item.functionCallExpression {
+
+                if item.displayText.contains("Supplier") {
+                    print("Supplier")
+                }
+
                 if function.postfixExpression.description.contains("Builder"),
                     !item.displayText.contains(name) {
                     childRIBs.append(function)

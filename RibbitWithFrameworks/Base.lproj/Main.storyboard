@@ -3,6 +3,8 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -826,6 +828,76 @@
             </objects>
             <point key="canvasLocation" x="639" y="820"/>
         </scene>
+        <!--Select Repo View Controller-->
+        <scene sceneID="Ldw-Dc-d9n">
+            <objects>
+                <viewController identifier="SelectRepoViewController" storyboardIdentifier="SelectRepoViewController" id="vlg-eU-6P5" customClass="SelectRepoViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="GWa-yv-s0t">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eoj-2X-Eih">
+                                <rect key="frame" x="100" y="110" width="250" height="80"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ze-aw-rmm">
+                                        <rect key="frame" x="-2" y="59" width="254" height="21"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="No app directory selected" id="dvd-CW-Q2F">
+                                            <font key="font" metaFont="systemMedium" size="17"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ATk-95-Ok7">
+                                        <rect key="frame" x="-2" y="0.0" width="254" height="51"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="RQY-QW-rz8"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Select your app directory using the button below, eg. monorepo/apps/iphone-helix." id="yI4-Jf-0aO">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6ze-aw-rmm" firstAttribute="centerX" secondItem="Eoj-2X-Eih" secondAttribute="centerX" id="oxW-Lh-vQU"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iKE-Wt-fvq">
+                                <rect key="frame" x="100" y="45" width="250" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Oa6-sn-Ut5"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" title="Select directory" bezelStyle="smallSquare" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zgY-Bp-bau">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <connections>
+                                        <action selector="didTapSelectDirectoryButton:" target="vlg-eU-6P5" id="eZr-4F-zdB"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="iKE-Wt-fvq" firstAttribute="width" secondItem="Eoj-2X-Eih" secondAttribute="width" id="ABK-Ta-RFo"/>
+                            <constraint firstItem="iKE-Wt-fvq" firstAttribute="centerX" secondItem="GWa-yv-s0t" secondAttribute="centerX" id="OTy-B9-MUJ"/>
+                            <constraint firstItem="iKE-Wt-fvq" firstAttribute="top" secondItem="Eoj-2X-Eih" secondAttribute="bottom" constant="20" id="Qyo-ph-yIz"/>
+                            <constraint firstItem="Eoj-2X-Eih" firstAttribute="centerY" secondItem="GWa-yv-s0t" secondAttribute="centerY" id="n2p-7H-aWR"/>
+                            <constraint firstItem="Eoj-2X-Eih" firstAttribute="centerX" secondItem="GWa-yv-s0t" secondAttribute="centerX" id="vUE-PQ-01a"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="kaf-eJ-Hqm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309" y="222"/>
+        </scene>
         <!--Graph Container View Controller-->
         <scene sceneID="rIw-m3-sK7">
             <objects>
@@ -863,6 +935,7 @@
                         <outlet property="contentView" destination="j4h-kC-k5Z" id="k5M-ZD-Ua4"/>
                         <outlet property="loadingView" destination="SEX-uS-9Re" id="v8T-lX-LRf"/>
                         <outlet property="tabsControl" destination="m0y-UR-4RG" id="VFe-Iq-ZyU"/>
+                        <outlet property="tabsControlHeight" destination="Kkx-3p-g7Q" id="p4m-9f-FTW"/>
                     </connections>
                 </viewController>
                 <customObject id="SE4-yv-QJp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -22,7 +22,6 @@ protocol GraphViewControllable: class {
 class GraphViewController: NSViewController, GraphViewListener, GraphViewControllable {
 
     @IBOutlet weak var scrollView: NSScrollView!
-    @IBOutlet weak var tabsControl: TabsControl!
 
     private var documentView: NSView!
     public var builders: [[Builder]]!
