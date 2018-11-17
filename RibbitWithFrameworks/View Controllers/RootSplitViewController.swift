@@ -11,6 +11,7 @@ import Cocoa
 
 protocol RootSplitViewControllable: class {
     func filterVisibleGraphBy(_ query: String)
+    func closeProject()
 }
 
 class RootSplitViewController: NSSplitViewController, GraphViewControllerListener, RootSplitViewControllable {
@@ -18,11 +19,14 @@ class RootSplitViewController: NSSplitViewController, GraphViewControllerListene
     @IBOutlet weak var graphItem: NSSplitViewItem!
     @IBOutlet weak var detailItem: NSSplitViewItem!
 
+    var graphContainerController: GraphContainerViewControllable?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let viewController = graphItem.viewController as? GraphContainerViewController {
             viewController.listener = self
+            graphContainerController = viewController
         }
     }
 
@@ -34,14 +38,16 @@ class RootSplitViewController: NSSplitViewController, GraphViewControllerListene
     }
 
     func didUpdateSelection(selection: Any) {
-        
+        // TODO:
     }
 
-    // RootSplitViewControllable
+    // MARK: - RootSplitViewControllable
     func filterVisibleGraphBy(_ query: String) {
-        if let viewController = graphItem.viewController as? GraphContainerViewController {
-            viewController.filterVisibleGraphBy(query: query)
-        }
+        graphContainerController?.filterVisibleGraphBy(query: query)
+    }
+
+    func closeProject() {
+        graphContainerController?.closeProject()
     }
 }
 

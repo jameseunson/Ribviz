@@ -14,6 +14,7 @@ import RxSwift
 
 protocol GraphContainerViewControllable: class {
     func filterVisibleGraphBy(query: String)
+    func closeProject()
     func showFilteredGraph(dep: Dependency)
 }
 
@@ -31,7 +32,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
     @IBOutlet weak var loadingView: NSProgressIndicator!
 
     private var visibleGraphViewController: GraphViewController!
-    private var selectRepoViewController: SelectRepoViewController?
+    private var selectRepoViewController: SelectRepoViewController!
 
     private let disposeBag = DisposeBag()
 
@@ -51,22 +52,17 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         tabsControl.style = SafariStyle()
         didUpdateTabs()
 
+        if let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SelectRepoViewController")) as? SelectRepoViewController {
+
+            controller.listener = self
+            selectRepoViewController = controller
+        }
+
         if let url = fileSystemHelper.loadURLBookmark() {
             loadGraph(url: url)
 
         } else {
-            if let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SelectRepoViewController")) as? SelectRepoViewController {
-
-                controller.listener = self
-
-                addChildViewController(controller)
-                contentView.addSubview(controller.view)
-                controller.view.snp.makeConstraints { (maker) in
-                    maker.edges.equalToSuperview()
-                }
-
-                selectRepoViewController = controller
-            }
+            displaySelectRepoController()
         }
     }
 
@@ -121,6 +117,20 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         }
     }
 
+    private func displaySelectRepoController() {
+
+        childViewControllers.forEach { (viewController: NSViewController) in
+            viewController.removeFromParentViewController()
+            viewController.view.removeFromSuperview()
+        }
+
+        addChildViewController(selectRepoViewController)
+        contentView.addSubview(selectRepoViewController.view)
+        selectRepoViewController.view.snp.makeConstraints { (maker) in
+            maker.edges.equalToSuperview()
+        }
+    }
+
     // MARK: - SelectRepoViewControllerListener
     func didTapSelectDirectory() {
 
@@ -148,6 +158,20 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
     // MARK: - GraphContainerViewControllable
     func filterVisibleGraphBy(query: String) {
         visibleGraphViewController.filterVisibleGraphBy(query: query)
+    }
+
+    func closeProject() {
+        let result = fileSystemHelper.removeBookmark()
+        guard result else {
+            if let urlString = fileSystemHelper.loadURLBookmark()?.absoluteString {
+                NSAlert.displayError(messageText: "Error closing project", informativeText: "Please check file permissions for \(urlString) and try again.")
+            } else {
+                NSAlert.displayError(messageText: "Error closing project", informativeText: "Please check your file permissions and try again.")
+            }
+            return
+        }
+
+        displaySelectRepoController()
     }
 
     func showFilteredGraph(dep: Dependency) {

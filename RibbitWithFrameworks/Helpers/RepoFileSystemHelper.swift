@@ -79,6 +79,18 @@ class RepoFileSystemHelper {
         return nil
     }
 
+    func removeBookmark() -> Bool {
+        guard let path = self.pathToBookmarks() else {
+            return false
+        }
+        do {
+            try FileManager.default.removeItem(at: URL(fileURLWithPath: path))
+        } catch {
+            return false
+        }
+        return true
+    }
+
     private func pathToBookmarks() -> String? {
         guard let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return nil

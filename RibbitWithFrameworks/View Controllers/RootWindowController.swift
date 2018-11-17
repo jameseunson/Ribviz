@@ -9,18 +9,23 @@
 import Foundation
 import Cocoa
 
-class RootWindowController: NSWindowController, NSSearchFieldDelegate {
+protocol RootWindowControllable: class {
+    func closeProject()
+}
+
+class RootWindowController: NSWindowController, NSSearchFieldDelegate, RootWindowControllable {
+
     @IBOutlet weak var modeSelector: NSPopUpButton!
     @IBOutlet weak var searchField: NSSearchField!
 
-    var splitViewController: RootSplitViewController?
+    var splitViewController: RootSplitViewControllable?
 
     override func windowDidLoad() {
         super.windowDidLoad()
 
         setupSearch()
 
-        if let splitController = contentViewController as? RootSplitViewController {
+        if let splitController = contentViewController as? RootSplitViewControllable {
             splitViewController = splitController
         }
     }
@@ -64,5 +69,10 @@ class RootWindowController: NSWindowController, NSSearchFieldDelegate {
         DispatchQueue.main.async {
             self.splitViewController?.filterVisibleGraphBy(field.stringValue)
         }
+    }
+
+    // MARK: - RootWindowControllable
+    func closeProject() {
+        splitViewController?.closeProject()
     }
 }

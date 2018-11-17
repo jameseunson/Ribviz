@@ -10,16 +10,24 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    var rootWindowController: RootWindowControllable!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+
+        guard let windowController = NSApplication.shared.mainWindow?.windowController,
+            let applicationWindowController = windowController as? RootWindowControllable else {
+            abort()
+        }
+
+        rootWindowController = applicationWindowController
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
 
-
+    @IBAction func menuDidSelectCloseProject(_ sender: Any) {
+        rootWindowController.closeProject()
+    }
 }
 
