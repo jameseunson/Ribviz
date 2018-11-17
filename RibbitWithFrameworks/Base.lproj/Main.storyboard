@@ -597,26 +597,45 @@
                             </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="j4h-kC-k5Z">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="270"/>
+                                <subviews>
+                                    <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2it-qg-st5">
+                                        <rect key="frame" x="90" y="126" width="270" height="18"/>
+                                        <subviews>
+                                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="EfB-Jd-IDv">
+                                                <rect key="frame" x="0.0" y="-1" width="270" height="20"/>
+                                            </progressIndicator>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="EfB-Jd-IDv" firstAttribute="width" secondItem="2it-qg-st5" secondAttribute="width" id="9WO-c6-MoZ"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2it-qg-st5" firstAttribute="centerY" secondItem="j4h-kC-k5Z" secondAttribute="centerY" id="7y4-kh-B4n"/>
+                                    <constraint firstItem="2it-qg-st5" firstAttribute="width" secondItem="j4h-kC-k5Z" secondAttribute="width" multiplier="0.6" id="UbP-6G-jMY"/>
+                                    <constraint firstItem="2it-qg-st5" firstAttribute="centerX" secondItem="j4h-kC-k5Z" secondAttribute="centerX" id="nkO-hf-q51"/>
+                                </constraints>
                             </customView>
-                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="SEX-uS-9Re">
-                                <rect key="frame" x="209" y="134" width="32" height="32"/>
-                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstItem="m0y-UR-4RG" firstAttribute="top" secondItem="aW0-Ss-Yg0" secondAttribute="top" id="NRS-Jj-4Uz"/>
-                            <constraint firstItem="SEX-uS-9Re" firstAttribute="centerX" secondItem="aW0-Ss-Yg0" secondAttribute="centerX" id="YAW-Do-yoj"/>
                             <constraint firstAttribute="bottom" secondItem="j4h-kC-k5Z" secondAttribute="bottom" id="YhP-0h-Lkt"/>
                             <constraint firstItem="m0y-UR-4RG" firstAttribute="leading" secondItem="aW0-Ss-Yg0" secondAttribute="leading" id="cic-qU-5Ur"/>
                             <constraint firstItem="j4h-kC-k5Z" firstAttribute="leading" secondItem="m0y-UR-4RG" secondAttribute="leading" id="fE1-4L-ofp"/>
                             <constraint firstItem="j4h-kC-k5Z" firstAttribute="top" secondItem="m0y-UR-4RG" secondAttribute="bottom" id="i96-9h-Q3U"/>
-                            <constraint firstItem="SEX-uS-9Re" firstAttribute="centerY" secondItem="aW0-Ss-Yg0" secondAttribute="centerY" id="ik0-IK-cbz"/>
                             <constraint firstAttribute="trailing" secondItem="m0y-UR-4RG" secondAttribute="trailing" id="rLy-OM-8lz"/>
                             <constraint firstItem="j4h-kC-k5Z" firstAttribute="trailing" secondItem="m0y-UR-4RG" secondAttribute="trailing" id="uhJ-2q-RpG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="contentView" destination="j4h-kC-k5Z" id="k5M-ZD-Ua4"/>
-                        <outlet property="loadingView" destination="SEX-uS-9Re" id="v8T-lX-LRf"/>
+                        <outlet property="loadingView" destination="EfB-Jd-IDv" id="cPT-uY-78Y"/>
                         <outlet property="tabsControl" destination="m0y-UR-4RG" id="VFe-Iq-ZyU"/>
                         <outlet property="tabsControlHeight" destination="Kkx-3p-g7Q" id="p4m-9f-FTW"/>
                     </connections>

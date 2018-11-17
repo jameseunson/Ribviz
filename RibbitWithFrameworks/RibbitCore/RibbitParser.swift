@@ -10,14 +10,23 @@ import Foundation
 import AST
 import Parser
 import Source
+import RxSwift
 
 public class RibbitParser {
 
     let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
-
     let parser = BuilderParser()
 
-    public init() {}
+    private let progressSubject = PublishSubject<Double>()
+    private let progressFileSubject = PublishSubject<String>()
+
+    let progress: Observable<Double>
+    let progressFile: Observable<String>
+
+    public init() {
+        progress = progressSubject.asObservable()
+        progressFile = progressFileSubject.asObservable()
+    }
 
     public func retrieveBuilders(url: URL) -> [[Builder]]? {
         var builders = [Builder]()
@@ -33,6 +42,21 @@ public class RibbitParser {
     private func extractBuilders(from path: URL) -> [Builder] {
         var builders = [Builder]()
         do {
+            var totalfileCount = 0
+            var currentFileIndex = 0
+
+            // First enumeration to establish how many files there are
+            if let countEnumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in return true }) {
+                for case let fileURL as URL in countEnumerator {
+                    if fileURL.path.contains("Builder.swift") {
+                        totalfileCount = totalfileCount + 1
+                    }
+                }
+            }
+
+            // Actually begin parsing, updating the progress value incrementally
+            progressSubject.onNext(0)
+
             if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
                 print("directoryEnumerator error ast \(url): ", error)
 
@@ -40,8 +64,18 @@ public class RibbitParser {
             }) {
                 for case let fileURL as URL in enumerator {
                     if fileURL.path.contains("Builder.swift") {
+
+                        if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
+                            progressFileSubject.onNext(String(fileSubstring))
+                        }
+
                         let parsedBuilders = try parser.parse(fileURL: fileURL)
                         builders.append(contentsOf: parsedBuilders)
+
+                        currentFileIndex = currentFileIndex + 1
+                        let progress = Double(currentFileIndex) / Double(totalfileCount)
+
+                        progressSubject.onNext(progress)
                     }
                 }
             }

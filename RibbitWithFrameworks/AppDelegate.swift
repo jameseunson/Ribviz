@@ -14,12 +14,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
-        guard let windowController = NSApplication.shared.mainWindow?.windowController,
-            let applicationWindowController = windowController as? RootWindowControllable else {
-            abort()
+        if let windowController = NSApplication.shared.mainWindow?.windowController,
+            let applicationWindowController = windowController as? RootWindowControllable {
+            rootWindowController = applicationWindowController
         }
-
-        rootWindowController = applicationWindowController
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

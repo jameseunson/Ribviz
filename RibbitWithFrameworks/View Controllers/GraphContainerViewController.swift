@@ -103,15 +103,19 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         }
 
         DispatchQueue.main.async {
-            self.loadingView.startAnimation(self)
+
+            self.parser.progress
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: { (progress: Double) in
+                    self.loadingView.doubleValue = progress * 100
+                })
+                .disposed(by: self.disposeBag)
 
             DispatchQueue.global(qos: .userInitiated).async {
                 self.builders = self.parser.retrieveBuilders(url: url)
 
                 DispatchQueue.main.async {
-
                     self.addGraph()
-                    self.loadingView.stopAnimation(self)
                 }
             }
         }
