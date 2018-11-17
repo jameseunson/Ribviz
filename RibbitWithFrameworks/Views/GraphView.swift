@@ -45,7 +45,7 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
         canDrawConcurrently = true
 
         wantsLayer = true
-        layer?.backgroundColor = NSColor.white.cgColor
+        layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
 
         var i = 0
         for builderLevel in graph.builders {
@@ -155,7 +155,9 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
 
                         path.move(to: NSPoint(x: graphBuilderFrame.midX, y: graphBuilderFrame.maxY))
                         path.line(to: NSPoint(x: graphParentFrame.midX, y: graphParentFrame.minY))
-                        NSColor(white: 0, alpha: 0.15).set()
+
+                        NSColor.borderColor.set()
+
                         path.lineWidth = 1
                         path.stroke()
                     }

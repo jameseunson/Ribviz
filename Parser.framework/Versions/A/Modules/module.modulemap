@@ -1,4 +1,0 @@
-framework module Parser {
-    header "Parser-Swift.h"
-    requires objc
-}

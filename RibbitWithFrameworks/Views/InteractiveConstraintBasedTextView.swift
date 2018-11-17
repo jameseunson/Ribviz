@@ -16,7 +16,7 @@ protocol InteractiveConstraintBasedTextViewListener: class {
 class InteractiveConstraintBasedTextView: ConstraintBasedTextView {
     private var trackingArea: NSTrackingArea!
     private let hoverColor: NSColor = NSColor.red
-    private let defaultColor: NSColor = NSColor.black
+    private let defaultColor: NSColor = NSColor.labelColor
 
     weak var listener: InteractiveConstraintBasedTextViewListener?
 

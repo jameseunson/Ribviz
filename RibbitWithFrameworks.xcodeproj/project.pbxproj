@@ -11,6 +11,7 @@
 		9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */; };
 		9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C12144A9B400F7C737 /* RootWindowController.swift */; };
 		9805D9C52144AB1700F7C737 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C42144AB1700F7C737 /* Dependency.swift */; };
+		9842112B21A0C41600AC1A4D /* NSColor+Inverted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */; };
 		986FA377214DAA8F00E7554A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FA376214DAA8F00E7554A /* Graph.swift */; };
 		986FA37E214DB69300E7554A /* KPCTabsControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986FA37D214DB69300E7554A /* KPCTabsControl.framework */; };
 		986FA37F214DB69300E7554A /* KPCTabsControl.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 986FA37D214DB69300E7554A /* KPCTabsControl.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -104,6 +105,7 @@
 		9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
 		9805D9C12144A9B400F7C737 /* RootWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowController.swift; sourceTree = "<group>"; };
 		9805D9C42144AB1700F7C737 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Inverted.swift"; sourceTree = "<group>"; };
 		986FA376214DAA8F00E7554A /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		986FA37D214DB69300E7554A /* KPCTabsControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KPCTabsControl.framework; path = Carthage/Build/Mac/KPCTabsControl.framework; sourceTree = "<group>"; };
 		9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TypeInheritanceClause+Extensions.swift"; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				9889E80C214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift */,
 				9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */,
 				9889E82221500C73009B5E34 /* NSAlert+Compact.swift */,
+				9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */,
 				9889E80E214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift in Sources */,
 				98E4E27E2144805200597F9C /* BuilderTableViewRow.swift in Sources */,
+				9842112B21A0C41600AC1A4D /* NSColor+Inverted.swift in Sources */,
 				9889E81E214DFE5C009B5E34 /* RibbitParser.swift in Sources */,
 				98E4E2822144807200597F9C /* BuilderBuiltDependenciesDataSource.swift in Sources */,
 				98E4E2842144808F00597F9C /* ConstraintBasedTableView.swift in Sources */,

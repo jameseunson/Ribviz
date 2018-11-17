@@ -1,4 +1,0 @@
-framework module Diagnostic {
-    header "Diagnostic-Swift.h"
-    requires objc
-}

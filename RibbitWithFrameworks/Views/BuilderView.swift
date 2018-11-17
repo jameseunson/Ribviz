@@ -108,19 +108,19 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
 
         wantsLayer = true
 
-        layer?.backgroundColor = NSColor.white.cgColor
+        layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
         layer?.cornerRadius = 10
-        layer?.borderColor = NSColor(white: 0, alpha: 0.15).cgColor
+        layer?.borderColor = NSColor.borderColor.cgColor
         layer?.borderWidth = 1
 
         translatesAutoresizingMaskIntoConstraints = false
 
         titleHorizontalRuleView.wantsLayer = true
-        titleHorizontalRuleView.layer?.backgroundColor = NSColor(white: 0, alpha: 0.15).cgColor
+        titleHorizontalRuleView.layer?.backgroundColor = NSColor.borderColor.cgColor
         addSubview(titleHorizontalRuleView)
 
         subtitleHorizontalRuleView.wantsLayer = true
-        subtitleHorizontalRuleView.layer?.backgroundColor = NSColor(white: 0, alpha: 0.15).cgColor
+        subtitleHorizontalRuleView.layer?.backgroundColor = NSColor.borderColor.cgColor
         addSubview(subtitleHorizontalRuleView)
 
         addSubview(tableViewStackView)

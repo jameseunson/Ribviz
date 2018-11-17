@@ -1,4 +1,0 @@
-framework module AST {
-    header "AST-Swift.h"
-    requires objc
-}
