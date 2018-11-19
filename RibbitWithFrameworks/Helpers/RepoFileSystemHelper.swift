@@ -30,6 +30,11 @@ class RepoFileSystemHelper {
 
         openPanel.begin
             { (result) -> Void in
+
+                guard result != NSApplication.ModalResponse.cancel else {
+                    return
+                }
+
                 guard let url = openPanel.url,
                     let path = self.pathToBookmarks() else {
                     urlSubject.onError(RepoFileSystemHelperError.genericError)
@@ -38,7 +43,6 @@ class RepoFileSystemHelper {
 
                 // Could be a more detailed check, but this works
                 guard url.absoluteString.contains("apps") else {
-//                    NSAlert.displayError(messageText: "Unsupported project folder", informativeText: "Specified directory does not appear to be for a supported app. Please select a directory for a monorepo app, such as 'iphone-helix' or 'carbon'.")
                     urlSubject.onError(RepoFileSystemHelperError.unsupportedFolder)
                     return
                 }

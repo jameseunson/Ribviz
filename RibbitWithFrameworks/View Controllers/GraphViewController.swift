@@ -24,7 +24,7 @@ class GraphViewController: NSViewController, GraphViewListener, GraphViewControl
     @IBOutlet weak var scrollView: NSScrollView!
 
     private var documentView: NSView!
-    public var builders: [[Builder]]!
+    public var builders: [[Builder]] = [[Builder]]()
 
     public var graph: Graph!
     public var filterDependency: Dependency?

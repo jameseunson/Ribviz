@@ -19,6 +19,12 @@ class BuilderVisitor : ASTVisitor {
     var pluginizedBuilderNames = [ String: String ]()
     var componentNames = [ String: String ]()
 
+    let filename: String
+
+    init(filename: String) {
+        self.filename = filename
+    }
+
     static let levelLimit = 10
 
     @discardableResult
@@ -42,8 +48,21 @@ class BuilderVisitor : ASTVisitor {
                 targetExpressionLookup[name] = [ FunctionCallExpression ]()
 
                 if let genericType = parentClassGenericType {
-                    if parentClassTypeName == "Component" {
-                        componentNames[genericType.textDescription] = name
+                    if parentClassTypeName.contains("Component") {
+                        if parentClassTypeName == "Component" {
+                            componentNames[genericType.textDescription] = name
+
+                        } else if parentClassTypeName == "PluginizableComponent" {
+                            // AST doesn't like this syntax: NeedleFoundation.PluginizableComponent, so instead we use a regex
+                            // TODO: Would be good to get SwiftAST fixed for this case
+                            if let depRange = parentClass.textDescription.range(of: "<[a-zA-Z]+Dependency,", options: .regularExpression) {
+                                let depName = parentClass.textDescription[depRange].components(separatedBy: CharacterSet.alphanumerics.inverted).joined(separator: "")
+                                componentNames[depName] = name
+                            }
+                        } else {
+                            print("BuilderVisitor: Unknown type: \(parentClassTypeName)")
+                        }
+
 
                     } else if parentClassTypeName.contains("Builder") { // Includes PluginizedBuilder
 
@@ -56,15 +75,6 @@ class BuilderVisitor : ASTVisitor {
                         } else {
                             print("BuilderVisitor: Unknown type: \(parentClassTypeName)")
                         }
-                    }
-
-                } else if parentClassTypeName.contains("NeedleFoundation") { // It's a PluginizableComponent, see comment below
-
-                    // AST doesn't like this syntax: NeedleFoundation.PluginizableComponent, so instead we use a regex
-                    // TODO: Would be good to get SwiftAST fixed for this case
-                    if let depRange = parentClass.textDescription.range(of: "<[a-zA-Z]+Dependency,", options: .regularExpression) {
-                        let depName = parentClass.textDescription[depRange].components(separatedBy: CharacterSet.alphanumerics.inverted).joined(separator: "")
-                        componentNames[depName] = name
                     }
                 } else {
                     print("BuilderVisitor: Unhandled type: \(parentClassTypeName)")
@@ -81,6 +91,9 @@ class BuilderVisitor : ASTVisitor {
                 // Ignore
 
             } else {
+                if filename.contains("MainBuilder") {
+                    print(fce)
+                }
                 targetExpressionLookup[name]?.append(fce)
             }
         }

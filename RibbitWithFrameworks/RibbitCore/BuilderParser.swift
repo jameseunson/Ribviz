@@ -31,7 +31,7 @@ class BuilderParser {
         let lexicalParentAssignment = LexicalParentAssignment()
         lexicalParentAssignment.assign([topLevelDecl])
 
-        let initializerVisitor = BuilderVisitor()
+        let initializerVisitor = BuilderVisitor(filename: name)
         try initializerVisitor.traverse(topLevelDecl)
 
         var builders = [Builder]()

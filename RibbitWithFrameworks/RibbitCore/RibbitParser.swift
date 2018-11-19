@@ -41,48 +41,55 @@ public class RibbitParser {
 
     private func extractBuilders(from path: URL) -> [Builder] {
         var builders = [Builder]()
-        do {
-            var totalfileCount = 0
-            var currentFileIndex = 0
+        var totalfileCount = 0
+        var currentFileIndex = 0
 
-            // First enumeration to establish how many files there are
-            if let countEnumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in return true }) {
-                for case let fileURL as URL in countEnumerator {
-                    if fileURL.path.contains("Builder.swift") {
-                        totalfileCount = totalfileCount + 1
-                    }
+        // First enumeration to establish how many files there are
+        if let countEnumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in return true }) {
+            for case let fileURL as URL in countEnumerator {
+                if fileURL.path.contains("Builder.swift") {
+                    totalfileCount = totalfileCount + 1
                 }
             }
+        }
 
-            // Actually begin parsing, updating the progress value incrementally
-            progressSubject.onNext(0)
+        // Actually begin parsing, updating the progress value incrementally
+        progressSubject.onNext(0)
 
-            if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
-                print("directoryEnumerator error ast \(url): ", error)
+        if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
+            print("directoryEnumerator error ast \(url): ", error)
 
-                return true
-            }) {
-                for case let fileURL as URL in enumerator {
-                    if fileURL.path.contains("Builder.swift") {
+            return true
+        }) {
+            for case let fileURL as URL in enumerator {
+                if fileURL.path.contains("Builder.swift") {
 
-                        if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
-                            progressFileSubject.onNext(String(fileSubstring))
+                    if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
+                        progressFileSubject.onNext(String(fileSubstring))
+                    }
+
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        var parsedBuilders: [ Builder ]?
+                        do {
+                            parsedBuilders = try self.parser.parse(fileURL: fileURL)
+                        } catch {
+                            print(error)
                         }
 
-                        let parsedBuilders = try parser.parse(fileURL: fileURL)
-                        builders.append(contentsOf: parsedBuilders)
+                        DispatchQueue.main.async {
+                            if let parsedBuilders = parsedBuilders {
+                                builders.append(contentsOf: parsedBuilders)
+                            }
+                            currentFileIndex = currentFileIndex + 1
+                            let progress = Double(currentFileIndex) / Double(totalfileCount)
 
-                        currentFileIndex = currentFileIndex + 1
-                        let progress = Double(currentFileIndex) / Double(totalfileCount)
-
-                        progressSubject.onNext(progress)
+                            self.progressSubject.onNext(progress)
+                        }
                     }
                 }
             }
-
-        } catch {
-            print(error)
         }
+
         return builders
     }
 

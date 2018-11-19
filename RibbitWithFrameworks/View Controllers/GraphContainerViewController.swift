@@ -25,7 +25,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
     private let parser: RibbitParser
     private let fileSystemHelper: RepoFileSystemHelper
-    private var builders: [[Builder]]!
+    private var builders: [[Builder]] = [[Builder]]()
 
     private var graphs = [ Graph ]()
     private var graphControllers = [ GraphViewController ]()
@@ -112,7 +112,9 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
                 .disposed(by: self.disposeBag)
 
             DispatchQueue.global(qos: .userInitiated).async {
-                self.builders = self.parser.retrieveBuilders(url: url)
+                if let parsedBuilders = self.parser.retrieveBuilders(url: url) {
+                    self.builders = parsedBuilders
+                }
 
                 DispatchQueue.main.async {
                     self.addGraph()
