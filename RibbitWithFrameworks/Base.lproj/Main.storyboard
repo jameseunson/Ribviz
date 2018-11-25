@@ -12,11 +12,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Ribbit" id="1Xt-HY-uBw">
+                            <menuItem title="Ribviz" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Ribbit" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Ribviz" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Ribbit" id="5kV-Vb-QxS">
+                                        <menuItem title="About Ribviz" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
@@ -30,7 +30,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Ribbit" keyEquivalent="h" id="Olw-nP-bQN">
+                                        <menuItem title="Hide Ribviz" keyEquivalent="h" id="Olw-nP-bQN">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -48,7 +48,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Ribbit" keyEquivalent="q" id="4sb-4s-VLi">
+                                        <menuItem title="Quit Ribviz" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -341,25 +341,13 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Help" id="wpr-3q-Mcd">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
-                                    <items>
-                                        <menuItem title="Ribbit Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                         </items>
                     </menu>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Ribbit" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Ribviz" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,8 +356,8 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="RootWindowController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Ribbit" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                <windowController id="B8D-0N-5wS" customClass="RootWindowController" customModule="Ribviz" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Ribviz" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -443,7 +431,7 @@
         <!--Graph View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController identifier="GraphViewController" storyboardIdentifier="GraphViewController" id="XfG-lQ-9wD" customClass="GraphViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController identifier="GraphViewController" storyboardIdentifier="GraphViewController" id="XfG-lQ-9wD" customClass="GraphViewController" customModule="Ribviz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -487,7 +475,7 @@
         <!--Root Split View Controller-->
         <scene sceneID="r3y-dS-njo">
             <objects>
-                <splitViewController id="cHw-NF-05p" customClass="RootSplitViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="cHw-NF-05p" customClass="RootSplitViewController" customModule="Ribviz" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="Ayx-y4-80z"/>
                         <splitViewItem id="9RF-vg-1nl"/>
@@ -514,7 +502,7 @@
         <!--Select Repo View Controller-->
         <scene sceneID="Ldw-Dc-d9n">
             <objects>
-                <viewController identifier="SelectRepoViewController" storyboardIdentifier="SelectRepoViewController" id="vlg-eU-6P5" customClass="SelectRepoViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController identifier="SelectRepoViewController" storyboardIdentifier="SelectRepoViewController" id="vlg-eU-6P5" customClass="SelectRepoViewController" customModule="Ribviz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="GWa-yv-s0t">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -584,7 +572,7 @@
         <!--Graph Container View Controller-->
         <scene sceneID="rIw-m3-sK7">
             <objects>
-                <viewController id="3Hl-1Q-Qya" customClass="GraphContainerViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Hl-1Q-Qya" customClass="GraphContainerViewController" customModule="Ribviz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="aW0-Ss-Yg0">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -647,7 +635,7 @@
         <!--Detail View Controller-->
         <scene sceneID="bbJ-JW-J29">
             <objects>
-                <viewController id="fcV-ZW-iW8" customClass="DetailViewController" customModule="Ribbit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fcV-ZW-iW8" customClass="DetailViewController" customModule="Ribviz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="xk1-JK-4Mi">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

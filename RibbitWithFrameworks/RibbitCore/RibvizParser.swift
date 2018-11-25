@@ -12,10 +12,11 @@ import Parser
 import Source
 import RxSwift
 
-public class RibbitParser {
+class RibvizParser {
 
-    let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
-    let parser = BuilderParser()
+    private let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
+    private let builderParser = BuilderParser()
+    private let componentParser = ComponentParser()
 
     private let progressSubject = PublishSubject<Double>()
     private let progressFileSubject = PublishSubject<String>()
@@ -23,7 +24,7 @@ public class RibbitParser {
     let progress: Observable<Double>
     let progressFile: Observable<String>
 
-    public init() {
+    init() {
         progress = progressSubject.asObservable()
         progressFile = progressFileSubject.asObservable()
     }
@@ -39,6 +40,7 @@ public class RibbitParser {
         return levelOrderBuilders
     }
 
+    // MARK: - Private
     private func extractBuilders(from path: URL) -> [Builder] {
         var builders = [Builder]()
         var totalfileCount = 0
@@ -47,7 +49,7 @@ public class RibbitParser {
         // First enumeration to establish how many files there are
         if let countEnumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in return true }) {
             for case let fileURL as URL in countEnumerator {
-                if fileURL.path.contains("Builder.swift") {
+                if fileURL.path.contains("Builder.swift") || fileURL.path.contains("Component.swift") {
                     totalfileCount = totalfileCount + 1
                 }
             }
@@ -62,30 +64,38 @@ public class RibbitParser {
             return true
         }) {
             for case let fileURL as URL in enumerator {
+
+                guard fileURL.path.contains("Builder.swift") || fileURL.path.contains("Component.swift") else {
+                    continue
+                }
+
+                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
+                    progressFileSubject.onNext(String(fileSubstring))
+                }
+
                 if fileURL.path.contains("Builder.swift") {
 
-                    if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
-                        progressFileSubject.onNext(String(fileSubstring))
+                    var parsedBuilders: [ Builder ]?
+                    do {
+                        parsedBuilders = try self.builderParser.parse(fileURL: fileURL)
+                    } catch {
+                        print(error)
                     }
 
-                    DispatchQueue.global(qos: .userInitiated).async {
-                        var parsedBuilders: [ Builder ]?
-                        do {
-                            parsedBuilders = try self.parser.parse(fileURL: fileURL)
-                        } catch {
-                            print(error)
-                        }
-
-                        DispatchQueue.main.async {
-                            if let parsedBuilders = parsedBuilders {
-                                builders.append(contentsOf: parsedBuilders)
-                            }
-                            currentFileIndex = currentFileIndex + 1
-                            let progress = Double(currentFileIndex) / Double(totalfileCount)
-
-                            self.progressSubject.onNext(progress)
-                        }
+                    if let parsedBuilders = parsedBuilders {
+                        builders.append(contentsOf: parsedBuilders)
                     }
+
+                } else if fileURL.path.contains("Component.swift") {
+                    print("fileURL: \(fileURL)")
+                    print("Component")
+                }
+
+                DispatchQueue.main.async {
+                    currentFileIndex = currentFileIndex + 1
+                    let progress = Double(currentFileIndex) / Double(totalfileCount)
+
+                    self.progressSubject.onNext(progress)
                 }
             }
         }
@@ -104,12 +114,17 @@ public class RibbitParser {
         }
 
         let sorted = nodeCountLookup.sorted { $0.value > $1.value }
-        if let rootName = sorted.first?.key,
-           let builder = nodeLookup[rootName] {
-            return builder.nodesAtEachDepth()
-        }
 
-        return nil
+        let rootBuilder = nodeLookup["RootBuilder"]
+        return rootBuilder?.nodesAtEachDepth()
+
+//        // TODO: Reinstate
+//        if let rootName = sorted.first?.key,
+//           let builder = nodeLookup[rootName] {
+//            return builder.nodesAtEachDepth()
+//        }
+//
+//        return nil
     }
 
     private func createHierarchy(from builders: [Builder]) -> [Builder] {

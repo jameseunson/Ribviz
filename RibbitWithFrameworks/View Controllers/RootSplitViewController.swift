@@ -11,10 +11,14 @@ import Cocoa
 
 protocol RootSplitViewControllable: class {
     func filterVisibleGraphBy(_ query: String)
+    func updateDisplayMode(_ mode: DisplayMode)
     func closeProject()
+    func didAttemptClose()
+
+    var shouldAllowClose: Bool { get }
 }
 
-class RootSplitViewController: NSSplitViewController, GraphViewControllerListener, RootSplitViewControllable {
+class RootSplitViewController: NSSplitViewController, GraphContainerViewControllerListener, RootSplitViewControllable {
 
     @IBOutlet weak var graphItem: NSSplitViewItem!
     @IBOutlet weak var detailItem: NSSplitViewItem!
@@ -30,15 +34,15 @@ class RootSplitViewController: NSSplitViewController, GraphViewControllerListene
         }
     }
 
-    func didSelectItem(dep: Dependency) {
+    func didSelectItem(dep: Dependency?) {
         if let viewController = detailItem.viewController as? DetailViewController {
             viewController.detailItem = dep
             viewController.listener = self
         }
     }
 
-    func didUpdateSelection(selection: Any) {
-        // TODO:
+    func updateDisplayMode(_ mode: DisplayMode) {
+        graphContainerController?.updateDisplayMode(mode)
     }
 
     // MARK: - RootSplitViewControllable
@@ -48,6 +52,14 @@ class RootSplitViewController: NSSplitViewController, GraphViewControllerListene
 
     func closeProject() {
         graphContainerController?.closeProject()
+    }
+
+    func didAttemptClose() {
+        graphContainerController?.didAttemptClose()
+    }
+
+    var shouldAllowClose: Bool {
+        return graphContainerController?.shouldAllowClose ?? false
     }
 }
 

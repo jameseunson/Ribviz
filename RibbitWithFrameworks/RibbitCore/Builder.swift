@@ -102,7 +102,7 @@ public class Builder: CustomDebugStringConvertible {
             if let function = item.functionCallExpression {
 
                 if item.displayText.contains("Supplier") {
-                    print("Supplier")
+                    print("Supplier: \(item.displayText)")
                 }
 
                 if function.postfixExpression.description.contains("Builder"),

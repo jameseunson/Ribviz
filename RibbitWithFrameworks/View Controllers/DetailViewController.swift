@@ -31,21 +31,27 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
 
     var detailItem: Dependency? {
         didSet {
-            guard let detailItem = detailItem else {
-                return
-            }
-            if case let AST.ProtocolDeclaration.Member.property(member) = detailItem.dependency {
-                 titleLabel.stringValue = member.typeAnnotation.type.textDescription
+            if let detailItem = detailItem {
+                if case let AST.ProtocolDeclaration.Member.property(member) = detailItem.dependency {
+                    titleLabel.stringValue = member.typeAnnotation.type.textDescription
 
-            } else if let built = detailItem.builtProtocol {
-                titleLabel.stringValue = built.textDescription
-            }
-            subtitleLabel.stringValue = detailItem.builder.name
-            tableView.reloadData()
+                } else if let built = detailItem.builtProtocol {
+                    titleLabel.stringValue = built.textDescription
+                }
+                subtitleLabel.stringValue = detailItem.builder.name
+                tableView.reloadData()
 
-            titleLabel.isHidden = false
-            subtitleLabel.isHidden = false
-            depButton.isHidden = false
+                titleLabel.isHidden = false
+                subtitleLabel.isHidden = false
+                depButton.isHidden = false
+
+            } else {
+                titleLabel.isHidden = true
+                subtitleLabel.isHidden = true
+                depButton.isHidden = true
+
+                tableView.reloadData()
+            }
         }
     }
 

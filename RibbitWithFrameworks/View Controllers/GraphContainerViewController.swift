@@ -16,84 +16,127 @@ protocol GraphContainerViewControllable: class {
     func filterVisibleGraphBy(query: String)
     func closeProject()
     func showFilteredGraph(dep: Dependency)
+    func updateDisplayMode(_ mode: DisplayMode)
+    func didAttemptClose()
+
+    var shouldAllowClose: Bool { get }
 }
 
-class GraphContainerViewController: NSViewController, GraphContainerViewControllable, SelectRepoViewControllerListener {
-    
+protocol GraphContainerViewControllerListener: class {
+    func didSelectItem(dep: Dependency?)
+}
+
+protocol GraphControllerProviding: class {
+    var graphControllers: [GraphViewController] { get }
+    var visibleGraphViewController: GraphViewController? { get set }
+}
+
+final class GraphControllerProvider: GraphControllerProviding {
+    var graphControllers: [GraphViewController]
+    var visibleGraphViewController: GraphViewController?
+    init() {
+        self.graphControllers = [ GraphViewController ]()
+    }
+}
+
+class GraphContainerViewController: NSViewController, GraphContainerViewControllable, SelectRepoViewControllerListener, GraphContainerTabsControlDataSourceListener {
+
+    weak var listener: GraphContainerViewControllerListener?
+
     @IBOutlet weak var tabsControl: TabsControl!
     @IBOutlet weak var contentView: NSView!
 
-    private let parser: RibbitParser
+    private let parser: RibvizParser
     private let fileSystemHelper: RepoFileSystemHelper
+
+    private let tabsDelegate: GraphContainerTabsControlDelegate
+    private let tabsDataSource: GraphContainerTabsControlDataSource
+    private var tabsTheme: RibVizTabTheme
+
+    private let graphControllerProvider: GraphControllerProvider
+
     private var builders: [[Builder]] = [[Builder]]()
 
-    private var graphs = [ Graph ]()
-    private var graphControllers = [ GraphViewController ]()
-    @IBOutlet weak var loadingView: NSProgressIndicator!
-
-    private var visibleGraphViewController: GraphViewController!
     private var selectRepoViewController: SelectRepoViewController!
-
     private let disposeBag = DisposeBag()
 
-    weak var listener: GraphViewControllerListener?
-
+    @IBOutlet weak var loadingView: NSProgressIndicator!
     @IBOutlet weak var tabsControlHeight: NSLayoutConstraint!
 
     required init?(coder: NSCoder) {
-        parser = RibbitParser()
+        parser = RibvizParser()
         fileSystemHelper = RepoFileSystemHelper()
+        graphControllerProvider = GraphControllerProvider()
+
+        tabsDelegate = GraphContainerTabsControlDelegate(graphControllerProvider: graphControllerProvider)
+        tabsDataSource = GraphContainerTabsControlDataSource(graphControllerProvider: graphControllerProvider)
+        tabsTheme = RibVizTabTheme()
+
         super.init(coder: coder)
     }
 
     override func viewDidLoad() {
-        tabsControl.dataSource = self
-        tabsControl.delegate = self
-        tabsControl.style = SafariStyle()
+
+        RibVizTabTheme.isDarkMode = contentView.isDarkMode
+        tabsDataSource.listener = self
+
+        tabsControl.dataSource = tabsDataSource
+        tabsControl.delegate = tabsDelegate
+
+        tabsControl.style = SafariStyle(theme: tabsTheme)
         didUpdateTabs()
 
-        if let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SelectRepoViewController")) as? SelectRepoViewController {
+        if let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+            .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SelectRepoViewController")) as? SelectRepoViewController {
 
             controller.listener = self
             selectRepoViewController = controller
         }
 
+        // Find security scoped bookmark for target project directory
         if let url = fileSystemHelper.loadURLBookmark() {
+            loadingView.isHidden = false
             loadGraph(url: url)
 
         } else {
+            loadingView.isHidden = true
+
+            // If non-existent, overlay view controller soliciting
+            // user to provide target project directory
             displaySelectRepoController()
         }
     }
 
     private func addGraph(dep: Dependency? = nil) {
 
-        if let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "GraphViewController")) as? GraphViewController {
-
-            controller.builders = builders
-            controller.filterDependency = dep
-
-            addChildViewController(controller)
-            contentView.addSubview(controller.view)
-            controller.view.snp.makeConstraints { (maker) in
-                maker.edges.equalToSuperview()
-            }
-
-            controller.listener = self
-
-            graphControllers.append(controller)
-            graphs.append(controller.graph)
-
-            tabsControl.reloadTabs()
-            tabsControl.selectItemAtIndex(graphs.count - 1)
-            didUpdateTabs()
-
-            // This ensures the intrinsicContentSize of GraphView is available
-            // prior to setting the NSScrollView document size.
-            // Probably a better way of doing this.
-            controller.graphView.layoutSubtreeIfNeeded()
-            controller.view.layoutSubtreeIfNeeded()
+        guard let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "GraphViewController")) as? GraphViewController else {
+            return
         }
+
+        controller.builders = builders
+        controller.filterDependency = dep
+
+        addChildViewController(controller)
+        contentView.addSubview(controller.view)
+        controller.view.snp.makeConstraints { (maker) in
+            maker.edges.equalToSuperview()
+        }
+
+        controller.listener = self
+        graphControllerProvider.graphControllers.append(controller)
+
+        tabsControl.reloadTabs()
+
+        let selectedIndex = graphControllerProvider.graphControllers.count-1
+        tabsControl.selectItemAtIndex(selectedIndex)
+
+        didUpdateTabs()
+
+        // This ensures the intrinsicContentSize of GraphView is available
+        // prior to setting the NSScrollView document size.
+        // Probably a better way of doing this.
+        controller.graphView.layoutSubtreeIfNeeded()
+        controller.view.layoutSubtreeIfNeeded()
     }
 
     private func loadGraph(url: URL?) {
@@ -117,6 +160,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
                 }
 
                 DispatchQueue.main.async {
+                    self.loadingView.isHidden = true
                     self.addGraph()
                 }
             }
@@ -145,6 +189,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
             .subscribe(onNext: { (url: URL?) in
 
                 if let url = url {
+                    self.loadingView.isHidden = false
                     self.loadGraph(url: url)
                 }
 
@@ -158,21 +203,39 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
     }
 
     private func displayGenericError() {
-        NSAlert.displayError(messageText: "Error selecting directory", informativeText: "Specified directory could not be opened. Please check your permissions and try again.")
+        NSAlert.displayError(messageText: "Error selecting directory",
+                             informativeText: "Specified directory could not be opened. Please check your permissions and try again.")
     }
 
     // MARK: - GraphContainerViewControllable
+    var shouldAllowClose: Bool {
+        return graphControllerProvider.graphControllers.count == 1
+    }
+
     func filterVisibleGraphBy(query: String) {
-        visibleGraphViewController.filterVisibleGraphBy(query: query)
+        graphControllerProvider.visibleGraphViewController?.filterVisibleGraphBy(query: query)
     }
 
     func closeProject() {
+
+        graphControllerProvider.graphControllers = []
+        graphControllerProvider.visibleGraphViewController = nil
+
+        tabsControl.reloadTabs()
+        didUpdateTabs()
+
+        loadingView.doubleValue = 0
+
+        listener?.didSelectItem(dep: nil)
+
         let result = fileSystemHelper.removeBookmark()
         guard result else {
             if let urlString = fileSystemHelper.loadURLBookmark()?.absoluteString {
-                NSAlert.displayError(messageText: "Error closing project", informativeText: "Please check file permissions for \(urlString) and try again.")
+                NSAlert.displayError(messageText: "Error closing project",
+                                     informativeText: "Please check file permissions for \(urlString) and try again.")
             } else {
-                NSAlert.displayError(messageText: "Error closing project", informativeText: "Please check your file permissions and try again.")
+                NSAlert.displayError(messageText: "Error closing project",
+                                     informativeText: "Please check your file permissions and try again.")
             }
             return
         }
@@ -184,109 +247,52 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
         addGraph(dep: dep)
     }
 
-    // MARK: - Target Action
-    @objc func closeTab(sender: NSMenuItem) {
-        print("closeTab")
+    func updateDisplayMode(_ mode: DisplayMode) {
 
-        let controller = graphControllers[sender.tag]
+    }
 
-        controller.removeFromParentViewController()
-        controller.view.removeFromSuperview()
-
-        if let index = graphControllers.index(of: controller) {
-            graphControllers.remove(at: index)
+    func didAttemptClose() {
+        guard !shouldAllowClose,
+            let visibleViewController = graphControllerProvider.visibleGraphViewController else {
+            return
         }
+        print("didAttemptClose")
 
-        // TODO: Remove graph
-        tabsControl.reloadTabs()
-        tabsControl.selectItemAtIndex(graphControllers.count-1)
-        didUpdateTabs()
-    }
-
-    // MARK: - Private
-    func didUpdateTabs() {
-        let hideTabs = graphControllers.count <= 1
-
-        tabsControl.isHidden = hideTabs
-        tabsControlHeight.constant = hideTabs ? 0 : 30
-    }
-}
-
-extension GraphContainerViewController: TabsControlDelegate {
-    func tabsControlDidChangeSelection(_ control: TabsControl, item: AnyObject) {
-
-        let index = graphs.index { (graph: Graph) -> Bool in
-            guard let item = item as? Graph else {
-                return false
-            }
-            return graph === item
+        let index = graphControllerProvider.graphControllers.index { (graphViewController: GraphViewController) -> Bool in
+            return graphViewController === visibleViewController
         }
         guard let idx = index else {
             return
         }
-
-        var i = 0
-        for controller in graphControllers {
-            if i == idx {
-                controller.view.isHidden = false
-                visibleGraphViewController = controller
-
-            } else {
-                controller.view.isHidden = true
-            }
-
-            i = i + 1
-        }
-    }
-}
-
-extension GraphContainerViewController: TabsControlDataSource {
-    func tabsControlNumberOfTabs(_ control: TabsControl) -> Int {
-        return graphControllers.count
+        closeTab(index: idx)
     }
 
-    func tabsControl(_ control: TabsControl, titleForItem item: AnyObject) -> String {
-        if let graph = item as? Graph {
-            return graph.displayName
-        }
-        return "Unknown"
+    // MARK: - Private
+    func didUpdateTabs() {
+        let hideTabs = graphControllerProvider.graphControllers.count <= 1
+
+        tabsControl.isHidden = hideTabs
+        tabsControlHeight.constant = hideTabs ? 0 : 30
     }
 
-    func tabsControl(_ control: TabsControl, itemAtIndex index: Int) -> Swift.AnyObject {
-        return graphControllers[index].graph
-    }
+    // MARK: - GraphContainerTabsControlDataSourceListener
+    func closeTab(index: Int) {
+        let controller = graphControllerProvider.graphControllers[index]
 
-    func tabsControl(_ control: TabsControl, menuForItem item: AnyObject) -> NSMenu? {
-        guard let graph = item as? Graph else {
-            return nil
-        }
-        let index = graphs.index { (g: Graph) -> Bool in
-            return g === graph
-        }
-        guard let idx = index else {
-            return nil
+        controller.removeFromParentViewController()
+        controller.view.removeFromSuperview()
+
+        if let index = graphControllerProvider.graphControllers.index(of: controller) {
+            graphControllerProvider.graphControllers.remove(at: index)
         }
 
-        if idx == 0 {
-            return nil
-        }
+        tabsControl.reloadTabs()
 
-        let menu = NSMenu.init()
-        let menuItem = NSMenuItem.init(title: "Close Tab", action: #selector(closeTab(sender:)), keyEquivalent: "C")
-        menuItem.target = self
-        menuItem.isEnabled = true
-        menuItem.tag = idx
-        menu.addItem(menuItem)
+        let selectedIndex = graphControllerProvider.graphControllers.count-1
+        tabsControl.selectItemAtIndex(selectedIndex)
+        graphControllerProvider.visibleGraphViewController = graphControllerProvider.graphControllers[selectedIndex]
 
-        return menu
-    }
-
-    func tabsControl(_ control: TabsControl, iconForItem item: AnyObject) -> NSImage? {
-        return nil
-    }
-
-    func tabsControl(_ control: TabsControl, titleAlternativeIconForItem item: AnyObject) -> NSImage? {
-        return nil
+        didUpdateTabs()
     }
 }
 
@@ -295,5 +301,16 @@ class TabObject {}
 extension GraphContainerViewController: GraphViewControllerListener {
     func didSelectItem(dep: Dependency) {
         listener?.didSelectItem(dep: dep)
+    }
+}
+
+extension NSView {
+    var isDarkMode: Bool {
+        if #available(OSX 10.14, *) {
+            if effectiveAppearance.name == .darkAqua {
+                return true
+            }
+        }
+        return false
     }
 }

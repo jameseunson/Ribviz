@@ -15,23 +15,14 @@ enum BuilderParserError: Error {
     case parserError(String)
 }
 
-class BuilderParser {
+class BuilderParser: BaseParser {
 
     func parse(fileURL: URL) throws -> [Builder] {
-        let sourceFile = try SourceReader.read(at: fileURL.path.absolutePath)
-        let parser = Parser(source: sourceFile)
 
-        guard let name = fileURL.lastPathComponent.components(separatedBy: ".").first else {
-            throw BuilderParserError.parserError("Name doesn't follow expected format")
-        }
+        let topLevelDecl = try extractTopLevelDeclaration(fileURL: fileURL)
+        let filename = try extractFilename(fileURL: fileURL)
 
-        let topLevelDecl = try parser.parse()
-
-        // Establish parent/child hierarchy
-        let lexicalParentAssignment = LexicalParentAssignment()
-        lexicalParentAssignment.assign([topLevelDecl])
-
-        let initializerVisitor = BuilderVisitor(filename: name)
+        let initializerVisitor = BuilderVisitor(filename: filename)
         try initializerVisitor.traverse(topLevelDecl)
 
         var builders = [Builder]()
