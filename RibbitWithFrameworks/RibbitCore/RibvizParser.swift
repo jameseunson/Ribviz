@@ -15,14 +15,19 @@ import RxSwift
 class RibvizParser {
 
     private let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
+
     private let builderParser = BuilderParser()
     private let componentParser = ComponentParser()
+    private let pluginPointParser = PluginPointParser()
 
     private let progressSubject = PublishSubject<Double>()
     private let progressFileSubject = PublishSubject<String>()
 
     let progress: Observable<Double>
     let progressFile: Observable<String>
+
+    private var currentFileIndex = 0
+    private var totalFileCount = 0
 
     init() {
         progress = progressSubject.asObservable()
@@ -32,7 +37,17 @@ class RibvizParser {
     public func retrieveBuilders(url: URL) -> [[Builder]]? {
         var builders = [Builder]()
 
-        builders.append(contentsOf: extractBuilders(from: url.standardizedFileURL.resolvingSymlinksInPath()))
+        let url = url.standardizedFileURL.resolvingSymlinksInPath()
+        totalFileCount = determineFileCount(from: url)
+        progressSubject.onNext(0)
+
+        builders.append(contentsOf: extractBuilders(from: url))
+
+        // Extract non-core components and apply to corresponding builders
+        extractComponents(from: url, applyTo: builders)
+        extractPluginPoints(from: url)
+        extractPluginFactories(from: url)
+
         let hierarchicalBuilders = createHierarchy(from: builders)
 
         let levelOrderBuilders = createLevelOrderBuilders(from: hierarchicalBuilders)
@@ -43,17 +58,6 @@ class RibvizParser {
     // MARK: - Private
     private func extractBuilders(from path: URL) -> [Builder] {
         var builders = [Builder]()
-        var totalfileCount = 0
-        var currentFileIndex = 0
-
-        // First enumeration to establish how many files there are
-        if let countEnumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in return true }) {
-            for case let fileURL as URL in countEnumerator {
-                if fileURL.path.contains("Builder.swift") || fileURL.path.contains("Component.swift") {
-                    totalfileCount = totalfileCount + 1
-                }
-            }
-        }
 
         // Actually begin parsing, updating the progress value incrementally
         progressSubject.onNext(0)
@@ -64,10 +68,7 @@ class RibvizParser {
             return true
         }) {
             for case let fileURL as URL in enumerator {
-
-                guard fileURL.path.contains("Builder.swift") || fileURL.path.contains("Component.swift") else {
-                    continue
-                }
+                guard fileURL.path.contains("Builder.swift") else { continue }
 
                 if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
                     progressFileSubject.onNext(String(fileSubstring))
@@ -85,22 +86,115 @@ class RibvizParser {
                     if let parsedBuilders = parsedBuilders {
                         builders.append(contentsOf: parsedBuilders)
                     }
-
-                } else if fileURL.path.contains("Component.swift") {
-                    print("fileURL: \(fileURL)")
-                    print("Component")
                 }
-
-                DispatchQueue.main.async {
-                    currentFileIndex = currentFileIndex + 1
-                    let progress = Double(currentFileIndex) / Double(totalfileCount)
-
-                    self.progressSubject.onNext(progress)
-                }
+                incrementFileCount()
             }
         }
 
         return builders
+    }
+
+    private func extractComponents(from path: URL, applyTo builders: [Builder]) {
+
+        if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
+            print("directoryEnumerator error ast \(url): ", error)
+
+            return true
+        }) {
+            for case let fileURL as URL in enumerator {
+                guard fileURL.path.contains("NonCoreComponent.swift") else { continue }
+
+                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
+                    progressFileSubject.onNext(String(fileSubstring))
+                }
+
+                if fileURL.path.contains("NonCoreComponent.swift") {
+                    do {
+                        try self.componentParser.parse(fileURL: fileURL, applyTo: builders)
+                    } catch {
+                        print(error)
+                    }
+                }
+                incrementFileCount()
+            }
+        }
+    }
+
+    private func extractPluginPoints(from path: URL) {
+        if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
+            print("directoryEnumerator error ast \(url): ", error)
+
+            return true
+        }) {
+            for case let fileURL as URL in enumerator {
+                guard fileURL.path.contains("PluginPoint.swift") else { continue }
+
+                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
+                    progressFileSubject.onNext(String(fileSubstring))
+                }
+
+                if fileURL.path.contains("PluginPoint") {
+                    do {
+                        try self.pluginPointParser.parse(fileURL: fileURL)
+                    } catch {
+                        print(error)
+                    }
+                }
+                incrementFileCount()
+            }
+        }
+    }
+
+    private func extractPluginFactories(from path: URL) {
+        if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
+            print("directoryEnumerator error ast \(url): ", error)
+
+            return true
+        }) {
+            for case let fileURL as URL in enumerator {
+                guard fileURL.path.contains("PluginFactory") else { continue }
+
+                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
+                    progressFileSubject.onNext(String(fileSubstring))
+                }
+
+                if fileURL.path.contains("PluginFactory") {
+                    print(fileURL)
+//                    do {
+//                        try self.componentParser.parse(fileURL: fileURL, applyTo: builders)
+//                    } catch {
+//                        print(error)
+//                    }
+                }
+                incrementFileCount()
+            }
+        }
+    }
+
+    private func determineFileCount(from path: URL) -> Int {
+
+        var totalFileCount = 0
+
+        // First enumeration to establish how many files there are
+        if let countEnumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in return true }) {
+            for case let fileURL as URL in countEnumerator {
+                if fileURL.path.contains("Builder.swift") ||
+                    fileURL.path.contains("Component.swift") ||
+                    fileURL.path.contains("PluginPoint") ||
+                    fileURL.path.contains("PluginFactory") {
+                    totalFileCount = totalFileCount + 1
+                }
+            }
+        }
+
+        return totalFileCount
+    }
+
+    private func incrementFileCount() {
+        DispatchQueue.main.async {
+            self.currentFileIndex = self.currentFileIndex + 1
+            self.progressSubject.onNext(Double(self.currentFileIndex) / Double(self.totalFileCount))
+        }
     }
 
     private func createLevelOrderBuilders(from builders: [Builder]) -> [[Builder]]? {
@@ -113,7 +207,7 @@ class RibvizParser {
             nodeLookup[node.name] = node
         }
 
-        let sorted = nodeCountLookup.sorted { $0.value > $1.value }
+//        let sorted = nodeCountLookup.sorted { $0.value > $1.value }
 
         let rootBuilder = nodeLookup["RootBuilder"]
         return rootBuilder?.nodesAtEachDepth()

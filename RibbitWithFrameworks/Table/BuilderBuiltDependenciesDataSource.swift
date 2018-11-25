@@ -21,6 +21,7 @@ class BuilderBuiltDependenciesDataSource: NSObject, NSTableViewDataSource {
         if let filteredDependency = filteredDependency {
             return dependenciesFilteredBy(filteredDependency).count
         } else {
+//            return min(builder.builtDependencies.count, 10)
             return builder.builtDependencies.count
         }
     }

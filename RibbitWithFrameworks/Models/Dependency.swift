@@ -8,6 +8,11 @@
 
 import AST
 
+public enum DependencyScope {
+    case core
+    case nonCore
+}
+
 public enum DependencyType {
     case builtDependency
     case requiredDependency
@@ -22,6 +27,7 @@ public final class Dependency: CustomDebugStringConvertible {
     public var builtIn: Builder?
 
     public let type: DependencyType
+    public let scope: DependencyScope
 
     public var functionCallExpression: FunctionCallExpression?
     public var protocolVariable: ProtocolDeclaration.Member?
@@ -48,23 +54,24 @@ public final class Dependency: CustomDebugStringConvertible {
         }
     }
 
-    init(builder: Builder, dependency: Any, usedIn: [Builder]? = nil, builtIn: Builder? = nil, type: DependencyType) {
+    init(builder: Builder, dependency: Any, usedIn: [Builder]? = nil, builtIn: Builder? = nil, type: DependencyType, scope: DependencyScope = .core) {
         self.builder = builder
         self.dependency = dependency
         self.usedIn = usedIn
         self.builtIn = builtIn
         self.type = type
+        self.scope = scope
     }
 
-    convenience init(builder: Builder, functionCall: FunctionCallExpression, usedIn: [Builder]? = nil, builtIn: Builder? = nil) {
-        self.init(builder: builder, dependency: functionCall, usedIn: usedIn, builtIn: builder, type: .builtDependency)
+    convenience init(builder: Builder, functionCall: FunctionCallExpression, usedIn: [Builder]? = nil, builtIn: Builder? = nil, scope: DependencyScope = .core) {
+        self.init(builder: builder, dependency: functionCall, usedIn: usedIn, builtIn: builder, type: .builtDependency, scope: scope)
         self.functionCallExpression = functionCall
 
         extractProtocolForBuiltDependency()
     }
 
-    convenience init(builder: Builder, protocolVariable: ProtocolDeclaration.Member, usedIn: [Builder]? = nil, builtIn: Builder? = nil) {
-        self.init(builder: builder, dependency: protocolVariable, usedIn: usedIn, builtIn: builder, type: .requiredDependency)
+    convenience init(builder: Builder, protocolVariable: ProtocolDeclaration.Member, usedIn: [Builder]? = nil, builtIn: Builder? = nil, scope: DependencyScope = .core) {
+        self.init(builder: builder, dependency: protocolVariable, usedIn: usedIn, builtIn: builder, type: .requiredDependency, scope: scope)
         self.protocolVariable = protocolVariable
     }
 
@@ -77,6 +84,7 @@ public final class Dependency: CustomDebugStringConvertible {
         }
 
         // Hack to filter out dependencies we're not interested in
+        // TODO: Fix
         if functionCallExpression.textDescription.contains("Builder(") ||
             functionCallExpression.textDescription.contains("Component(") ||
             functionCallExpression.textDescription.contains("ViewController(") ||

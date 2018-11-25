@@ -248,7 +248,7 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
     }
 
     func updateDisplayMode(_ mode: DisplayMode) {
-
+        
     }
 
     func didAttemptClose() {

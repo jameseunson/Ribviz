@@ -18,7 +18,7 @@
 		9889E80D214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */; };
 		9889E80E214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E80C214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift */; };
 		9889E81B214DFE5C009B5E34 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E817214DFE5B009B5E34 /* Builder.swift */; };
-		9889E81C214DFE5C009B5E34 /* BuilderVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */; };
+		9889E81C214DFE5C009B5E34 /* PresidioVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E818214DFE5B009B5E34 /* PresidioVisitor.swift */; };
 		9889E81D214DFE5C009B5E34 /* BuilderParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E819214DFE5B009B5E34 /* BuilderParser.swift */; };
 		9889E81E214DFE5C009B5E34 /* RibvizParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E81A214DFE5C009B5E34 /* RibvizParser.swift */; };
 		9889E821214FFCC0009B5E34 /* SelectRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9889E820214FFCC0009B5E34 /* SelectRepoViewController.swift */; };
@@ -32,11 +32,12 @@
 		98CD142A21AA1DD70027021E /* RootWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142921AA1DD70027021E /* RootWindowDelegate.swift */; };
 		98CD142C21AA276B0027021E /* RibVizTabTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142B21AA276B0027021E /* RibVizTabTheme.swift */; };
 		98CD142E21AA312B0027021E /* ComponentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142D21AA312B0027021E /* ComponentParser.swift */; };
-		98CD143021AA31530027021E /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142F21AA31530027021E /* Component.swift */; };
 		98CD143221AA31A70027021E /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143121AA31A70027021E /* BaseParser.swift */; };
-		98CD143421AA329C0027021E /* ComponentVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143321AA329C0027021E /* ComponentVisitor.swift */; };
 		98CD143621AA33720027021E /* ComponentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143521AA33720027021E /* ComponentParserTests.swift */; };
 		98CD143821AA337C0027021E /* BuilderParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143721AA337C0027021E /* BuilderParserTests.swift */; };
+		98CD143A21AA42350027021E /* PresidioVisitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143921AA42350027021E /* PresidioVisitorTests.swift */; };
+		98CD143E21AA7C780027021E /* PluginPointParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143D21AA7C780027021E /* PluginPointParser.swift */; };
+		98CD144021AA7C810027021E /* PluginFactoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143F21AA7C810027021E /* PluginFactoryParser.swift */; };
 		98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F221443F9C00597F9C /* AppDelegate.swift */; };
 		98E4E1F521443F9C00597F9C /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F421443F9C00597F9C /* GraphViewController.swift */; };
 		98E4E1F721443F9D00597F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E4E1F621443F9D00597F9C /* Assets.xcassets */; };
@@ -121,7 +122,7 @@
 		9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TypeInheritanceClause+Extensions.swift"; sourceTree = "<group>"; };
 		9889E80C214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Builder+LevelOrderTraversal.swift"; sourceTree = "<group>"; };
 		9889E817214DFE5B009B5E34 /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Builder.swift; path = RibbitWithFrameworks/RibbitCore/Builder.swift; sourceTree = SOURCE_ROOT; };
-		9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderVisitor.swift; path = RibbitWithFrameworks/RibbitCore/BuilderVisitor.swift; sourceTree = SOURCE_ROOT; };
+		9889E818214DFE5B009B5E34 /* PresidioVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresidioVisitor.swift; path = RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift; sourceTree = SOURCE_ROOT; };
 		9889E819214DFE5B009B5E34 /* BuilderParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BuilderParser.swift; path = RibbitWithFrameworks/RibbitCore/BuilderParser.swift; sourceTree = SOURCE_ROOT; };
 		9889E81A214DFE5C009B5E34 /* RibvizParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RibvizParser.swift; path = RibbitWithFrameworks/RibbitCore/RibvizParser.swift; sourceTree = SOURCE_ROOT; };
 		9889E81F214EF33F009B5E34 /* Ribbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ribbit.entitlements; sourceTree = "<group>"; };
@@ -135,11 +136,12 @@
 		98CD142921AA1DD70027021E /* RootWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowDelegate.swift; sourceTree = "<group>"; };
 		98CD142B21AA276B0027021E /* RibVizTabTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RibVizTabTheme.swift; sourceTree = "<group>"; };
 		98CD142D21AA312B0027021E /* ComponentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentParser.swift; sourceTree = "<group>"; };
-		98CD142F21AA31530027021E /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		98CD143121AA31A70027021E /* BaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
-		98CD143321AA329C0027021E /* ComponentVisitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentVisitor.swift; sourceTree = "<group>"; };
 		98CD143521AA33720027021E /* ComponentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentParserTests.swift; sourceTree = "<group>"; };
 		98CD143721AA337C0027021E /* BuilderParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderParserTests.swift; sourceTree = "<group>"; };
+		98CD143921AA42350027021E /* PresidioVisitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresidioVisitorTests.swift; sourceTree = "<group>"; };
+		98CD143D21AA7C780027021E /* PluginPointParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginPointParser.swift; sourceTree = "<group>"; };
+		98CD143F21AA7C810027021E /* PluginFactoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginFactoryParser.swift; sourceTree = "<group>"; };
 		98E4E1EF21443F9C00597F9C /* Ribviz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribviz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E4E1F221443F9C00597F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E4E1F421443F9C00597F9C /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +241,6 @@
 			children = (
 				9805D9C42144AB1700F7C737 /* Dependency.swift */,
 				986FA376214DAA8F00E7554A /* Graph.swift */,
-				98CD142F21AA31530027021E /* Component.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,6 +322,7 @@
 				98E4E20721443F9D00597F9C /* Info.plist */,
 				98CD143521AA33720027021E /* ComponentParserTests.swift */,
 				98CD143721AA337C0027021E /* BuilderParserTests.swift */,
+				98CD143921AA42350027021E /* PresidioVisitorTests.swift */,
 			);
 			path = RibbitWithFrameworksTests;
 			sourceTree = "<group>";
@@ -360,11 +362,12 @@
 			children = (
 				9889E817214DFE5B009B5E34 /* Builder.swift */,
 				9889E819214DFE5B009B5E34 /* BuilderParser.swift */,
-				9889E818214DFE5B009B5E34 /* BuilderVisitor.swift */,
+				9889E818214DFE5B009B5E34 /* PresidioVisitor.swift */,
 				9889E81A214DFE5C009B5E34 /* RibvizParser.swift */,
 				98CD142D21AA312B0027021E /* ComponentParser.swift */,
 				98CD143121AA31A70027021E /* BaseParser.swift */,
-				98CD143321AA329C0027021E /* ComponentVisitor.swift */,
+				98CD143D21AA7C780027021E /* PluginPointParser.swift */,
+				98CD143F21AA7C810027021E /* PluginFactoryParser.swift */,
 			);
 			name = RibbitCore;
 			path = ../../RibbitFrameworks/RibbitCore;
@@ -545,7 +548,6 @@
 				9889E81D214DFE5C009B5E34 /* BuilderParser.swift in Sources */,
 				98E4E28B214485CA00597F9C /* BuilderRequiredDependenciesDataSource.swift in Sources */,
 				9889E80D214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift in Sources */,
-				98CD143021AA31530027021E /* Component.swift in Sources */,
 				98CD142A21AA1DD70027021E /* RootWindowDelegate.swift in Sources */,
 				9889E82321500C73009B5E34 /* NSAlert+Compact.swift in Sources */,
 				98E4E1F521443F9C00597F9C /* GraphViewController.swift in Sources */,
@@ -557,7 +559,6 @@
 				9889E82621501C47009B5E34 /* RepoFileSystemHelper.swift in Sources */,
 				98E4E288214480BF00597F9C /* GraphView.swift in Sources */,
 				9805D9BE2144A6DB00F7C737 /* DetailViewController.swift in Sources */,
-				98CD143421AA329C0027021E /* ComponentVisitor.swift in Sources */,
 				9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */,
 				98E4E28E21449A2A00597F9C /* InteractiveConstraintBasedTextView.swift in Sources */,
 				98CD142E21AA312B0027021E /* ComponentParser.swift in Sources */,
@@ -565,12 +566,14 @@
 				9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */,
 				9889E80E214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift in Sources */,
 				98CD142C21AA276B0027021E /* RibVizTabTheme.swift in Sources */,
+				98CD143E21AA7C780027021E /* PluginPointParser.swift in Sources */,
 				98E4E27E2144805200597F9C /* BuilderTableViewRow.swift in Sources */,
 				9842112B21A0C41600AC1A4D /* NSColor+Inverted.swift in Sources */,
 				9889E81E214DFE5C009B5E34 /* RibvizParser.swift in Sources */,
+				98CD144021AA7C810027021E /* PluginFactoryParser.swift in Sources */,
 				98E4E2822144807200597F9C /* BuilderBuiltDependenciesDataSource.swift in Sources */,
 				98E4E2842144808F00597F9C /* ConstraintBasedTableView.swift in Sources */,
-				9889E81C214DFE5C009B5E34 /* BuilderVisitor.swift in Sources */,
+				9889E81C214DFE5C009B5E34 /* PresidioVisitor.swift in Sources */,
 				986FA377214DAA8F00E7554A /* Graph.swift in Sources */,
 				98E4E27C2144803800597F9C /* ConstraintBasedTextView.swift in Sources */,
 				98E4E286214480A800597F9C /* BuilderView.swift in Sources */,
@@ -586,6 +589,7 @@
 				98CD143621AA33720027021E /* ComponentParserTests.swift in Sources */,
 				98E4E20621443F9D00597F9C /* RibbitWithFrameworksTests.swift in Sources */,
 				98CD143821AA337C0027021E /* BuilderParserTests.swift in Sources */,
+				98CD143A21AA42350027021E /* PresidioVisitorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
