@@ -37,10 +37,6 @@ class PresidioVisitor : ASTVisitor {
             return true
         }
 
-        if filename.contains("ModeNonCoreComponent") {
-            print(filename)
-        }
-
         targetExpressions.append(fce)
 
         guard let parentClass = traverseToEnclosingClass(expr: fce),

@@ -155,14 +155,17 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
                 .disposed(by: self.disposeBag)
 
             DispatchQueue.global(qos: .userInitiated).async {
-                if let parsedBuilders = self.parser.retrieveBuilders(url: url) {
-                    self.builders = parsedBuilders
-                }
+                self.parser.retrieveBuilders(url: url).subscribe(onNext: { (builders: [[Builder]]?) in
+                    guard let builders = builders else {
+                        return
+                    }
 
-                DispatchQueue.main.async {
+                    self.builders = builders
+
                     self.loadingView.isHidden = true
                     self.addGraph()
-                }
+                })
+                .disposed(by: self.disposeBag)
             }
         }
     }
@@ -256,7 +259,6 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
             let visibleViewController = graphControllerProvider.visibleGraphViewController else {
             return
         }
-        print("didAttemptClose")
 
         let index = graphControllerProvider.graphControllers.index { (graphViewController: GraphViewController) -> Bool in
             return graphViewController === visibleViewController

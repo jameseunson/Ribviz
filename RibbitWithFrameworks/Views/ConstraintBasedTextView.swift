@@ -43,7 +43,7 @@ extension ConstraintBasedTextView {
     func applyDefault() {
         isEditable = false
         isSelectable = false
-        backgroundColor = NSColor.clear
+        backgroundColor = NSColor.windowBackgroundColor // This is intentional as a clear background is a massive performance hit
         textContainer?.maximumNumberOfLines = 1
     }
 }

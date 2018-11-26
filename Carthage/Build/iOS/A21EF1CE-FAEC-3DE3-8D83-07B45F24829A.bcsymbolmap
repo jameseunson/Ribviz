@@ -1,0 +1,455 @@
+BCSymbolMap Version: 2.0
+__swift_FORCE_LOAD_$_swiftFoundation_$_RxBlocking
+__swift_FORCE_LOAD_$_swiftDarwin_$_RxBlocking
+__swift_FORCE_LOAD_$_swiftObjectiveC_$_RxBlocking
+__swift_FORCE_LOAD_$_swiftCoreFoundation_$_RxBlocking
+__swift_FORCE_LOAD_$_swiftDispatch_$_RxBlocking
+__swift_FORCE_LOAD_$_swiftCoreGraphics_$_RxBlocking
+___swift_reflection_version
+Apple LLVM version 10.0.0 (clang-1000.11.45.1)
+-emit-bc -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/AtomicInt~partial.swiftmodule -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Linux~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/AtomicInt~partial.swiftdoc -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Linux~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/AtomicInt.dia -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Linux.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/AtomicInt.d -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Linux.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/AtomicInt.bc -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Linux.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+<swift-imported-modules>
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift
+Apple Swift version 4.2 effective-4.1.50 (swiftlang-1000.11.37.1 clang-1000.11.45.1)
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift
+isFlagSet
+AtomicInt.swift
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform
+AtomicInt_Load
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxAtomic/include/RxAtomic.h
+decrement
+AtomicInt_Sub
+increment
+AtomicInt_Add
+init
+AtomicInt_Initialize
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift
+_globalinit_33_1F60DA86C84B27029121D0E75CB7DC8D_func0
+_globalinit_33_1F60DA86C84B27029121D0E75CB7DC8D_func1
+_$S10RxBlocking11RunLoopLockC07_calledC0So9AtomicIntavmytfU_
+_$S10RxBlocking11RunLoopLockC11_calledStopSo9AtomicIntavmytfU_
+_$S10RxBlocking11RunLoopLockC8_timeoutSdSgvmytfU_
+_$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_
+_$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_TA
+_$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_0A5Swift10Disposable_pyt_tcfU_
+_$S7RxSwift10Disposable_pIegr_ytAaB_pIegnr_TR
+_$SIeg_IeyB_TR
+_block_copy_helper
+_block_destroy_helper
+_$S10RxBlocking11RunLoopLockC4stopyyFyycfU_
+_$S10RxBlocking11RunLoopLockC4stopyyFyycfU_TA
+_block_copy_helper.1
+_block_destroy_helper.2
+_$SSo18CFRunLoopRunResultVMa
+___swift_memcpy4_4
+___swift_noop_void_return
+_$SSo18CFRunLoopRunResultVwet
+_$SSo18CFRunLoopRunResultVwst
+_$SSo18CFRunLoopRunResultVwug
+_$SSo18CFRunLoopRunResultVwup
+_$SSo18CFRunLoopRunResultVwui
+_$S7RxSwift0A5ErrorOACs0C0AAWl
+_$SSo12CFRunLoopRefaMa
+_$SSo9AtomicIntaMa
+_$SSdSgMa
+_$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_0A5Swift10Disposable_pyt_tcfU_TA
+_$S7RxSwift10Disposable_pIegr_ytAaB_pIegnr_TRTA
+___swift_destroy_boxed_opaque_existential_1
+_globalinit_33_1F60DA86C84B27029121D0E75CB7DC8D_token0
+_globalinit_33_1F60DA86C84B27029121D0E75CB7DC8D_token1
+_symbolic Ieg_
+_block_descriptor
+_block_descriptor.3
+_$SSo18CFRunLoopRunResultVML
+_$SSo18CFRunLoopRunResultVWV
+_$SSoMXM
+_$SSo18CFRunLoopRunResultVMn
+_$SSo18CFRunLoopRunResultVN
+_$S7RxSwift0A5ErrorOACs0C0AAWL
+_$S10RxBlockingMXM
+_$S10RxBlocking11RunLoopLockCML
+_$S10RxBlocking11RunLoopLockCMf
+_symbolic ____ 10RxBlocking11RunLoopLockC
+_symbolic So12CFRunLoopRefa
+_symbolic So9AtomicInta
+_symbolic SdSg
+_$S10RxBlocking11RunLoopLockCMF
+_$SSo12CFRunLoopRefaML
+_$SSo12CFRunLoopRefaMn
+_$SSo12CFRunLoopRefaN
+_$SSo9AtomicIntaML
+_$SSo9AtomicIntaMn
+_$SSo9AtomicIntaN
+_$SSdSgML
+_symbolic 7RxSwift10Disposable_pIegr_
+_$SSo12CFRunLoopRefaMF
+_$SSo9AtomicIntaMF
+_$SSo9AtomicIntaMB
+_objc_classes
+-emit-bc /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RunLoopLock~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RunLoopLock~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RunLoopLock.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RunLoopLock.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RunLoopLock.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift -private-discriminator _1F60DA86C84B27029121D0E75CB7DC8D
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift
+__swift_destroy_boxed_opaque_existential_1
+<compiler-generated>
+$S7RxSwift10Disposable_pIegr_ytAaB_pIegnr_TRTA
+objectdestroy.8
+$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_0A5Swift10Disposable_pyt_tcfU_TA
+objectdestroy.5
+$SSdSgMa
+$SSo9AtomicIntaMa
+$SSo12CFRunLoopRefaMa
+deinit
+RunLoopLock.swift
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking
+$S7RxSwift0A5ErrorOACs0C0AAWl
+$SSo18CFRunLoopRunResultVwui
+$SSo18CFRunLoopRunResultVwup
+$SSo18CFRunLoopRunResultVwug
+$SSo18CFRunLoopRunResultVwst
+$SSo18CFRunLoopRunResultVwet
+__swift_noop_void_return
+__swift_memcpy4_4
+$SSo18CFRunLoopRunResultVMa
+run
+block_destroy_helper.2
+block_copy_helper.1
+$S10RxBlocking11RunLoopLockC4stopyyFyycfU_TA
+$S10RxBlocking11RunLoopLockC4stopyyFyycfU_
+stop
+block_destroy_helper
+block_copy_helper
+$SIeg_IeyB_TR
+$S7RxSwift10Disposable_pIegr_ytAaB_pIegnr_TR
+$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_0A5Swift10Disposable_pyt_tcfU_
+$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_TA
+objectdestroy
+$S10RxBlocking11RunLoopLockC8dispatchyyyycFyycfU_
+dispatch
+$S10RxBlocking11RunLoopLockCMa
+_timeout.materialize
+_timeout.set
+_timeout.get
+$S10RxBlocking11RunLoopLockC8_timeoutSdSgvpfi
+_calledStop.materialize
+_calledStop.set
+_calledStop.get
+$S10RxBlocking11RunLoopLockC11_calledStopSo9AtomicIntavpfi
+_calledRun.materialize
+_calledRun.set
+_calledRun.get
+$S10RxBlocking11RunLoopLockC07_calledC0So9AtomicIntavpfi
+_currentRunLoop.get
+$S10RxBlocking14runLoopModeRawSo11CFStringRefavau
+globalinit_33_1F60DA86C84B27029121D0E75CB7DC8D_func1
+$S10RxBlocking11runLoopModeSo05CFRundE0avau
+globalinit_33_1F60DA86C84B27029121D0E75CB7DC8D_func0
+_$S10RxBlocking0B10ObservableVMi
+_$S10RxBlocking0B10ObservableVwCP
+_$S10RxBlocking0B10ObservableVwxx
+_$S10RxBlocking0B10ObservableVwcp
+_$S10RxBlocking0B10ObservableVwca
+___swift_memcpy24_8
+_$S10RxBlocking0B10ObservableVwta
+_$S10RxBlocking0B10ObservableVwet
+_$S10RxBlocking0B10ObservableVwst
+_$S10RxBlocking0B10ObservableVWV
+_$S10RxBlocking0B10ObservableVMI
+_$S10RxBlocking0B10ObservableVMP
+_symbolic ____ 10RxBlocking0B10ObservableV
+_symbolic 7RxSwift10ObservableCyxG
+_$S10RxBlocking0B10ObservableVMF
+-emit-bc /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift
+$S10RxBlocking0B10ObservableVMa
+$S10RxBlocking0B10ObservableVwst
+$S10RxBlocking0B10ObservableVwet
+$S10RxBlocking0B10ObservableVwta
+__swift_memcpy24_8
+$S10RxBlocking0B10ObservableVwca
+$S10RxBlocking0B10ObservableVwcp
+$S10RxBlocking0B10ObservableVwxx
+$S10RxBlocking0B10ObservableVwCP
+$S10RxBlocking0B10ObservableVMi
+BlockingObservable.swift
+source.get
+timeout.get
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA_
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA0_
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctF
+_$S10RxBlocking0B10ObservableV15elementsOrThrow33_0B722750ACA186F976F8768615F683CBLLySayxGAA26MaterializedSequenceResultOyxGKF
+_$S10RxBlocking26MaterializedSequenceResultOyxGlWOe
+_$SSayxGlWOh
+_$S10RxBlocking0B10ObservableV6singlexyKFSbxcfU_
+_$S10RxBlocking0B10ObservableV6singlexyKFSbxcfU_TA
+_$SxSglWOh
+_$S10RxBlocking26MaterializedSequenceResultOMi
+_$S10RxBlocking26MaterializedSequenceResultOwCP
+_$S10RxBlocking26MaterializedSequenceResultOyxGlWOy
+_$S10RxBlocking26MaterializedSequenceResultOwxx
+_$S10RxBlocking26MaterializedSequenceResultOwcp
+_$S10RxBlocking26MaterializedSequenceResultOwca
+___swift_memcpy16_8
+_$S10RxBlocking26MaterializedSequenceResultOwta
+_$S10RxBlocking26MaterializedSequenceResultOwet
+_$S10RxBlocking26MaterializedSequenceResultOwst
+_$S10RxBlocking26MaterializedSequenceResultOwug
+_$S10RxBlocking26MaterializedSequenceResultOwup
+_$S10RxBlocking26MaterializedSequenceResultOwui
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA1_SbxcfU_
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctF6$deferL_yylF
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_TA
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_y0A5Swift5EventOyxGcfU_
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_y0A5Swift5EventOyxGcfU_TA
+_$S7RxSwift5EventOyxGlWOc
+_$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA1_SbxcfU_TA
+_symbolic x
+_symbolic B0
+_$S10RxBlocking26MaterializedSequenceResultOWV
+_$S10RxBlocking26MaterializedSequenceResultOMI
+_$S10RxBlocking26MaterializedSequenceResultOMP
+_symbolic ____ 10RxBlocking26MaterializedSequenceResultO
+_symbolic SayxG8elements_t
+_symbolic SayxG8elements_s5Error_p5errort
+_$S10RxBlocking26MaterializedSequenceResultOMF
+_symbolic SayxG
+_symbolic s5Error_pSg
+_symbolic 10RxBlocking0B10ObservableVyxG
+_symbolic 7RxSwift26SingleAssignmentDisposableC
+_symbolic xSbs5Error_pIegndzo_
+_symbolic SayxGXb
+_symbolic SiSg
+_symbolic 10RxBlocking11RunLoopLockC
+_symbolic s5Error_pSgXb
+_symbolic 10RxBlocking26MaterializedSequenceResultO
+_$S10RxBlocking26MaterializedSequenceResultOMB
+-emit-bc /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable+Operators~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable+Operators~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable+Operators.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable+Operators.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/BlockingObservable+Operators.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift -private-discriminator _0B722750ACA186F976F8768615F683CB
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA1_SbxcfU_TA
+objectdestroy.14
+$S7RxSwift5EventOyxGlWOc
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_y0A5Swift5EventOyxGcfU_TA
+objectdestroy.11
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_y0A5Swift5EventOyxGcfU_
+BlockingObservable+Operators.swift
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_TA
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFyycfU_
+$defer
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA1_SbxcfU_
+objectdestroy.2
+$S10RxBlocking26MaterializedSequenceResultOMa
+$S10RxBlocking26MaterializedSequenceResultOwui
+$S10RxBlocking26MaterializedSequenceResultOwup
+$S10RxBlocking26MaterializedSequenceResultOwug
+$S10RxBlocking26MaterializedSequenceResultOwst
+$S10RxBlocking26MaterializedSequenceResultOwet
+$S10RxBlocking26MaterializedSequenceResultOwta
+__swift_memcpy16_8
+$S10RxBlocking26MaterializedSequenceResultOwca
+$S10RxBlocking26MaterializedSequenceResultOwcp
+$S10RxBlocking26MaterializedSequenceResultOwxx
+$S10RxBlocking26MaterializedSequenceResultOwCP
+$S10RxBlocking26MaterializedSequenceResultOMi
+materialize
+$SxSglWOh
+single
+$S10RxBlocking0B10ObservableV6singlexyKFSbxcfU_TA
+$S10RxBlocking0B10ObservableV6singlexyKFSbxcfU_
+last
+$SSayxGlWOh
+first
+elementsOrThrow
+materializeResult
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA0_
+$S10RxBlocking0B10ObservableV17materializeResult33_0B722750ACA186F976F8768615F683CBLL3max9predicateAA020MaterializedSequenceE0OyxGSiSg_SbxKctFfA_
+toArray
+_$S7RxSwift25ObservableConvertibleTypeP0A8BlockingE02toF07timeoutAD0fC0Vy1EQzGSdSg_tFfA_
+-emit-bc /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/ObservableConvertibleType+Blocking~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/ObservableConvertibleType+Blocking~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/ObservableConvertibleType+Blocking.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/ObservableConvertibleType+Blocking.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/ObservableConvertibleType+Blocking.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift
+toBlocking
+ObservableConvertibleType+Blocking.swift
+$S7RxSwift25ObservableConvertibleTypeP0A8BlockingE02toF07timeoutAD0fC0Vy1EQzGSdSg_tFfA_
+_$S10RxBlocking9ResourcesVMf
+_symbolic ____ 10RxBlocking9ResourcesV
+_$S10RxBlocking9ResourcesVMF
+-emit-bc /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Resources~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Resources~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Resources.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Resources.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Resources.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift
+$S10RxBlocking9ResourcesVMa
+Resources.swift
+total.get
+numberOfMapOperators.get
+numberOfSerialDispatchQueueObservables.get
+decrementTotal
+incrementTotal
+___swift_project_boxed_opaque_existential_0
+___swift_destroy_boxed_opaque_existential_0
+_$SypSgMa
+_$SypWOb
+_$SypSgML
+-emit-bc /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Darwin~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Darwin~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Darwin.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Darwin.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/Platform.Darwin.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift
+$SypWOb
+$SypSgMa
+getThreadLocalStorageValueForKey
+Platform.Darwin.swift
+__swift_destroy_boxed_opaque_existential_0
+__swift_project_boxed_opaque_existential_0
+setThreadLocalStorageValue
+_$S10RxBlocking13RecursiveLockCACycfcTo
+_$S10RxBlocking13RecursiveLockC4lockyyFTo
+_$S10RxBlocking13RecursiveLockC6unlockyyFTo
+_$S10RxBlocking13RecursiveLockCfDTo
+_swift_isaMask
+_$S10RxBlocking13RecursiveLockCML
+_$S10RxBlocking13RecursiveLockCMf
+_symbolic ____ 10RxBlocking13RecursiveLockC
+_symbolic So15NSRecursiveLockC
+_$S10RxBlocking13RecursiveLockCMF
+-emit-bc /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/AtomicInt.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Linux.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/RunLoopLock.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/BlockingObservable+Operators.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/ObservableConvertibleType+Blocking.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Resources.swift /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/Platform.Darwin.swift -primary-file /Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift -emit-module-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RecursiveLock~partial.swiftmodule -emit-module-doc-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RecursiveLock~partial.swiftdoc -serialize-diagnostics-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RecursiveLock.dia -emit-dependencies-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RecursiveLock.d -target arm64-apple-ios8.0 -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk -I /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -F /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos -application-extension -enable-testing -g -module-cache-path /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/ModuleCache.noindex -swift-version 4 -enforce-exclusivity=checked -Onone -D TRACE_RESOURCES -D DEBUG -debug-time-function-bodies -warn-long-expression-type-checking 100 -warn-long-function-bodies 100 -serialize-debugging-options -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-generated-files.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-own-target-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-all-non-framework-target-headers.hmap -Xcc -ivfsoverlay -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/all-product-headers.yaml -Xcc -iquote -Xcc /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/RxBlocking-project-headers.hmap -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/BuildProductsPath/Debug-iphoneos/include -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/arm64 -Xcc -I/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources -Xcc -DDEBUG=1 -Xcc -DTRACE_RESOURCES=1 -Xcc -working-directory/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift -module-name RxBlocking -o /Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/Objects-normal/arm64/RecursiveLock.bc -resource-dir /Applications/Xcode.10.0.0.10A255.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift
+/Users/jameseunson/Desktop/Ribbit/Carthage/Checkouts/RxSwift/RxBlocking/Platform/RecursiveLock.swift
+RecursiveLock.swift
+unlock
+lock
+$S10RxBlocking13RecursiveLockCMa
+Apple LLVM version 10.0.0 (clang-1000.11.45.2)
+/Users/jameseunson/Library/Caches/org.carthage.CarthageKit/DerivedData/10.0_10A255/RxSwift/4.4.0/Build/Intermediates.noindex/ArchiveIntermediates/RxBlocking-iOS/IntermediateBuildFilesPath/Rx.build/Debug-iphoneos/RxBlocking.build/DerivedSources/RxBlocking_vers.c
+__ZL15__ARCLite__loadv
+__ZL58__arclite_NSMutableDictionary__setObject_forKeyedSubscriptP19NSMutableDictionaryP13objc_selectorP11objc_objectS4_
+__ZL22add_image_hook_swiftV1PK11mach_headerl
+__ZL42__arclite_NSUndoManagerProxy_isKindOfClassP11objc_objectP13objc_selectorP10objc_class
+__ZL30__arclite_NSManagedObject_initP11objc_objectP13objc_selector
+__ZL41__arclite_NSManagedObject_allocWithEntityP11objc_objectP13objc_selectorS0_
+__ZL36__arclite_NSManagedObject_allocBatchP11objc_objectP13objc_selectorPS0_S0_j
+__ZL37__arclite_NSKKMS_fastIndexForKnownKeyP11objc_objectP13objc_selectorS0_
+__ZL28__arclite_NSKKMS_indexForKeyP11objc_objectP13objc_selectorS0_
+__ZL29__arclite_NSKKsD_objectForKeyP11objc_objectP13objc_selectorS0_
+__ZL35__arclite_NSKKsD_removeObjectForKeyP11objc_objectP13objc_selectorS0_
+__ZL33__arclite_NSKKsD_setObject_forKeyP11objc_objectP13objc_selectorS0_S0_
+__ZL41__arclite_NSKKsD_addEntriesFromDictionaryP11objc_objectP13objc_selectorP12NSDictionary
+__ZL28__arclite_objc_readClassPairP10objc_classPK15objc_image_info
+__ZL32__arclite_objc_allocateClassPairP10objc_classPKcm
+__ZL32__arclite_object_getIndexedIvarsP11objc_object
+__ZL23__arclite_objc_getClassPKc
+__ZL27__arclite_objc_getMetaClassPKc
+__ZL31__arclite_objc_getRequiredClassPKc
+__ZL26__arclite_objc_lookUpClassPKc
+__ZL26__arclite_objc_getProtocolPKc
+__ZL23__arclite_class_getNameP10objc_class
+__ZL26__arclite_protocol_getNameP8Protocol
+__ZL37__arclite_objc_copyClassNamesForImagePKcPj
+__ZL17transcribeMethodsP10objc_classP15glue_class_ro_t
+__ZL19transcribeProtocolsP10objc_classP15glue_class_ro_t
+__ZL20transcribePropertiesP10objc_classP15glue_class_ro_t
+__ZL14initialize_impP11objc_objectP13objc_selector
+__ZL18allocateMaybeSwiftP18glue_swift_class_tm
+__ZL22copySwiftV1MangledNamePKcb
+__ZL13demangledNamePKcb
+__ZL16scanMangledFieldRPKcS0_S1_Ri
+__ZL30arclite_uninitialized_functionv
+__ZL12cxxConstructP11objc_object
+__ZL20fixStringForCoreDataP11objc_object
+_OBJC_METACLASS_$___ARCLite__
+__ZL24OBJC_CLASS_$___ARCLite__
+__ZL31OBJC_METACLASS_RO_$___ARCLite__
+__non_lazy_classes
+__ZL27OBJC_CLASS_RO_$___ARCLite__
+__ZL11_class_name
+__ZL32OBJC_$_CLASS_METHODS___ARCLite__
+__ZL17_load_method_name
+__ZL17_load_method_type
+l_OBJC_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_LABEL_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_REFERENCE_$___ARCLiteKeyedSubscripting__
+__ZL30NSUndoManagerProxy_targetClass
+__ZL29original_NSManagedObject_init
+__ZL40original_NSManagedObject_allocWithEntity
+__ZL35original_NSManagedObject_allocBatch
+__ZL25NSMutableDictionary_class
+__ZL22NSConstantString_class
+__ZL14NSString_class
+__ZL36original_NSKKMS_fastIndexForKnownKey
+__ZL27original_NSKKMS_indexForKey
+__ZL28original_NSKKsD_objectForKey
+__ZL34original_NSKKsD_removeObjectForKey
+__ZL32original_NSKKsD_setObject_forKey
+__ZL40original_NSKKsD_addEntriesFromDictionary
+__ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+__ZGVZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+__ZL31original_objc_allocateClassPair
+__ZL31original_object_getIndexedIvars
+__ZL22original_objc_getClass
+__ZL26original_objc_getMetaClass
+__ZL30original_objc_getRequiredClass
+__ZL25original_objc_lookUpClass
+__ZL25original_objc_getProtocol
+__ZL22original_class_getName
+__ZL25original_protocol_getName
+__ZL36original_objc_copyClassNamesForImage
+__ZL12demangleLock
+__ZL9Demangled
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -fno-sanitize=vptr -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-objc-interface-ivars -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -D OBJC_OLD_DISPATCH_PROTOTYPES=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -Wno-semicolon-before-method-body -fembed-bitcode=all -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -Wno-error=incomplete-umbrella -Wno-error=invalid-ios-deployment-target -Wno-error=incomplete-umbrella -Wno-error=invalid-ios-deployment-target -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-71/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.o -mlinker-version=409.12
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-71/source/arclite.mm
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-71
+fixStringForCoreData
+cxxConstruct
+arclite_uninitialized_function
+scanMangledField
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.Internal.sdk/usr/include/_ctype.h
+__isctype
+demangledName
+copySwiftV1DemangledName
+copySwiftV1MangledName
+allocateMaybeSwift
+word_align
+isSwift
+initialize_imp
+transcribeProperties
+property_list_nth
+transcribeProtocols
+transcribeMethods
+data
+method_list_nth
+__arclite_objc_copyClassNamesForImage
+__arclite_protocol_getName
+__arclite_class_getName
+__arclite_objc_getProtocol
+__arclite_objc_lookUpClass
+__arclite_objc_getRequiredClass
+__arclite_objc_getMetaClass
+__arclite_objc_getClass
+__arclite_object_getIndexedIvars
+__arclite_objc_allocateClassPair
+metaclass
+__arclite_objc_readClassPair
+transcribeIvars
+ivar_list_nth
+max
+alignment
+ro
+fastFlags
+__arclite_NSKKsD_addEntriesFromDictionary
+__arclite_NSKKsD_setObject_forKey
+__arclite_NSKKsD_removeObjectForKey
+__arclite_NSKKsD_objectForKey
+__arclite_NSKKMS_indexForKey
+__arclite_NSKKMS_fastIndexForKnownKey
+__arclite_NSManagedObject_allocBatch
+__arclite_NSManagedObject_allocWithEntity
+__arclite_NSManagedObject_init
+__arclite_NSUndoManagerProxy_isKindOfClass
+add_image_hook_swiftV1
+patch_lazy_pointers
+patch_t<const char **(const char *, unsigned int *)>
+patch_t<const char *(Protocol *)>
+patch_t<const char *(Class)>
+patch_t<Protocol *(const char *)>
+patch_t<Class (const char *)>
+patch_t<void *(id)>
+patch_t<Class (Class, const char *, unsigned long)>
+patch_t<Class (Class, const objc_image_info *)>
+__arclite_NSMutableDictionary__setObject_forKeyedSubscript
+__ARCLite__load
+install_swiftV1
+replaceMethod
+install_dict_nil_value
+addOrReplaceMethod
+keyedGetter

@@ -182,6 +182,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 
+SWIFT_CLASS("_TtC10RxBlocking13RecursiveLock")
+@interface RecursiveLock : NSRecursiveLock
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)lock;
+- (void)unlock;
+@end
+
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

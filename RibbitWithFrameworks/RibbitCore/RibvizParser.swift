@@ -14,137 +14,199 @@ import RxSwift
 
 class RibvizParser {
 
+    private static let queueName = "com.uber.Ribviz.parserQueue"
+
     private let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
 
-    private let builderParser = BuilderParser()
     private let componentParser = ComponentParser()
     private let pluginPointParser = PluginPointParser()
 
     private let progressSubject = PublishSubject<Double>()
-    private let progressFileSubject = PublishSubject<String>()
 
     let progress: Observable<Double>
-    let progressFile: Observable<String>
+
+    private let parserQueue = DispatchQueue(label: RibvizParser.queueName, attributes: .concurrent)
+
+    private let builderGroup = DispatchGroup()
+    private let componentGroup = DispatchGroup()
+    private let pluginPointGroup = DispatchGroup()
+
+    private let disposeBag = DisposeBag()
 
     private var currentFileIndex = 0
     private var totalFileCount = 0
+    private var builders = [Builder]()
 
     init() {
         progress = progressSubject.asObservable()
-        progressFile = progressFileSubject.asObservable()
     }
 
-    public func retrieveBuilders(url: URL) -> [[Builder]]? {
-        var builders = [Builder]()
+    public func retrieveBuilders(url: URL) -> Observable<[[Builder]]?> {
+
+        let levelOrderBuildersSubject = PublishSubject<[[Builder]]?>()
 
         let url = url.standardizedFileURL.resolvingSymlinksInPath()
         totalFileCount = determineFileCount(from: url)
         progressSubject.onNext(0)
 
-        builders.append(contentsOf: extractBuilders(from: url))
+        extractBuilders(from: url)
+            .flatMapFirst { (builders: [Builder]) -> Observable<()> in
+                return self.extractComponents(from: url)
+            }
+            .flatMapFirst { (_: ()) -> Observable<()> in
+                return self.extractPluginPoints(from: url)
+            }
+            .subscribe(onNext: { _ in
 
-        // Extract non-core components and apply to corresponding builders
-        extractComponents(from: url, applyTo: builders)
-        extractPluginPoints(from: url)
-        extractPluginFactories(from: url)
+                // Extract non-core components and apply to corresponding builders
+//                self.extractPluginFactories(from: url)
 
-        let hierarchicalBuilders = createHierarchy(from: builders)
+                let hierarchicalBuilders = self.createHierarchy(from: self.builders)
+                let levelOrderBuilders = self.createLevelOrderBuilders(from: hierarchicalBuilders)
 
-        let levelOrderBuilders = createLevelOrderBuilders(from: hierarchicalBuilders)
+                levelOrderBuildersSubject.onNext(levelOrderBuilders)
+            })
+            .disposed(by: disposeBag)
 
-        return levelOrderBuilders
+        return levelOrderBuildersSubject.asObservable()
     }
 
-    // MARK: - Private
-    private func extractBuilders(from path: URL) -> [Builder] {
-        var builders = [Builder]()
+    // MARK: - Builders
 
-        // Actually begin parsing, updating the progress value incrementally
-        progressSubject.onNext(0)
+    func generateBuilderWorkItems(from path: URL) -> [DispatchWorkItem] {
+        var workItems = [DispatchWorkItem]()
 
-        if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
-            print("directoryEnumerator error ast \(url): ", error)
-
-            return true
-        }) {
-            for case let fileURL as URL in enumerator {
-                guard fileURL.path.contains("Builder.swift") else { continue }
-
-                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
-                    progressFileSubject.onNext(String(fileSubstring))
-                }
-
-                if fileURL.path.contains("Builder.swift") {
-
-                    var parsedBuilders: [ Builder ]?
-                    do {
-                        parsedBuilders = try self.builderParser.parse(fileURL: fileURL)
-                    } catch {
-                        print(error)
-                    }
-
-                    if let parsedBuilders = parsedBuilders {
-                        builders.append(contentsOf: parsedBuilders)
-                    }
-                }
-                incrementFileCount()
-            }
+        guard let enumerator = createEnumerator(from: path) else {
+            return workItems
         }
 
-        return builders
-    }
+        for case let fileURL as URL in enumerator {
+            guard fileURL.path.contains("Builder.swift") else { continue }
 
-    private func extractComponents(from path: URL, applyTo builders: [Builder]) {
+            let workItem = DispatchWorkItem {
+                self.builderGroup.enter()
 
-        if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
-            print("directoryEnumerator error ast \(url): ", error)
-
-            return true
-        }) {
-            for case let fileURL as URL in enumerator {
-                guard fileURL.path.contains("NonCoreComponent.swift") else { continue }
-
-                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
-                    progressFileSubject.onNext(String(fileSubstring))
+                let parser = BuilderParser()
+                var parsedBuilders: [ Builder ]?
+                do {
+                    parsedBuilders = try parser.parse(fileURL: fileURL)
+                } catch {
+                    print(error)
                 }
 
-                if fileURL.path.contains("NonCoreComponent.swift") {
-                    do {
-                        try self.componentParser.parse(fileURL: fileURL, applyTo: builders)
-                    } catch {
-                        print(error)
-                    }
+                if let parsedBuilders = parsedBuilders {
+                    self.builders.append(contentsOf: parsedBuilders)
                 }
-                incrementFileCount()
+
+                self.incrementFileCount()
+                self.builderGroup.leave()
             }
+            workItems.append(workItem)
         }
+
+        return workItems
     }
 
-    private func extractPluginPoints(from path: URL) {
-        if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
-            print("directoryEnumerator error ast \(url): ", error)
+    private func extractBuilders(from path: URL) -> Observable<[Builder]> {
 
-            return true
-        }) {
-            for case let fileURL as URL in enumerator {
-                guard fileURL.path.contains("PluginPoint.swift") else { continue }
+        let builderSubject = PublishSubject<[Builder]>()
 
-                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
-                    progressFileSubject.onNext(String(fileSubstring))
+        let workItems = generateBuilderWorkItems(from: path)
+        for item in workItems {
+            parserQueue.async(execute: item)
+        }
+
+        builderGroup.notify(queue: DispatchQueue.main) {
+            builderSubject.onNext(self.builders)
+        }
+
+        return builderSubject.asObservable()
+    }
+
+    // MARK: - Components
+   func generateComponentWorkItems(from path: URL) -> [DispatchWorkItem] {
+
+        var workItems = [DispatchWorkItem]()
+        guard let enumerator = createEnumerator(from: path) else { return workItems }
+
+        for case let fileURL as URL in enumerator {
+            guard fileURL.path.contains("NonCoreComponent.swift") else { continue }
+
+            let workItem = DispatchWorkItem {
+                self.componentGroup.enter()
+
+                do {
+                    try self.componentParser.parse(fileURL: fileURL, applyTo: self.builders)
+                } catch {
+                    print(error)
                 }
 
-                if fileURL.path.contains("PluginPoint") {
-                    do {
-                        try self.pluginPointParser.parse(fileURL: fileURL)
-                    } catch {
-                        print(error)
-                    }
-                }
-                incrementFileCount()
+                self.incrementFileCount()
+                self.componentGroup.leave()
             }
+            workItems.append(workItem)
         }
+
+        return workItems
     }
 
+    private func extractComponents(from path: URL) -> Observable<()> {
+
+        let componentSubject = PublishSubject<()>()
+
+        let workItems = generateComponentWorkItems(from: path)
+        for item in workItems {
+            parserQueue.async(execute: item)
+        }
+
+        componentGroup.notify(queue: DispatchQueue.main) {
+            componentSubject.onNext(())
+        }
+        return componentSubject.asObservable()
+    }
+
+    // MARK: - Plugin Points
+    func generatePluginPointWorkItems(from path: URL) -> [DispatchWorkItem] {
+
+        var workItems = [DispatchWorkItem]()
+        guard let enumerator = createEnumerator(from: path) else { return workItems }
+
+        for case let fileURL as URL in enumerator {
+            guard fileURL.path.contains("PluginPoint.swift") else { continue }
+
+            let workItem = DispatchWorkItem {
+                self.pluginPointGroup.enter()
+
+                do {
+                    try self.pluginPointParser.parse(fileURL: fileURL)
+                } catch {
+                    print(error)
+                }
+
+                self.incrementFileCount()
+                self.pluginPointGroup.leave()
+            }
+            workItems.append(workItem)
+        }
+
+        return workItems
+    }
+
+    private func extractPluginPoints(from path: URL) -> Observable<()> {
+        let pluginPointSubject = PublishSubject<()>()
+
+        let workItems = generatePluginPointWorkItems(from: path)
+        for item in workItems {
+            parserQueue.async(execute: item)
+        }
+
+        pluginPointGroup.notify(queue: DispatchQueue.main) {
+            pluginPointSubject.onNext(())
+        }
+        return pluginPointSubject.asObservable()
+    }
+
+    // MARK: - Plugin Factories
     private func extractPluginFactories(from path: URL) {
         if let enumerator = FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
             print("directoryEnumerator error ast \(url): ", error)
@@ -152,25 +214,16 @@ class RibvizParser {
             return true
         }) {
             for case let fileURL as URL in enumerator {
-                guard fileURL.path.contains("PluginFactory") else { continue }
+                guard fileURL.path.contains("PluginFactory.swift") else { continue }
 
-                if let fileSubstring = fileURL.absoluteString.split(separator: "/").last {
-                    progressFileSubject.onNext(String(fileSubstring))
-                }
-
-                if fileURL.path.contains("PluginFactory") {
-                    print(fileURL)
-//                    do {
-//                        try self.componentParser.parse(fileURL: fileURL, applyTo: builders)
-//                    } catch {
-//                        print(error)
-//                    }
+                if fileURL.path.contains("PluginFactory.swift") {
                 }
                 incrementFileCount()
             }
         }
     }
 
+    // MARK: - Private
     private func determineFileCount(from path: URL) -> Int {
 
         var totalFileCount = 0
@@ -180,8 +233,8 @@ class RibvizParser {
             for case let fileURL as URL in countEnumerator {
                 if fileURL.path.contains("Builder.swift") ||
                     fileURL.path.contains("Component.swift") ||
-                    fileURL.path.contains("PluginPoint") ||
-                    fileURL.path.contains("PluginFactory") {
+                    fileURL.path.contains("PluginPoint.swift") ||
+                    fileURL.path.contains("PluginFactory.swift") {
                     totalFileCount = totalFileCount + 1
                 }
             }
@@ -191,10 +244,8 @@ class RibvizParser {
     }
 
     private func incrementFileCount() {
-        DispatchQueue.main.async {
-            self.currentFileIndex = self.currentFileIndex + 1
-            self.progressSubject.onNext(Double(self.currentFileIndex) / Double(self.totalFileCount))
-        }
+        self.currentFileIndex = self.currentFileIndex + 1
+        self.progressSubject.onNext(Double(self.currentFileIndex) / Double(self.totalFileCount))
     }
 
     private func createLevelOrderBuilders(from builders: [Builder]) -> [[Builder]]? {
@@ -247,5 +298,13 @@ class RibvizParser {
         }
 
         return builders
+    }
+
+    private func createEnumerator(from path: URL) -> FileManager.DirectoryEnumerator? {
+        return FileManager.default.enumerator(at: path, includingPropertiesForKeys: resourceKeys, options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
+            print("directoryEnumerator error ast \(url): ", error)
+
+            return true
+        })
     }
 }

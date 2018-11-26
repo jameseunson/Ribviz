@@ -185,6 +185,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
+SWIFT_CLASS("_TtC7RxSwift13RecursiveLock")
+@interface RecursiveLock : NSRecursiveLock
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)lock;
+- (void)unlock;
+@end
+
+
 
 
 
