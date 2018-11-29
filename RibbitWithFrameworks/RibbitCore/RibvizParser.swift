@@ -61,8 +61,8 @@ class RibvizParser {
                 // Extract non-core components and apply to corresponding builders
 //                self.extractPluginFactories(from: url)
 
-                let hierarchicalBuilders = self.createHierarchy(from: self.builders)
-                let levelOrderBuilders = self.createLevelOrderBuilders(from: hierarchicalBuilders)
+                let hierarchicalBuilders = self.builders.createHierarchy()
+                let levelOrderBuilders = hierarchicalBuilders.createLevelOrderBuilders()
 
                 levelOrderBuildersSubject.onNext(levelOrderBuilders)
             })
@@ -246,58 +246,6 @@ class RibvizParser {
     private func incrementFileCount() {
         self.currentFileIndex = self.currentFileIndex + 1
         self.progressSubject.onNext(Double(self.currentFileIndex) / Double(self.totalFileCount))
-    }
-
-    private func createLevelOrderBuilders(from builders: [Builder]) -> [[Builder]]? {
-
-        var nodeCountLookup = [ String: Int ]()
-        var nodeLookup = [ String: Builder ]()
-
-        for node in builders {
-            nodeCountLookup[node.name] = node.totalNodesBeneath()
-            nodeLookup[node.name] = node
-        }
-
-//        let sorted = nodeCountLookup.sorted { $0.value > $1.value }
-
-        let rootBuilder = nodeLookup["RootBuilder"]
-        return rootBuilder?.nodesAtEachDepth()
-
-//        // TODO: Reinstate
-//        if let rootName = sorted.first?.key,
-//           let builder = nodeLookup[rootName] {
-//            return builder.nodesAtEachDepth()
-//        }
-//
-//        return nil
-    }
-
-    private func createHierarchy(from builders: [Builder]) -> [Builder] {
-
-        // ON^2, oh well
-        for builder in builders {
-            for f in builder.childRIBs {
-
-                // Check the corresponding childBuilder doesn't already exist
-                let existingBuilders = builder.childBuilders.filter { (builder: Builder) -> Bool in
-                    return builder.name == f.postfixExpression.textDescription
-                }
-                if existingBuilders.count > 0 {
-                    continue
-                }
-
-                let matchingBuilders = builders.filter { (builder: Builder) -> Bool in
-                    return builder.name == f.postfixExpression.textDescription
-                }
-                if matchingBuilders.count == 1,
-                    let matchingBuilder = matchingBuilders.first {
-                    builder.childBuilders.append(matchingBuilder)
-                    matchingBuilder.parentRIB = builder
-                }
-            }
-        }
-
-        return builders
     }
 
     private func createEnumerator(from path: URL) -> FileManager.DirectoryEnumerator? {

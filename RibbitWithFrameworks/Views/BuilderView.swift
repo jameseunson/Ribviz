@@ -139,6 +139,9 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
         label.applyDefault()
         label.font = NSFont.systemFont(ofSize: 14, weight: .bold)
         label.string = builder.displayName
+        if builder.displayName == "RentalModularList" {
+            print("RentalModularList")
+        }
         label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         addSubview(label)
 
@@ -157,13 +160,13 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
 
         dependencyTableView.delegate = dependencyDelegate
         dependencyTableView.dataSource = dependencyDataSource
-        dependencyTableView.backgroundColor = NSColor.clear
+        dependencyTableView.backgroundColor = NSColor.windowBackgroundColor
         dependencyTableView.usesAutomaticRowHeights = true
         tableViewStackView.addArrangedSubview(dependencyTableView)
 
         componentTableView.delegate = componentDelegate
         componentTableView.dataSource = componentDataSource
-        componentTableView.backgroundColor = NSColor.clear
+        componentTableView.backgroundColor = NSColor.windowBackgroundColor
         componentTableView.usesAutomaticRowHeights = true
         tableViewStackView.addArrangedSubview(componentTableView)
     }

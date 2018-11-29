@@ -44,13 +44,21 @@ public class Builder: CustomDebugStringConvertible {
         if let builderName = names.builderName {
             extractBuilder(name: builderName, dict: dict)
         }
+        
         if let componentName = names.componentName {
             extractComponent(name: componentName, dict: dict, scope: .core)
         }
+        component = component.sorted { (lhs: Dependency, rhs: Dependency) -> Bool in
+            return lhs.displayText < rhs.displayText
+        }
+
         if let dependencyName = names.dependencyName {
             extractDependency(name: dependencyName, dict: dict, scope: .core)
         }
-        
+        dependency = dependency.sorted { (lhs: Dependency, rhs: Dependency) -> Bool in
+            return lhs.displayText < rhs.displayText
+        }
+
         self.nonCoreComponentName = names.nonCoreComponentName
 
         extractSubRibs()

@@ -109,9 +109,16 @@ class GraphContainerViewController: NSViewController, GraphContainerViewControll
 
     private func addGraph(dep: Dependency? = nil) {
 
-        guard let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "GraphViewController")) as? GraphViewController else {
+        guard let controller = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+            .instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "GraphViewController")) as? GraphViewController else {
             return
         }
+
+//        if let filteredDep = dep,
+//            let usedInBuilders = filteredDep.usedIn {
+//            controller.builders = usedInBuilders
+//
+//        }
 
         controller.builders = builders
         controller.filterDependency = dep

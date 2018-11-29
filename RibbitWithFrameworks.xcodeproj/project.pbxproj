@@ -38,6 +38,7 @@
 		98CD143A21AA42350027021E /* PresidioVisitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143921AA42350027021E /* PresidioVisitorTests.swift */; };
 		98CD143E21AA7C780027021E /* PluginPointParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143D21AA7C780027021E /* PluginPointParser.swift */; };
 		98CD144021AA7C810027021E /* PluginFactoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143F21AA7C810027021E /* PluginFactoryParser.swift */; };
+		98CD15BF21ACB3140027021E /* BuilderArray+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD15BE21ACB3140027021E /* BuilderArray+Hierarchy.swift */; };
 		98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F221443F9C00597F9C /* AppDelegate.swift */; };
 		98E4E1F521443F9C00597F9C /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F421443F9C00597F9C /* GraphViewController.swift */; };
 		98E4E1F721443F9D00597F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E4E1F621443F9D00597F9C /* Assets.xcassets */; };
@@ -142,6 +143,7 @@
 		98CD143921AA42350027021E /* PresidioVisitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresidioVisitorTests.swift; sourceTree = "<group>"; };
 		98CD143D21AA7C780027021E /* PluginPointParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginPointParser.swift; sourceTree = "<group>"; };
 		98CD143F21AA7C810027021E /* PluginFactoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginFactoryParser.swift; sourceTree = "<group>"; };
+		98CD15BE21ACB3140027021E /* BuilderArray+Hierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuilderArray+Hierarchy.swift"; sourceTree = "<group>"; };
 		98E4E1EF21443F9C00597F9C /* Ribviz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribviz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E4E1F221443F9C00597F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E4E1F421443F9C00597F9C /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				9889E80B214DFB4C009B5E34 /* TypeInheritanceClause+Extensions.swift */,
 				9889E82221500C73009B5E34 /* NSAlert+Compact.swift */,
 				9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */,
+				98CD15BE21ACB3140027021E /* BuilderArray+Hierarchy.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				9889E82621501C47009B5E34 /* RepoFileSystemHelper.swift in Sources */,
 				98E4E288214480BF00597F9C /* GraphView.swift in Sources */,
 				9805D9BE2144A6DB00F7C737 /* DetailViewController.swift in Sources */,
+				98CD15BF21ACB3140027021E /* BuilderArray+Hierarchy.swift in Sources */,
 				9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */,
 				98E4E28E21449A2A00597F9C /* InteractiveConstraintBasedTextView.swift in Sources */,
 				98CD142E21AA312B0027021E /* ComponentParser.swift in Sources */,

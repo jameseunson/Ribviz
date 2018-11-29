@@ -51,7 +51,7 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
         for builderLevel in graph.builders {
 
             let stackView = NSStackView()
-            stackView.distribution = .equalCentering
+            stackView.distribution = .fillProportionally
             stackView.alignment = .top
 
             stackView.spacing = 20
@@ -60,11 +60,6 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
             addSubview(stackView)
 
             for builder in builderLevel {
-
-                if let filteredDep = filteredDependency,
-                    !builder.contains(filteredDep) {
-                    continue
-                }
 
                 let builderView = BuilderView(builder: builder)
                 builderView.listener = self
@@ -189,7 +184,7 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
                     builderView.layer?.backgroundColor = NSColor.red.cgColor
 
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        builderView.layer?.backgroundColor = NSColor.clear.cgColor
+                        builderView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
                     }
                 }
             }
@@ -200,7 +195,7 @@ class GraphView: NSView, BuilderViewListener, GraphViewable {
                 builderView.layer?.backgroundColor = NSColor.blue.cgColor
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    builderView.layer?.backgroundColor = NSColor.clear.cgColor
+                    builderView.layer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
                 }
             }
         }

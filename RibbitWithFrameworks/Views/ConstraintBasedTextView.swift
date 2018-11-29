@@ -10,6 +10,7 @@ import Foundation
 import Cocoa
 
 class ConstraintBasedTextView: NSTextView {
+    let defaultColor: NSColor = NSColor.labelColor
 
     var cachedContentSize: NSSize?
 
@@ -37,13 +38,14 @@ class ConstraintBasedTextView: NSTextView {
         super.didChangeText()
         invalidateIntrinsicContentSize()
     }
-}
 
-extension ConstraintBasedTextView {
     func applyDefault() {
         isEditable = false
         isSelectable = false
-        backgroundColor = NSColor.windowBackgroundColor // This is intentional as a clear background is a massive performance hit
+
+        // This is intentional as a clear background is a massive performance hit
+        backgroundColor = NSColor.windowBackgroundColor
         textContainer?.maximumNumberOfLines = 1
+        textColor = defaultColor
     }
 }

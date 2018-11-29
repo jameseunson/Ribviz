@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GraphViewController.swift
 //  Ribbit
 //
 //  Created by James Eunson on 9/2/18.
@@ -41,7 +41,35 @@ class GraphViewController: NSViewController, GraphViewListener, GraphViewControl
 
         scrollView.documentView = documentView
 
-        graph = Graph(builders: builders)
+        if let dep = filterDependency,
+            let root = dep.builtIn,
+            let used = dep.usedIn {
+
+            var flatBuilders = [Builder]()
+            builders.forEach { (builderLevel: [Builder]) in
+                flatBuilders.append(contentsOf: builderLevel)
+            }
+            var subgraphForDep = flatBuilders.filter { (builder: Builder) -> Bool in
+                return used.contains(where: { (usedBuilder: Builder) -> Bool in
+                    return usedBuilder === builder
+                })
+            }
+            subgraphForDep.insert(root, at: 0)
+
+            let hierarchicalBuilders = subgraphForDep.createHierarchy()
+            let levelOrderBuilders = hierarchicalBuilders.createLevelOrderBuilders(filter: subgraphForDep)
+
+            if let filteredBuilders = levelOrderBuilders {
+                graph = Graph(builders: filteredBuilders)
+
+            } else {
+                graph = Graph(builders: builders)
+            }
+
+        } else {
+            graph = Graph(builders: builders)
+        }
+
         graph.filterDependency = filterDependency
 
         graphView = GraphView(graph: graph)

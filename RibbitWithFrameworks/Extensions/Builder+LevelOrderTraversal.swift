@@ -32,11 +32,11 @@ extension Builder {
         return nodes
     }
 
-    func nodesAtEachDepth() -> [[Builder]] {
-        return nodesAtDepth(node: self, depth: 0, nodes: [[Builder]](), visited: [Builder]())
+    func nodesAtEachDepth(filter: [Builder]? = nil) -> [[Builder]] {
+        return nodesAtDepth(filter: filter, node: self, depth: 0, nodes: [[Builder]](), visited: [Builder]())
     }
 
-    private func nodesAtDepth(node: Builder, depth: Int, nodes: [[Builder]], visited: [Builder]) -> [[Builder]] {
+    private func nodesAtDepth(filter: [Builder]? = nil, node: Builder, depth: Int, nodes: [[Builder]], visited: [Builder]) -> [[Builder]] {
 
         var nodes = nodes
         if depth == nodes.count {
@@ -44,7 +44,15 @@ extension Builder {
 
         } else {
             var nodeList = nodes[depth]
-            nodeList.append(node)
+            if let filter = filter,
+                filter.contains(where: { (filterBuilder: Builder) -> Bool in
+                    return node === filterBuilder
+                }) {
+                nodeList.append(node)
+            } else {
+                nodeList.append(node)
+            }
+            print("nodesAtDepth: \(node.displayName)")
             nodes[depth] = nodeList
         }
 
@@ -57,7 +65,7 @@ extension Builder {
             if !mutableVisited.contains(where: { (visitedBuilder: Builder) -> Bool in
                 return visitedBuilder === node
             }) {
-                nodes = nodesAtDepth(node: node, depth: depth + 1, nodes: nodes, visited: mutableVisited)
+                nodes = nodesAtDepth(filter: filter, node: node, depth: depth + 1, nodes: nodes, visited: mutableVisited)
             }
         }
         return nodes

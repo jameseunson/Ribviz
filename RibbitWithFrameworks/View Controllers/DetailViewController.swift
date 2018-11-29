@@ -62,7 +62,7 @@ class DetailViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
 
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = NSColor.clear
+        tableView.backgroundColor = NSColor.windowBackgroundColor
         tableView.intercellSpacing = NSSize(width: 0, height: 4)
 
         tableView.snp.makeConstraints { (maker) in

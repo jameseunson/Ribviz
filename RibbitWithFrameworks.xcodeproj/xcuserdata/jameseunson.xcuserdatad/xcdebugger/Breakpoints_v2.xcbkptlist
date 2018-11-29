@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Views/BuilderTableViewRow.swift"
-            timestampString = "558899676.572302"
+            timestampString = "565142281.150936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/RootWindowController.swift"
-            timestampString = "564963789.980938"
+            timestampString = "564965926.196501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/RootWindowController.swift"
-            timestampString = "564963789.9813139"
+            timestampString = "564965926.196927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Dependency.swift"
-            timestampString = "564963789.981456"
+            timestampString = "564965926.197086"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Dependency.swift"
-            timestampString = "564963789.981716"
+            timestampString = "564965926.19735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/DetailViewController.swift"
-            timestampString = "564963789.981775"
+            timestampString = "565142281.1516449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
@@ -248,24 +248,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RibbitWithFrameworks/View Controllers/GraphViewController.swift"
-            timestampString = "564963789.982046"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.097459"
+            timestampString = "565138611.6187741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -281,11 +265,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphViewController.swift"
-            timestampString = "564963789.982319"
+            timestampString = "565142281.1522239"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "filterVisibleGraphBy(query:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -591,11 +575,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphViewController.swift"
-            timestampString = "564963789.982829"
+            timestampString = "565142281.15267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "viewDidLayout()"
             landmarkType = "7">
          </BreakpointContent>
@@ -607,7 +591,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.097716"
+            timestampString = "565138611.620131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -623,7 +607,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.097769"
+            timestampString = "565138611.620435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -639,7 +623,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.097814"
+            timestampString = "565138611.620712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -655,7 +639,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.097856"
+            timestampString = "565138611.620977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -671,7 +655,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.0978971"
+            timestampString = "565138611.6213681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
@@ -687,7 +671,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.0979379"
+            timestampString = "565138611.621646"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -703,7 +687,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Models/Graph.swift"
-            timestampString = "564190279.097976"
+            timestampString = "565138611.621978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -719,11 +703,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Views/ConstraintBasedTextView.swift"
-            timestampString = "564963789.983115"
+            timestampString = "565142281.152873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "intrinsicContentSize"
             landmarkType = "24">
          </BreakpointContent>
@@ -735,11 +719,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphViewController.swift"
-            timestampString = "564963789.983777"
+            timestampString = "565142281.153097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "viewDidLayout()"
             landmarkType = "7">
          </BreakpointContent>
@@ -761,11 +745,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Views/GraphView.swift"
-            timestampString = "564793463.098614"
+            timestampString = "565142281.153286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "layout()"
             landmarkType = "7">
          </BreakpointContent>
@@ -777,11 +761,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.9838721"
+            timestampString = "565142281.153515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "contains(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -793,7 +777,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Views/BuilderView.swift"
-            timestampString = "564949748.87616"
+            timestampString = "565142281.153697"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -809,7 +793,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Table/BuilderBuiltDependenciesDataSource.swift"
-            timestampString = "564963789.9842269"
+            timestampString = "564965926.200423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -858,29 +842,12 @@
             condition = "name == &quot;ModeBuilder&quot;"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.9844871"
+            timestampString = "565142281.1542439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "extractSubRibs()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            condition = "name == &quot;ModeBuilder&quot;"
-            continueAfterRunningActions = "No"
-            filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.98465"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "init(dict:names:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -988,28 +955,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/Extensions/Builder+LevelOrderTraversal.swift"
-            timestampString = "564963789.984947"
+            timestampString = "565142281.154424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "nodesAtDepth(node:depth:nodes:visited:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RibbitWithFrameworks/Extensions/Builder+LevelOrderTraversal.swift"
-            timestampString = "564963789.985163"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "nodesAtDepth(node:depth:nodes:visited:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "nodesAtDepth(filter:node:depth:nodes:visited:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1020,7 +971,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/RootWindowController.swift"
-            timestampString = "564963789.9852099"
+            timestampString = "564965926.201757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -1068,7 +1019,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/RootWindowController.swift"
-            timestampString = "564963789.985261"
+            timestampString = "564965926.201822"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "61"
@@ -1100,11 +1051,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
-            timestampString = "564963789.985342"
+            timestampString = "565142281.154707"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "addGraph(dep:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1148,7 +1099,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/RootWindowController.swift"
-            timestampString = "564963789.985798"
+            timestampString = "564965926.203021"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -1164,28 +1115,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
-            timestampString = "564963789.9858789"
+            timestampString = "565142281.154997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
-            landmarkName = "GraphContainerViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
-            timestampString = "564963789.98595"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
-            landmarkName = "didAttemptClose()"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
+            landmarkName = "showFilteredGraph(dep:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1196,11 +1131,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
-            timestampString = "564963789.986014"
+            timestampString = "565142281.155073"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "updateDisplayMode(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
+            timestampString = "565142281.15512"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "GraphContainerViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1212,12 +1163,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
-            timestampString = "564963789.986076"
+            timestampString = "565142281.155178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
-            landmarkName = "NSView"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "GraphContainerViewController"
             landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1228,13 +1179,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
-            timestampString = "564963789.9861619"
+            timestampString = "565142281.155261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "isDarkMode"
-            landmarkType = "24">
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "didSelectItem(dep:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1244,13 +1195,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
-            timestampString = "564963789.9862159"
+            timestampString = "565142281.155334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "GraphContainerViewController"
-            landmarkType = "3">
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "didAttemptClose()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1260,7 +1211,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/RootSplitViewController.swift"
-            timestampString = "564963789.986272"
+            timestampString = "564965926.206731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -1276,7 +1227,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/View Controllers/DetailViewController.swift"
-            timestampString = "564963789.986537"
+            timestampString = "565142281.155449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -1292,7 +1243,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.9866"
+            timestampString = "564965926.207247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -1356,7 +1307,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.987818"
+            timestampString = "564965926.208539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -1372,7 +1323,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.988518"
+            timestampString = "564965926.209344"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -1388,7 +1339,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift"
-            timestampString = "564963789.989247"
+            timestampString = "564965926.210181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -1404,7 +1355,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.989647"
+            timestampString = "564965926.210641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -1420,7 +1371,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.990285"
+            timestampString = "564965926.211419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -1436,7 +1387,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift"
-            timestampString = "564963789.990832"
+            timestampString = "564965926.212122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -1452,7 +1403,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.990958"
+            timestampString = "564965926.212268"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -1468,11 +1419,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.9914809"
+            timestampString = "565142281.15622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "addNonCoreComponent(names:dict:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1484,11 +1435,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.99165"
+            timestampString = "565142281.156276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "extractDependency(name:dict:scope:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1500,11 +1451,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.991799"
+            timestampString = "565142281.156316"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "extractDependency(name:dict:scope:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1516,11 +1467,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.991973"
+            timestampString = "565142281.156351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "extractDependency(name:dict:scope:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1532,7 +1483,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.992107"
+            timestampString = "564965926.213526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -1548,7 +1499,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift"
-            timestampString = "564963789.99263"
+            timestampString = "564965926.2141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -1564,7 +1515,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift"
-            timestampString = "564963789.992734"
+            timestampString = "564965926.214215"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -1580,7 +1531,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift"
-            timestampString = "564963789.992833"
+            timestampString = "564965926.214326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -1596,7 +1547,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/BuilderParser.swift"
-            timestampString = "564963789.9929301"
+            timestampString = "564965926.214437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -1612,7 +1563,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/BuilderParser.swift"
-            timestampString = "564963789.993277"
+            timestampString = "564965926.214799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -1628,7 +1579,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/BuilderParser.swift"
-            timestampString = "564963789.993386"
+            timestampString = "564965926.214924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -1644,7 +1595,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/BuilderParser.swift"
-            timestampString = "564963789.993487"
+            timestampString = "564965926.215037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -1660,7 +1611,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/RibvizParser.swift"
-            timestampString = "564963789.993588"
+            timestampString = "565136691.8236099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -1676,7 +1627,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/RibvizParser.swift"
-            timestampString = "564963789.994292"
+            timestampString = "565136691.824131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -1692,7 +1643,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../RibbitFrameworks/RibbitCore/ComponentParser.swift"
-            timestampString = "564963789.994698"
+            timestampString = "564965926.215579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -1708,7 +1659,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift"
-            timestampString = "564963789.995084"
+            timestampString = "564965926.21605"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -1724,7 +1675,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/PresidioVisitor.swift"
-            timestampString = "564963789.9951741"
+            timestampString = "564965926.216151"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -1740,7 +1691,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/RibvizParser.swift"
-            timestampString = "564963789.995261"
+            timestampString = "565136691.824514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -1756,7 +1707,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/RibvizParser.swift"
-            timestampString = "564963789.995633"
+            timestampString = "565136691.824782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -1804,7 +1755,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/RibvizParser.swift"
-            timestampString = "564963789.995997"
+            timestampString = "565136691.8250411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
@@ -1820,11 +1771,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.996364"
+            timestampString = "565142281.156745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "extractDependency(name:dict:scope:)"
             landmarkType = "7">
             <Locations>
@@ -1868,12 +1819,268 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RibbitWithFrameworks/RibbitCore/Builder.swift"
-            timestampString = "564963789.996455"
+            timestampString = "565142281.156788"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "addNonCoreComponent(names:dict:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/View Controllers/RootSplitViewController.swift"
+            timestampString = "564965926.216748"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "didSelectDependencyGraphButton(dep:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/View Controllers/GraphContainerViewController.swift"
+            timestampString = "565142281.1568511"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "addGraph(dep:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/View Controllers/GraphViewController.swift"
+            timestampString = "565142281.1568969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/View Controllers/GraphViewController.swift"
+            timestampString = "565142281.156944"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Views/BuilderView.swift"
+            timestampString = "565142281.156992"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "setupLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Extensions/BuilderArray+Hierarchy.swift"
+            timestampString = "565142281.157375"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "createLevelOrderBuilders(filter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Extensions/BuilderArray+Hierarchy.swift"
+            timestampString = "565142281.157624"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "createLevelOrderBuilders(filter:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in Ribviz):Swift.Array&lt;A where A: Ribviz.Builder&gt;.createLevelOrderBuilders() -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.Array&lt;Ribviz.Builder&gt;&gt;&gt;"
+                  moduleName = "Ribviz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jameseunson/Desktop/Ribbit/RibbitWithFrameworks/Extensions/BuilderArray+Hierarchy.swift"
+                  timestampString = "565135393.125355"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "995">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((key: Swift.String, value: Swift.Int), (key: Swift.String, value: Swift.Int)) -&gt; Swift.Bool in (extension in Ribviz):Swift.Array&lt;A where A: Ribviz.Builder&gt;.createLevelOrderBuilders() -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.Array&lt;Ribviz.Builder&gt;&gt;&gt;"
+                  moduleName = "Ribviz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jameseunson/Desktop/Ribbit/RibbitWithFrameworks/Extensions/BuilderArray+Hierarchy.swift"
+                  timestampString = "565135393.128104"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Extensions/BuilderArray+Hierarchy.swift"
+            timestampString = "565142281.157672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "createLevelOrderBuilders(filter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Extensions/Builder+LevelOrderTraversal.swift"
+            timestampString = "565142281.1577179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "nodesAtDepth(filter:node:depth:nodes:visited:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Models/Graph.swift"
+            timestampString = "565138611.627097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "init(builders:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Extensions/Builder+LevelOrderTraversal.swift"
+            timestampString = "565142281.157799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "nodesAtEachDepth(filter:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Views/BuilderTableViewRow.swift"
+            timestampString = "565142281.1578439"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "init(dep:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Views/BuilderTableViewRow.swift"
+            timestampString = "565142281.1580811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "highlightQuery"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RibbitWithFrameworks/Views/BuilderTableViewRow.swift"
+            timestampString = "565142281.158287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "init(dep:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
