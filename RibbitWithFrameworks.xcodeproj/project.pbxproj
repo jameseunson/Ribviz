@@ -11,6 +11,10 @@
 		9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */; };
 		9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C12144A9B400F7C737 /* RootWindowController.swift */; };
 		9805D9C52144AB1700F7C737 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C42144AB1700F7C737 /* Dependency.swift */; };
+		9841C48021B9DC20002A79CA /* PluginFactoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47C21B9DC20002A79CA /* PluginFactoryParser.swift */; };
+		9841C48121B9DC20002A79CA /* PluginPointParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47D21B9DC20002A79CA /* PluginPointParser.swift */; };
+		9841C48221B9DC20002A79CA /* ComponentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47E21B9DC20002A79CA /* ComponentParser.swift */; };
+		9841C48321B9DC20002A79CA /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47F21B9DC20002A79CA /* BaseParser.swift */; };
 		9842112B21A0C41600AC1A4D /* NSColor+Inverted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */; };
 		986FA377214DAA8F00E7554A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FA376214DAA8F00E7554A /* Graph.swift */; };
 		986FA37E214DB69300E7554A /* KPCTabsControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986FA37D214DB69300E7554A /* KPCTabsControl.framework */; };
@@ -31,13 +35,9 @@
 		98CD142821AA119A0027021E /* GraphContainerTabsControlDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142721AA119A0027021E /* GraphContainerTabsControlDataSource.swift */; };
 		98CD142A21AA1DD70027021E /* RootWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142921AA1DD70027021E /* RootWindowDelegate.swift */; };
 		98CD142C21AA276B0027021E /* RibVizTabTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142B21AA276B0027021E /* RibVizTabTheme.swift */; };
-		98CD142E21AA312B0027021E /* ComponentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD142D21AA312B0027021E /* ComponentParser.swift */; };
-		98CD143221AA31A70027021E /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143121AA31A70027021E /* BaseParser.swift */; };
 		98CD143621AA33720027021E /* ComponentParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143521AA33720027021E /* ComponentParserTests.swift */; };
 		98CD143821AA337C0027021E /* BuilderParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143721AA337C0027021E /* BuilderParserTests.swift */; };
 		98CD143A21AA42350027021E /* PresidioVisitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143921AA42350027021E /* PresidioVisitorTests.swift */; };
-		98CD143E21AA7C780027021E /* PluginPointParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143D21AA7C780027021E /* PluginPointParser.swift */; };
-		98CD144021AA7C810027021E /* PluginFactoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD143F21AA7C810027021E /* PluginFactoryParser.swift */; };
 		98CD15BF21ACB3140027021E /* BuilderArray+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CD15BE21ACB3140027021E /* BuilderArray+Hierarchy.swift */; };
 		98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F221443F9C00597F9C /* AppDelegate.swift */; };
 		98E4E1F521443F9C00597F9C /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E4E1F421443F9C00597F9C /* GraphViewController.swift */; };
@@ -117,6 +117,10 @@
 		9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
 		9805D9C12144A9B400F7C737 /* RootWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowController.swift; sourceTree = "<group>"; };
 		9805D9C42144AB1700F7C737 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		9841C47C21B9DC20002A79CA /* PluginFactoryParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginFactoryParser.swift; sourceTree = "<group>"; };
+		9841C47D21B9DC20002A79CA /* PluginPointParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginPointParser.swift; sourceTree = "<group>"; };
+		9841C47E21B9DC20002A79CA /* ComponentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentParser.swift; sourceTree = "<group>"; };
+		9841C47F21B9DC20002A79CA /* BaseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
 		9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Inverted.swift"; sourceTree = "<group>"; };
 		986FA376214DAA8F00E7554A /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		986FA37D214DB69300E7554A /* KPCTabsControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KPCTabsControl.framework; path = Carthage/Build/Mac/KPCTabsControl.framework; sourceTree = "<group>"; };
@@ -136,13 +140,9 @@
 		98CD142721AA119A0027021E /* GraphContainerTabsControlDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphContainerTabsControlDataSource.swift; sourceTree = "<group>"; };
 		98CD142921AA1DD70027021E /* RootWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowDelegate.swift; sourceTree = "<group>"; };
 		98CD142B21AA276B0027021E /* RibVizTabTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RibVizTabTheme.swift; sourceTree = "<group>"; };
-		98CD142D21AA312B0027021E /* ComponentParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentParser.swift; sourceTree = "<group>"; };
-		98CD143121AA31A70027021E /* BaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
 		98CD143521AA33720027021E /* ComponentParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentParserTests.swift; sourceTree = "<group>"; };
 		98CD143721AA337C0027021E /* BuilderParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderParserTests.swift; sourceTree = "<group>"; };
 		98CD143921AA42350027021E /* PresidioVisitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresidioVisitorTests.swift; sourceTree = "<group>"; };
-		98CD143D21AA7C780027021E /* PluginPointParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginPointParser.swift; sourceTree = "<group>"; };
-		98CD143F21AA7C810027021E /* PluginFactoryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluginFactoryParser.swift; sourceTree = "<group>"; };
 		98CD15BE21ACB3140027021E /* BuilderArray+Hierarchy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BuilderArray+Hierarchy.swift"; sourceTree = "<group>"; };
 		98E4E1EF21443F9C00597F9C /* Ribviz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ribviz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E4E1F221443F9C00597F9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -366,10 +366,10 @@
 				9889E819214DFE5B009B5E34 /* BuilderParser.swift */,
 				9889E818214DFE5B009B5E34 /* PresidioVisitor.swift */,
 				9889E81A214DFE5C009B5E34 /* RibvizParser.swift */,
-				98CD142D21AA312B0027021E /* ComponentParser.swift */,
-				98CD143121AA31A70027021E /* BaseParser.swift */,
-				98CD143D21AA7C780027021E /* PluginPointParser.swift */,
-				98CD143F21AA7C810027021E /* PluginFactoryParser.swift */,
+				9841C47F21B9DC20002A79CA /* BaseParser.swift */,
+				9841C47E21B9DC20002A79CA /* ComponentParser.swift */,
+				9841C47C21B9DC20002A79CA /* PluginFactoryParser.swift */,
+				9841C47D21B9DC20002A79CA /* PluginPointParser.swift */,
 			);
 			name = RibbitCore;
 			path = ../../RibbitFrameworks/RibbitCore;
@@ -557,7 +557,7 @@
 				98CD142621AA118E0027021E /* GraphContainerTabsControlDelegate.swift in Sources */,
 				98E4E2802144806300597F9C /* BuilderTableViewDelegate.swift in Sources */,
 				98A177AB214DBAE5006521F0 /* GraphContainerViewController.swift in Sources */,
-				98CD143221AA31A70027021E /* BaseParser.swift in Sources */,
+				9841C48121B9DC20002A79CA /* PluginPointParser.swift in Sources */,
 				98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */,
 				9889E82621501C47009B5E34 /* RepoFileSystemHelper.swift in Sources */,
 				98E4E288214480BF00597F9C /* GraphView.swift in Sources */,
@@ -565,21 +565,21 @@
 				98CD15BF21ACB3140027021E /* BuilderArray+Hierarchy.swift in Sources */,
 				9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */,
 				98E4E28E21449A2A00597F9C /* InteractiveConstraintBasedTextView.swift in Sources */,
-				98CD142E21AA312B0027021E /* ComponentParser.swift in Sources */,
+				9841C48321B9DC20002A79CA /* BaseParser.swift in Sources */,
+				9841C48221B9DC20002A79CA /* ComponentParser.swift in Sources */,
 				9805D9C52144AB1700F7C737 /* Dependency.swift in Sources */,
 				9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */,
 				9889E80E214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift in Sources */,
 				98CD142C21AA276B0027021E /* RibVizTabTheme.swift in Sources */,
-				98CD143E21AA7C780027021E /* PluginPointParser.swift in Sources */,
 				98E4E27E2144805200597F9C /* BuilderTableViewRow.swift in Sources */,
 				9842112B21A0C41600AC1A4D /* NSColor+Inverted.swift in Sources */,
 				9889E81E214DFE5C009B5E34 /* RibvizParser.swift in Sources */,
-				98CD144021AA7C810027021E /* PluginFactoryParser.swift in Sources */,
 				98E4E2822144807200597F9C /* BuilderBuiltDependenciesDataSource.swift in Sources */,
 				98E4E2842144808F00597F9C /* ConstraintBasedTableView.swift in Sources */,
 				9889E81C214DFE5C009B5E34 /* PresidioVisitor.swift in Sources */,
 				986FA377214DAA8F00E7554A /* Graph.swift in Sources */,
 				98E4E27C2144803800597F9C /* ConstraintBasedTextView.swift in Sources */,
+				9841C48021B9DC20002A79CA /* PluginFactoryParser.swift in Sources */,
 				98E4E286214480A800597F9C /* BuilderView.swift in Sources */,
 				9889E821214FFCC0009B5E34 /* SelectRepoViewController.swift in Sources */,
 				9889E81B214DFE5C009B5E34 /* Builder.swift in Sources */,

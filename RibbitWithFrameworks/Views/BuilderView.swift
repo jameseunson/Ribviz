@@ -139,9 +139,6 @@ class BuilderView : NSView, BuilderTableViewDelegateListener {
         label.applyDefault()
         label.font = NSFont.systemFont(ofSize: 14, weight: .bold)
         label.string = builder.displayName
-        if builder.displayName == "RentalModularList" {
-            print("RentalModularList")
-        }
         label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         addSubview(label)
 

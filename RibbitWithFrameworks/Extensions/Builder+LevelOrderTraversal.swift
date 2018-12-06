@@ -52,7 +52,6 @@ extension Builder {
             } else {
                 nodeList.append(node)
             }
-            print("nodesAtDepth: \(node.displayName)")
             nodes[depth] = nodeList
         }
 

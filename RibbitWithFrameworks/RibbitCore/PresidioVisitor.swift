@@ -15,10 +15,14 @@ class PresidioVisitor : ASTVisitor {
     var targetExpressionLookup = [ String: [ Any ] ]()
 
     var dependencyNames = [ String ]()
+
     var builderNames = [ String: String ]()
     var pluginizedBuilderNames = [ String: String ]()
+
     var componentNames = [ String: String ]()
     var nonCoreComponentNames = [ String: String ]()
+
+    var pluginPointExpressions = [ String: [ConstantDeclaration] ]()
 
     let filename: String
 
@@ -33,7 +37,9 @@ class PresidioVisitor : ASTVisitor {
 
         // Skip 'shared' function call expresions and only extract their contents
         // eg. shared { Something() }, only get Something(), not shared { Something() }
-        if fce.postfixExpression.description.contains("shared") {
+        // Also misc junk filtering
+        if fce.postfixExpression.description.contains("shared")
+            || fce.postfixExpression.description.contains("super.init") {
             return true
         }
 
@@ -41,7 +47,7 @@ class PresidioVisitor : ASTVisitor {
 
         guard let parentClass = traverseToEnclosingClass(expr: fce),
             let parentClassTypeName = parentClass.typeInheritanceClause?.primaryInheritanceClassName() else {
-            return true
+                return true
         }
 
         let name = parentClass.name.textDescription
@@ -91,6 +97,32 @@ class PresidioVisitor : ASTVisitor {
                         print("PresidioVisitor: Unknown builder type: \(parentClassTypeName)")
                     }
 
+                } else if parentClassTypeName.contains("PluginPoint") {
+
+                    if !pluginPointExpressions.keys.contains(name) {
+                        pluginPointExpressions[name] = [ConstantDeclaration]()
+                    }
+
+                    for member in parentClass.members {
+                        if case let ClassDeclaration.Member.declaration(declaration) = member {
+
+                            // Extract dependencies for plugin point
+                            if let const = declaration as? ConstantDeclaration {
+                                pluginPointExpressions[name]?.append(const)
+
+                            } else if let variable = declaration as? VariableDeclaration {
+
+                                // Extract plugin factory type, so we can recognize it elsewhere
+                                // if the plugin point does not define its own factories
+                                if variable.textDescription.contains("pluginFactories"),
+                                    case let VariableDeclaration.Body.codeBlock(_, typeAnnotation, _) = variable.body {
+
+                                    let type = typeAnnotation.type
+                                    print(typeAnnotation)
+                                }
+                            }
+                        }
+                    }
                 }
 
             } else if parentClassTypeName.contains("Buildable") || parentClassTypeName.contains("Building") { // Custom builder with no generics, eg <ModeComponent, ModeListener, ModeRouter>
