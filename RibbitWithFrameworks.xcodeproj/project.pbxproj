@@ -11,10 +11,10 @@
 		9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */; };
 		9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C12144A9B400F7C737 /* RootWindowController.swift */; };
 		9805D9C52144AB1700F7C737 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9805D9C42144AB1700F7C737 /* Dependency.swift */; };
-		9841C48021B9DC20002A79CA /* PluginFactoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47C21B9DC20002A79CA /* PluginFactoryParser.swift */; };
-		9841C48121B9DC20002A79CA /* PluginPointParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47D21B9DC20002A79CA /* PluginPointParser.swift */; };
-		9841C48221B9DC20002A79CA /* ComponentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47E21B9DC20002A79CA /* ComponentParser.swift */; };
-		9841C48321B9DC20002A79CA /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C47F21B9DC20002A79CA /* BaseParser.swift */; };
+		9841C48821B9DEA5002A79CA /* ComponentParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C48421B9DEA5002A79CA /* ComponentParser.swift */; };
+		9841C48921B9DEA5002A79CA /* PluginFactoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C48521B9DEA5002A79CA /* PluginFactoryParser.swift */; };
+		9841C48A21B9DEA5002A79CA /* PluginPointParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C48621B9DEA5002A79CA /* PluginPointParser.swift */; };
+		9841C48B21B9DEA5002A79CA /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9841C48721B9DEA5002A79CA /* BaseParser.swift */; };
 		9842112B21A0C41600AC1A4D /* NSColor+Inverted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */; };
 		986FA377214DAA8F00E7554A /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986FA376214DAA8F00E7554A /* Graph.swift */; };
 		986FA37E214DB69300E7554A /* KPCTabsControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986FA37D214DB69300E7554A /* KPCTabsControl.framework */; };
@@ -117,10 +117,10 @@
 		9805D9BF2144A94800F7C737 /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
 		9805D9C12144A9B400F7C737 /* RootWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWindowController.swift; sourceTree = "<group>"; };
 		9805D9C42144AB1700F7C737 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
-		9841C47C21B9DC20002A79CA /* PluginFactoryParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginFactoryParser.swift; sourceTree = "<group>"; };
-		9841C47D21B9DC20002A79CA /* PluginPointParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginPointParser.swift; sourceTree = "<group>"; };
-		9841C47E21B9DC20002A79CA /* ComponentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentParser.swift; sourceTree = "<group>"; };
-		9841C47F21B9DC20002A79CA /* BaseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
+		9841C48421B9DEA5002A79CA /* ComponentParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentParser.swift; path = RibbitWithFrameworks/RibbitCore/ComponentParser.swift; sourceTree = SOURCE_ROOT; };
+		9841C48521B9DEA5002A79CA /* PluginFactoryParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PluginFactoryParser.swift; path = RibbitWithFrameworks/RibbitCore/PluginFactoryParser.swift; sourceTree = SOURCE_ROOT; };
+		9841C48621B9DEA5002A79CA /* PluginPointParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PluginPointParser.swift; path = RibbitWithFrameworks/RibbitCore/PluginPointParser.swift; sourceTree = SOURCE_ROOT; };
+		9841C48721B9DEA5002A79CA /* BaseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseParser.swift; path = RibbitWithFrameworks/RibbitCore/BaseParser.swift; sourceTree = SOURCE_ROOT; };
 		9842112A21A0C41600AC1A4D /* NSColor+Inverted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Inverted.swift"; sourceTree = "<group>"; };
 		986FA376214DAA8F00E7554A /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		986FA37D214DB69300E7554A /* KPCTabsControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KPCTabsControl.framework; path = Carthage/Build/Mac/KPCTabsControl.framework; sourceTree = "<group>"; };
@@ -362,14 +362,14 @@
 		98E4E2692144412100597F9C /* RibbitCore */ = {
 			isa = PBXGroup;
 			children = (
+				9841C48721B9DEA5002A79CA /* BaseParser.swift */,
+				9841C48421B9DEA5002A79CA /* ComponentParser.swift */,
+				9841C48521B9DEA5002A79CA /* PluginFactoryParser.swift */,
+				9841C48621B9DEA5002A79CA /* PluginPointParser.swift */,
 				9889E817214DFE5B009B5E34 /* Builder.swift */,
 				9889E819214DFE5B009B5E34 /* BuilderParser.swift */,
 				9889E818214DFE5B009B5E34 /* PresidioVisitor.swift */,
 				9889E81A214DFE5C009B5E34 /* RibvizParser.swift */,
-				9841C47F21B9DC20002A79CA /* BaseParser.swift */,
-				9841C47E21B9DC20002A79CA /* ComponentParser.swift */,
-				9841C47C21B9DC20002A79CA /* PluginFactoryParser.swift */,
-				9841C47D21B9DC20002A79CA /* PluginPointParser.swift */,
 			);
 			name = RibbitCore;
 			path = ../../RibbitFrameworks/RibbitCore;
@@ -557,7 +557,6 @@
 				98CD142621AA118E0027021E /* GraphContainerTabsControlDelegate.swift in Sources */,
 				98E4E2802144806300597F9C /* BuilderTableViewDelegate.swift in Sources */,
 				98A177AB214DBAE5006521F0 /* GraphContainerViewController.swift in Sources */,
-				9841C48121B9DC20002A79CA /* PluginPointParser.swift in Sources */,
 				98E4E1F321443F9C00597F9C /* AppDelegate.swift in Sources */,
 				9889E82621501C47009B5E34 /* RepoFileSystemHelper.swift in Sources */,
 				98E4E288214480BF00597F9C /* GraphView.swift in Sources */,
@@ -565,11 +564,12 @@
 				98CD15BF21ACB3140027021E /* BuilderArray+Hierarchy.swift in Sources */,
 				9805D9C02144A94800F7C737 /* RootSplitViewController.swift in Sources */,
 				98E4E28E21449A2A00597F9C /* InteractiveConstraintBasedTextView.swift in Sources */,
-				9841C48321B9DC20002A79CA /* BaseParser.swift in Sources */,
-				9841C48221B9DC20002A79CA /* ComponentParser.swift in Sources */,
 				9805D9C52144AB1700F7C737 /* Dependency.swift in Sources */,
 				9805D9C22144A9B400F7C737 /* RootWindowController.swift in Sources */,
+				9841C48B21B9DEA5002A79CA /* BaseParser.swift in Sources */,
 				9889E80E214DFB4C009B5E34 /* Builder+LevelOrderTraversal.swift in Sources */,
+				9841C48921B9DEA5002A79CA /* PluginFactoryParser.swift in Sources */,
+				9841C48A21B9DEA5002A79CA /* PluginPointParser.swift in Sources */,
 				98CD142C21AA276B0027021E /* RibVizTabTheme.swift in Sources */,
 				98E4E27E2144805200597F9C /* BuilderTableViewRow.swift in Sources */,
 				9842112B21A0C41600AC1A4D /* NSColor+Inverted.swift in Sources */,
@@ -579,10 +579,10 @@
 				9889E81C214DFE5C009B5E34 /* PresidioVisitor.swift in Sources */,
 				986FA377214DAA8F00E7554A /* Graph.swift in Sources */,
 				98E4E27C2144803800597F9C /* ConstraintBasedTextView.swift in Sources */,
-				9841C48021B9DC20002A79CA /* PluginFactoryParser.swift in Sources */,
 				98E4E286214480A800597F9C /* BuilderView.swift in Sources */,
 				9889E821214FFCC0009B5E34 /* SelectRepoViewController.swift in Sources */,
 				9889E81B214DFE5C009B5E34 /* Builder.swift in Sources */,
+				9841C48821B9DEA5002A79CA /* ComponentParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
